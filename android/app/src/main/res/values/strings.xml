@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Animal Rescue Adventure</string>
+    <string name="title_activity_main">Animal Rescue Adventure</string>
+    <string name="package_name">com.littlepathfinder.animalrescue</string>
+    <string name="custom_url_scheme">com.littlepathfinder.animalrescue</string>
+</resources>

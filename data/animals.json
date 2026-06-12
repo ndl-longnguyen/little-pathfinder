@@ -1,0 +1,37 @@
+[
+  {
+    "id": "rabbit",
+    "nameVi": "Thỏ",
+    "nameEn": "Rabbit",
+    "assetKey": "rabbit",
+    "favoriteAssetKey": "carrot"
+  },
+  {
+    "id": "duck",
+    "nameVi": "Vịt",
+    "nameEn": "Duck",
+    "assetKey": "duck",
+    "favoriteAssetKey": "fish"
+  },
+  {
+    "id": "bear",
+    "nameVi": "Gấu",
+    "nameEn": "Bear",
+    "assetKey": "bear",
+    "favoriteAssetKey": "honey"
+  },
+  {
+    "id": "monkey",
+    "nameVi": "Khỉ",
+    "nameEn": "Monkey",
+    "assetKey": "monkey",
+    "favoriteAssetKey": "banana"
+  },
+  {
+    "id": "panda",
+    "nameVi": "Gấu trúc",
+    "nameEn": "Panda",
+    "assetKey": "panda",
+    "favoriteAssetKey": "bamboo"
+  }
+]

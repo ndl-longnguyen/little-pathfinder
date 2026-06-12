@@ -1,0 +1,22 @@
+[
+  { "id": "sticker_rabbit_01", "name": "Happy Rabbit", "category": "animals", "assetKey": "sticker_rabbit_01" },
+  { "id": "sticker_carrot_01", "name": "Crunchy Carrot", "category": "food", "assetKey": "sticker_carrot_01" },
+  { "id": "sticker_duck_01", "name": "Brave Duck", "category": "animals", "assetKey": "sticker_duck_01" },
+  { "id": "sticker_banana_01", "name": "Sweet Banana", "category": "food", "assetKey": "sticker_banana_01" },
+  { "id": "sticker_bridge_01", "name": "Strong Bridge", "category": "bridges", "assetKey": "sticker_bridge_01" },
+  { "id": "sticker_blue_home_01", "name": "Blue Home", "category": "houses", "assetKey": "sticker_blue_home_01" },
+  { "id": "sticker_bamboo_01", "name": "Fresh Bamboo", "category": "food", "assetKey": "sticker_bamboo_01" },
+  { "id": "sticker_flower_path_01", "name": "Flower Path", "category": "flowers", "assetKey": "sticker_flower_path_01" },
+  { "id": "sticker_tree_path_01", "name": "Tree Path", "category": "trees", "assetKey": "sticker_tree_path_01" },
+  { "id": "sticker_honey_01", "name": "Honey Pot", "category": "food", "assetKey": "sticker_honey_01" },
+  { "id": "sticker_green_home_01", "name": "Green Home", "category": "houses", "assetKey": "sticker_green_home_01" },
+  { "id": "sticker_fish_01", "name": "Little Fish", "category": "food", "assetKey": "sticker_fish_01" },
+  { "id": "sticker_wood_bridge_01", "name": "Wood Bridge", "category": "bridges", "assetKey": "sticker_wood_bridge_01" },
+  { "id": "sticker_yellow_home_01", "name": "Yellow Home", "category": "houses", "assetKey": "sticker_yellow_home_01" },
+  { "id": "sticker_cave_path_01", "name": "Cozy Cave", "category": "trees", "assetKey": "sticker_cave_path_01" },
+  { "id": "sticker_panda_bridge_01", "name": "Panda Bridge", "category": "bridges", "assetKey": "sticker_panda_bridge_01" },
+  { "id": "sticker_pond_path_01", "name": "Pond Path", "category": "flowers", "assetKey": "sticker_pond_path_01" },
+  { "id": "sticker_rope_bridge_01", "name": "Rope Bridge", "category": "bridges", "assetKey": "sticker_rope_bridge_01" },
+  { "id": "sticker_bamboo_path_01", "name": "Bamboo Path", "category": "trees", "assetKey": "sticker_bamboo_path_01" },
+  { "id": "sticker_brown_home_01", "name": "Forest Home", "category": "houses", "assetKey": "sticker_brown_home_01" }
+]
