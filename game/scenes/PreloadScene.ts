@@ -35,6 +35,8 @@ const objectKeys = [
   'path_cave',
   'path_pond',
   'path_bamboo',
+  'star_gold',
+  'heart_pink',
 ];
 
 export class PreloadScene extends Phaser.Scene {
@@ -265,7 +267,30 @@ export class PreloadScene extends Phaser.Scene {
       graphics.lineBetween(74, 132, 74, 204);
       graphics.lineBetween(132, 132, 132, 204);
       graphics.lineBetween(190, 132, 190, 204);
-      graphics.lineBetween(248, 132, 248, 204);
+    } else if (key === 'star_gold') {
+      graphics.fillStyle(0xffd36a, 1);
+      graphics.lineStyle(6, 0xc9812f, 1);
+      const points: Phaser.Math.Vector2[] = [];
+      const cx = 160;
+      const cy = 140;
+      const outer = 80;
+      const inner = 38;
+      for (let i = 0; i < 10; i += 1) {
+        const r = i % 2 === 0 ? outer : inner;
+        const angle = (i * Math.PI) / 5 - Math.PI / 2;
+        points.push(new Phaser.Math.Vector2(cx + r * Math.cos(angle), cy + r * Math.sin(angle)));
+      }
+      graphics.fillPoints(points, true);
+      graphics.strokePoints(points, true);
+    } else if (key === 'heart_pink') {
+      graphics.fillStyle(0xf472b6, 1);
+      graphics.lineStyle(6, 0xdb2777, 1);
+      graphics.fillCircle(125, 115, 45);
+      graphics.fillCircle(195, 115, 45);
+      graphics.fillTriangle(84, 130, 236, 130, 160, 220);
+      graphics.strokeCircle(125, 115, 45);
+      graphics.strokeCircle(195, 115, 45);
+      graphics.strokeTriangle(84, 130, 236, 130, 160, 220);
     } else {
       const fillByKey: Record<string, number> = {
         path_bamboo: 0x70bd5f,

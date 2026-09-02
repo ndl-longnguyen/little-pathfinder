@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
+import { ParentGateModal } from '@/components/ParentGateModal';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { AgeMode, Language, Progress, Settings } from '@/game/types';
 
@@ -12,15 +13,26 @@ const languages: Array<{ label: string; value: Language }> = [
 ];
 
 const ageModes: Array<{ label: string; value: AgeMode }> = [
-  { label: '1-2', value: '1-2' },
-  { label: '3-4', value: '3-4' },
-  { label: '5-6', value: '5-6' },
+  { label: '1–2 tuổi', value: '1-2' },
+  { label: '3–4 tuổi', value: '3-4' },
+  { label: '5–6 tuổi', value: '5-6' },
 ];
+
+const skillDisplayNames: Record<string, { vi: string; en: string; icon: string }> = {
+  color: { vi: 'Nhận biết màu sắc', en: 'Colors', icon: '🎨' },
+  counting: { vi: 'Đếm số lượng', en: 'Counting', icon: '🔢' },
+  animalRecognition: { vi: 'Tìm hiểu động vật', en: 'Animals', icon: '🐾' },
+  matching: { vi: 'Ghép đôi & Chọn lọc', en: 'Matching', icon: '🧩' },
+  observation: { vi: 'Quan sát tinh mắt', en: 'Observation', icon: '🔍' },
+  fineMotor: { vi: 'Khéo léo ngón tay', en: 'Fine Motor', icon: '👆' },
+  causeEffect: { vi: 'Tư duy nhân - quả', en: 'Logic & Cause', icon: '💡' },
+};
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState<Settings>(ProgressManager.defaultSettings);
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
-  const [holding, setHolding] = useState(false);
+  const [isGateOpen, setIsGateOpen] = useState(false);
+  const [resetFeedback, setResetFeedback] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -53,28 +65,38 @@ export default function SettingsPage() {
     setSettings(saved);
   }
 
-  async function resetProgress() {
-    if (!holding) {
-      return;
-    }
-
+  async function handleConfirmedReset() {
+    setIsGateOpen(false);
     await ProgressManager.resetProgress();
-    setHolding(false);
+    setResetFeedback(true);
+    setTimeout(() => setResetFeedback(false), 3000);
   }
+
+  const completedMissionsCount = progress.completedMissions?.length ?? progress.completedLevels.length;
+  const rescuedAnimalsCount = progress.unlockedAnimals?.length ?? 0;
+  const learningProgress = progress.learningProgress ?? {};
 
   return (
     <main className="app-shell page-band">
       <div className="page-inner">
         <Header />
+
         <div className="page-title-row">
-          <h1>Settings</h1>
+          <div>
+            <h1>Góc Phụ Huynh & Cài Đặt</h1>
+            <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800 }}>
+              Không gian điều chỉnh trải nghiệm học tập an toàn cho bé
+            </p>
+          </div>
           <span className="compact-status">
-            {progress.completedLevels.length} done
+            Đã hoàn thành: {completedMissionsCount} nhiệm vụ
           </span>
         </div>
-        <section className="settings-grid" aria-label="Settings controls">
+
+        <section className="settings-grid" aria-label="Bảng điều khiển phụ huynh">
+          {/* Main Controls Panel */}
           <div className="settings-panel">
-            <h2>Sound</h2>
+            <h2>Âm Thanh & Lời Thoại</h2>
             <div className="control-row">
               <button
                 aria-pressed={settings.sound}
@@ -82,11 +104,12 @@ export default function SettingsPage() {
                 onClick={() => void updateSettings({ sound: !settings.sound })}
                 type="button"
               >
-                <span>{settings.sound ? 'On' : 'Off'}</span>
+                <span>{settings.sound ? 'Bật âm thanh' : 'Tắt âm thanh'}</span>
                 <span aria-hidden="true" className="toggle-knob" />
               </button>
             </div>
-            <h2>Language</h2>
+
+            <h2>Ngôn Ngữ Giọng Đọc</h2>
             <div className="control-row">
               <div className="segmented">
                 {languages.map((language) => (
@@ -101,7 +124,8 @@ export default function SettingsPage() {
                 ))}
               </div>
             </div>
-            <h2>Age Mode</h2>
+
+            <h2>Nhóm Tuổi Của Bé</h2>
             <div className="control-row">
               <div className="segmented">
                 {ageModes.map((ageMode) => (
@@ -116,31 +140,78 @@ export default function SettingsPage() {
                 ))}
               </div>
             </div>
-          </div>
-          <aside className="settings-panel">
-            <h2>Parent Area</h2>
-            <div className="control-row">
-              <span className="control-label">Premium</span>
-              <Button disabled variant="ghost">
-                Locked
-              </Button>
+
+            {/* Learning Skills Summary */}
+            <h2 style={{ marginTop: '28px' }}>Kỹ Năng Bé Đã Rèn Luyện</h2>
+            <p style={{ margin: '0 0 12px', color: 'var(--muted)', fontSize: '0.9rem', fontWeight: 800 }}>
+              Ghi nhận các thử thách tích cực mà bé đã tương tác:
+            </p>
+            <div className="skills-summary-grid">
+              {Object.entries(skillDisplayNames).map(([key, item]) => {
+                const count = learningProgress[key] || 0;
+                return (
+                  <div className="skill-tile" key={key}>
+                    <span style={{ fontSize: '1.4rem' }}>{item.icon}</span>
+                    <span className="skill-count">{count}</span>
+                    <span className="skill-name">
+                      {settings.language === 'vi' ? item.vi : item.en}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
+          </div>
+
+          {/* Parent Security & Data Management Panel */}
+          <aside className="settings-panel">
+            <h2>Khu Vực Bảo Mật Phụ Huynh</h2>
+            <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '16px' }}>
+              Mọi hành động nhạy cảm đều được bảo vệ bởi Parent Gate (câu hỏi toán người lớn) để bé không vô tình bấm nhầm.
+            </p>
+
             <div className="control-row">
-              <span className="control-label">Progress</span>
+              <span className="control-label">Tiến Độ Hiện Tại</span>
+              <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '2px solid var(--line)' }}>
+                <div style={{ fontWeight: 900, color: 'var(--leaf-deep)', marginBottom: '4px' }}>
+                  🐾 {rescuedAnimalsCount}/5 Bạn thú đã được cứu
+                </div>
+                <div style={{ fontWeight: 900, color: 'var(--leaf-deep)', marginBottom: '4px' }}>
+                  ⭐ {progress.unlockedStickers.length} Huy hiệu sưu tầm
+                </div>
+                <div style={{ fontWeight: 900, color: 'var(--leaf-deep)' }}>
+                  🌲 Thế giới: Rừng Vui Vẻ
+                </div>
+              </div>
+            </div>
+
+            <div className="control-row" style={{ marginTop: '24px' }}>
+              <span className="control-label">Xóa Tiến Trình Chơi</span>
+              <p style={{ fontSize: '0.85rem', color: 'var(--muted)', margin: '4px 0 10px' }}>
+                Khởi tạo lại trò chơi từ đầu để bé chơi lại từ đầu hành trình.
+              </p>
               <Button
-                onMouseDown={() => setHolding(true)}
-                onMouseLeave={() => setHolding(false)}
-                onMouseUp={() => void resetProgress()}
-                onTouchCancel={() => setHolding(false)}
-                onTouchEnd={() => void resetProgress()}
-                onTouchStart={() => setHolding(true)}
-                variant={holding ? 'coral' : 'secondary'}
+                variant="coral"
+                onClick={() => setIsGateOpen(true)}
+                type="button"
               >
-                {holding ? 'Release to reset' : 'Hold reset'}
+                🔒 Mở Parent Gate để Reset
               </Button>
+              {resetFeedback && (
+                <p style={{ color: 'var(--leaf-deep)', fontWeight: 900, marginTop: '8px' }}>
+                  ✓ Đã làm mới tiến trình thành công!
+                </p>
+              )}
             </div>
           </aside>
         </section>
+
+        {/* Parent Gate Math Modal */}
+        <ParentGateModal
+          isOpen={isGateOpen}
+          onClose={() => setIsGateOpen(false)}
+          onSuccess={handleConfirmedReset}
+          title="Xác Nhận Đặt Lại Tiến Độ"
+        />
       </div>
     </main>
   );

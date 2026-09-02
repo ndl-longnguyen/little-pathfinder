@@ -6,7 +6,8 @@ import { LevelManager } from '@/game/systems/LevelManager';
 
 export function GamePageClient() {
   const searchParams = useSearchParams();
-  const requestedLevel = Number(searchParams.get('level') ?? '1');
+  const rawParam = searchParams.get('mission') ?? searchParams.get('level') ?? '1';
+  const requestedLevel = Number(rawParam);
   const levelId = LevelManager.hasLevel(requestedLevel) ? requestedLevel : 1;
 
   return (

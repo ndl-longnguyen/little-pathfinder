@@ -3,6 +3,7 @@ import type { Language } from '../types';
 
 export class AudioManager {
   private static currentAudio: HTMLAudioElement | null = null;
+  private static isSpeaking = false;
 
   static stop() {
     if (AudioManager.currentAudio) {
@@ -13,10 +14,11 @@ export class AudioManager {
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
+      AudioManager.isSpeaking = false;
     }
   }
 
-  static async play(path: string | undefined, fallbackText: string, language: Language) {
+  static async play(path: string | undefined, fallbackText: string, language: Language): Promise<void> {
     const settings = await ProgressManager.getSettings();
     if (!settings.sound) {
       return;
@@ -37,31 +39,57 @@ export class AudioManager {
       }
     };
 
-    const audio = new Audio(path);
-    AudioManager.currentAudio = audio;
-    audio.onended = () => {
-      if (AudioManager.currentAudio === audio) {
-        AudioManager.currentAudio = null;
-      }
-    };
-    audio.onerror = useFallback;
-
     try {
+      const audio = new Audio(path);
+      AudioManager.currentAudio = audio;
+
+      audio.onended = () => {
+        if (AudioManager.currentAudio === audio) {
+          AudioManager.currentAudio = null;
+        }
+      };
+
+      audio.onerror = () => {
+        useFallback();
+      };
+
       await audio.play();
     } catch {
       useFallback();
     }
   }
 
-  private static speak(text: string, language: Language) {
+  static speak(text: string, language: Language): void {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = language === 'vi' ? 'vi-VN' : 'en-US';
-    utterance.rate = 0.86;
-    utterance.pitch = 1.12;
-    window.speechSynthesis.speak(utterance);
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = language === 'vi' ? 'vi-VN' : 'en-US';
+      utterance.rate = 0.88;
+      utterance.pitch = 1.1;
+
+      utterance.onend = () => {
+        AudioManager.isSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        AudioManager.isSpeaking = false;
+      };
+
+      AudioManager.isSpeaking = true;
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      AudioManager.isSpeaking = false;
+    }
+  }
+
+  /**
+   * Safe check if browser audio is unlocked
+   */
+  static isSpeechActive(): boolean {
+    return AudioManager.isSpeaking;
   }
 }

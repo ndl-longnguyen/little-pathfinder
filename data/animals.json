@@ -1,37 +1,57 @@
 [
   {
     "id": "rabbit",
-    "nameVi": "Thỏ",
-    "nameEn": "Rabbit",
+    "nameVi": "Bạn Thỏ",
+    "nameEn": "Bunny",
     "assetKey": "rabbit",
-    "favoriteAssetKey": "carrot"
+    "favoriteAssetKey": "carrot",
+    "personalityVi": "Nhanh nhẹn, đáng yêu và luôn vui vẻ nhảy nhót.",
+    "personalityEn": "Quick, adorable, and always hopping with joy.",
+    "funFactVi": "Thỏ có đôi tai dài nghe rất thính và mê củ cà rốt giòn ngọt!",
+    "funFactEn": "Rabbits have long ears for great hearing and love crunchy carrots!"
   },
   {
     "id": "duck",
-    "nameVi": "Vịt",
+    "nameVi": "Bạn Vịt",
     "nameEn": "Duck",
     "assetKey": "duck",
-    "favoriteAssetKey": "fish"
+    "favoriteAssetKey": "fish",
+    "personalityVi": "Dũng cảm, bơi lội giỏi và thích phiêu lưu trên mặt nước.",
+    "personalityEn": "Brave, great swimmer, and loves water adventures.",
+    "funFactVi": "Lông của bạn Vịt không hề bị ướt khi bơi dưới hồ nước đâu nhé!",
+    "funFactEn": "Duck feathers are waterproof so they stay dry while swimming!"
   },
   {
     "id": "bear",
-    "nameVi": "Gấu",
+    "nameVi": "Bác Gấu",
     "nameEn": "Bear",
     "assetKey": "bear",
-    "favoriteAssetKey": "honey"
+    "favoriteAssetKey": "honey",
+    "personalityVi": "Hiền lành, khỏe mạnh và thích ngủ trưa ấm áp.",
+    "personalityEn": "Gentle, super strong, and loves cozy naps.",
+    "funFactVi": "Bác Gấu có chiếc mũi cực kỳ thính, ngửi thấy mùi mật ong từ xa tít!",
+    "funFactEn": "Bears have an amazing sense of smell and can sniff honey from miles away!"
   },
   {
     "id": "monkey",
-    "nameVi": "Khỉ",
+    "nameVi": "Bạn Khỉ",
     "nameEn": "Monkey",
     "assetKey": "monkey",
-    "favoriteAssetKey": "banana"
+    "favoriteAssetKey": "banana",
+    "personalityVi": "Tinh nghịch, thích leo trèo và hay làm trò vui nhộn.",
+    "personalityEn": "Playful, loves climbing tall trees, and full of funny tricks.",
+    "funFactVi": "Khỉ dùng chiếc đuôi dài khéo léo như một cánh tay thứ ba vậy!",
+    "funFactEn": "Monkeys use their flexible tails almost like an extra hand!"
   },
   {
     "id": "panda",
-    "nameVi": "Gấu trúc",
+    "nameVi": "Gấu Trúc",
     "nameEn": "Panda",
     "assetKey": "panda",
-    "favoriteAssetKey": "bamboo"
+    "favoriteAssetKey": "bamboo",
+    "personalityVi": "Ngộ nghĩnh, hiền hòa và thích nhai cành trúc xanh tươi.",
+    "personalityEn": "Chubby, peaceful, and loves crunching fresh bamboo.",
+    "funFactVi": "Gấu Trúc có thể ăn tre trúc suốt 12 tiếng mỗi ngày mà không thấy chán!",
+    "funFactEn": "Giant pandas can spend up to 12 hours a day happily eating bamboo!"
   }
 ]

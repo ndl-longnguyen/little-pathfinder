@@ -32,7 +32,8 @@ Android/iOS platform skeleton đã có sẵn trong repo. `cap:sync` sẽ build w
 
 ## Docs
 
-Xem hướng dẫn đầy đủ tại [docs/RUNNING.md](docs/RUNNING.md).
+- [Tổng quan dự án & kiến trúc](docs/PROJECT_OVERVIEW.md)
+- [Hướng dẫn chạy chi tiết](docs/RUNNING.md)
 
 ## Ghi chú
 

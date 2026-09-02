@@ -1,0 +1,62 @@
+[
+  {
+    "id": "forest",
+    "name": {
+      "vi": "Rừng Vui Vẻ",
+      "en": "Happy Forest"
+    },
+    "theme": "forest",
+    "status": "active",
+    "missionCount": 6,
+    "icon": "🌲",
+    "description": {
+      "vi": "Cứu các bạn thú trong rừng, sửa cầu và mang thức ăn ấm áp về nhà!",
+      "en": "Rescue woodland friends, fix bridges, and bring tasty food home!"
+    }
+  },
+  {
+    "id": "ocean",
+    "name": {
+      "vi": "Đại Dương Kỳ Diệu",
+      "en": "Magic Ocean"
+    },
+    "theme": "ocean",
+    "status": "coming_soon",
+    "missionCount": 8,
+    "icon": "🐬",
+    "description": {
+      "vi": "Lặn xuống đáy biển trong xanh khám phá rạn san hô và các bạn cá heo.",
+      "en": "Dive into the blue sea to discover coral reefs and friendly dolphins."
+    }
+  },
+  {
+    "id": "farm",
+    "name": {
+      "vi": "Nông Trại Mặt Trời",
+      "en": "Sunny Farm"
+    },
+    "theme": "farm",
+    "status": "coming_soon",
+    "missionCount": 8,
+    "icon": "🚜",
+    "description": {
+      "vi": "Chăm sóc các bạn cừu, bò sữa và thu hoạch nông sản thơm ngon.",
+      "en": "Care for fluffy sheep, friendly cows, and harvest sweet apples."
+    }
+  },
+  {
+    "id": "dino",
+    "name": {
+      "vi": "Thung Lũng Khủng Long",
+      "en": "Dino Valley"
+    },
+    "theme": "dino",
+    "status": "coming_soon",
+    "missionCount": 10,
+    "icon": "🦕",
+    "description": {
+      "vi": "Cuộc phiêu lưu tìm trứng khủng long cổ đại giữa thiên nhiên kỳ vĩ.",
+      "en": "An ancient adventure to find dino eggs in the wild jungle."
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "dec_red_flower",
+    "name": {
+      "vi": "Vườn Hoa Đỏ",
+      "en": "Red Flower Patch"
+    },
+    "assetKey": "path_flowers",
+    "worldId": "forest"
+  },
+  {
+    "id": "dec_pond",
+    "name": {
+      "vi": "Ao Nước Trong Xanh",
+      "en": "Crystal Pond"
+    },
+    "assetKey": "path_pond",
+    "worldId": "forest"
+  },
+  {
+    "id": "dec_wood_bridge",
+    "name": {
+      "vi": "Cầu Gỗ Rừng Xanh",
+      "en": "Cozy Wood Bridge"
+    },
+    "assetKey": "bridge_wood",
+    "worldId": "forest"
+  },
+  {
+    "id": "dec_bamboo_garden",
+    "name": {
+      "vi": "Rừng Trúc Xanh Mát",
+      "en": "Bamboo Grove"
+    },
+    "assetKey": "path_bamboo",
+    "worldId": "forest"
+  },
+  {
+    "id": "dec_honey_pot",
+    "name": {
+      "vi": "Hũ Mật Rừng Thơm Ngọt",
+      "en": "Sweet Honey Pot"
+    },
+    "assetKey": "honey",
+    "worldId": "forest"
+  },
+  {
+    "id": "dec_rainbow_home",
+    "name": {
+      "vi": "Ngôi Nhà Cầu Vồng",
+      "en": "Rainbow Forest Home"
+    },
+    "assetKey": "home_yellow",
+    "worldId": "forest"
+  }
+]

@@ -10,13 +10,19 @@ export function Header() {
       </Link>
       <nav aria-label="Main" className="nav-actions">
         <LinkButton href="/levels" variant="ghost">
-          Levels
+          🗺️ Bản Đồ
+        </LinkButton>
+        <LinkButton href="/animal-home" variant="ghost">
+          🏡 Đảo Rừng
         </LinkButton>
         <LinkButton href="/stickers" variant="ghost">
-          Stickers
+          ⭐ Bộ Sưu Tập
+        </LinkButton>
+        <LinkButton href="/free-play" variant="ghost">
+          🎈 Chơi Tự Do
         </LinkButton>
         <LinkButton href="/settings" variant="ghost">
-          Settings
+          ⚙️ Phụ Huynh
         </LinkButton>
       </nav>
     </header>

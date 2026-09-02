@@ -1,79 +1,105 @@
 import * as Phaser from 'phaser';
+import { BaseMechanic } from '../mechanics/BaseMechanic';
+import { MechanicFactory } from '../mechanics/MechanicFactory';
 import { AudioManager } from '../systems/AudioManager';
 import { LevelManager } from '../systems/LevelManager';
 import { ProgressManager } from '../systems/ProgressManager';
-import { GAME_HEIGHT, GAME_WIDTH, optionScale } from '../systems/ResponsiveScale';
-import type { Language, LevelData, LevelOption, LevelSceneInitData } from '../types';
+import { GAME_HEIGHT, GAME_WIDTH } from '../systems/ResponsiveScale';
+import type { Language, LevelSceneInitData, MissionConfig } from '../types';
 
-type OptionView = {
-  container: Phaser.GameObjects.Container;
-  glow: Phaser.GameObjects.Graphics;
-  option: LevelOption;
-};
-
-const successText = {
-  en: 'Great job! You did it!',
-  vi: 'Giỏi quá! Bạn đã làm được rồi!',
+const successEncouragements = {
+  vi: ['Giỏi quá!', 'Đúng rồi, tuyệt vời!', 'Bé giỏi lắm!'],
+  en: ['Great job!', 'You did it!', 'Awesome!'],
 } as const;
 
-const retryText = {
-  en: 'Almost there, let us try again.',
+const retryPhrases = {
   vi: 'Gần đúng rồi, mình thử lại nhé!',
+  en: 'Almost there, let us try again!',
 } as const;
 
 export class LevelScene extends Phaser.Scene {
-  private attempts = 0;
+  private mission: MissionConfig = LevelManager.getFirstMission();
+  private challengeIndex = 0;
   private language: Language = 'vi';
-  private level: LevelData = LevelManager.getFirstLevel();
+  private currentMechanic: BaseMechanic | null = null;
   private instructionLabel: Phaser.GameObjects.Text | null = null;
-  private optionViews: OptionView[] = [];
-  private inputLocked = false;
+  private progressLabel: Phaser.GameObjects.Text | null = null;
+  private animalSprite: Phaser.GameObjects.Image | null = null;
+  private storyModalContainer: Phaser.GameObjects.Container | null = null;
+  private attempts = 0;
 
   constructor() {
     super('LevelScene');
   }
 
   init(data: LevelSceneInitData) {
-    this.level = LevelManager.getLevelById(data.levelId) ?? LevelManager.getFirstLevel();
+    const found = LevelManager.getMissionById(data.levelId);
+    this.mission = found ?? LevelManager.getFirstMission();
+    this.challengeIndex = 0;
     this.attempts = 0;
-    this.inputLocked = false;
-    this.optionViews = [];
+    this.currentMechanic = null;
   }
 
   create() {
+    // 1. Render Background
+    this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, this.mission.backgroundKey);
+
+    // 2. Top Navigation Bar
+    this.createTopBar();
+
+    // 3. Instruction Panel
+    this.createInstructionPanel();
+
+    // 4. Animal Companion
+    this.createAnimalCompanion();
+
+    // 5. Load Settings & Story Intro
     void ProgressManager.getSettings().then((settings) => {
       this.language = settings.language;
-      const text =
-        settings.language === 'vi'
-          ? this.level.instructionTextVi
-          : this.level.instructionTextEn;
-      this.instructionLabel?.setText(text);
-      void AudioManager.play(this.level.instructionAudio, text, settings.language);
+      this.showStoryIntro();
     });
-
-    this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, this.level.backgroundKey);
-    this.createTopButtons();
-    this.createInstruction();
-    this.createGoalScene();
-    this.createOptions();
   }
 
-  private createTopButtons() {
-    this.createSmallButton(100, 76, 'Home', () => {
-      window.location.href = '/';
-    });
-    this.createSmallButton(800, 76, 'Levels', () => {
+  private createTopBar() {
+    // Home / Back Button
+    this.createIconButton(110, 76, '🗺️ Map', () => {
+      AudioManager.stop();
       window.location.href = '/levels';
     });
+
+    // Progress Badge
+    const badgeBg = this.add.graphics();
+    badgeBg.fillStyle(0xffffff, 0.9);
+    badgeBg.lineStyle(4, 0x236b4c, 0.4);
+    badgeBg.fillRoundedRect(320, 48, 260, 56, 14);
+    badgeBg.strokeRoundedRect(320, 48, 260, 56, 14);
+
+    this.progressLabel = this.add
+      .text(450, 76, '', {
+        color: '#174c39',
+        fontFamily: 'Arial',
+        fontSize: '24px',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5);
+
+    this.updateProgressLabel();
+
+    // Sound Speaker Toggle
+    this.createIconButton(790, 76, '🏠 Home', () => {
+      AudioManager.stop();
+      window.location.href = '/';
+    });
   }
 
-  private createSmallButton(x: number, y: number, label: string, onClick: () => void) {
+  private createIconButton(x: number, y: number, label: string, onClick: () => void) {
     const container = this.add.container(x, y);
     const bg = this.add.graphics();
-    bg.fillStyle(0xffffff, 0.86);
-    bg.lineStyle(4, 0x236b4c, 1);
-    bg.fillRoundedRect(-78, -30, 156, 60, 10);
-    bg.strokeRoundedRect(-78, -30, 156, 60, 10);
+    bg.fillStyle(0xffffff, 0.92);
+    bg.lineStyle(4, 0x236b4c, 0.8);
+    bg.fillRoundedRect(-80, -28, 160, 56, 12);
+    bg.strokeRoundedRect(-80, -28, 160, 56, 12);
+
     const text = this.add
       .text(0, 0, label, {
         color: '#174c39',
@@ -82,175 +108,287 @@ export class LevelScene extends Phaser.Scene {
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
+
     container.add([bg, text]);
-    container.setSize(156, 60);
+    container.setSize(160, 56);
     container.setInteractive(
-      new Phaser.Geom.Rectangle(-78, -30, 156, 60),
+      new Phaser.Geom.Rectangle(-80, -28, 160, 56),
       Phaser.Geom.Rectangle.Contains,
     );
     container.on('pointerdown', onClick);
   }
 
-  private createInstruction() {
-    const text =
-      this.language === 'vi' ? this.level.instructionTextVi : this.level.instructionTextEn;
+  private createInstructionPanel() {
     const panel = this.add.graphics();
-    panel.fillStyle(0xfff9ec, 0.94);
-    panel.lineStyle(5, 0x236b4c, 0.34);
-    panel.fillRoundedRect(70, 132, 760, 188, 20);
-    panel.strokeRoundedRect(70, 132, 760, 188, 20);
+    panel.fillStyle(0xfff9ec, 0.96);
+    panel.lineStyle(5, 0x236b4c, 0.35);
+    panel.fillRoundedRect(60, 130, 780, 170, 22);
+    panel.strokeRoundedRect(60, 130, 780, 170, 22);
 
     this.instructionLabel = this.add
-      .text(GAME_WIDTH / 2, 224, text, {
+      .text(GAME_WIDTH / 2, 215, '', {
         align: 'center',
         color: '#174c39',
         fontFamily: 'Arial',
-        fontSize: '36px',
+        fontSize: '32px',
         fontStyle: 'bold',
-        lineSpacing: 8,
-        wordWrap: { width: 680 },
+        lineSpacing: 6,
+        wordWrap: { width: 720 },
       })
       .setOrigin(0.5);
   }
 
-  private createGoalScene() {
-    const animal = LevelManager.getAnimalById(this.level.animalId);
-    const animalKey = animal?.assetKey ?? this.level.animalId;
-    const animalSprite = this.add.image(GAME_WIDTH / 2, 510, animalKey).setScale(1.08);
-    animalSprite.setName('animal');
+  private createAnimalCompanion() {
+    const animal = LevelManager.getAnimalById(this.mission.animalId);
+    const animalKey = animal?.assetKey ?? this.mission.animalId;
 
+    this.animalSprite = this.add.image(GAME_WIDTH / 2, 490, animalKey).setScale(1.05);
+
+    // Idle breathing & gentle bounce animation
     this.tweens.add({
-      targets: animalSprite,
-      y: 492,
-      duration: 900,
+      targets: this.animalSprite,
+      y: 476,
+      duration: 1000,
       ease: 'Sine.easeInOut',
       yoyo: true,
       repeat: -1,
     });
-
-    const goalPanel = this.add.graphics();
-    goalPanel.fillStyle(0xffffff, 0.78);
-    goalPanel.lineStyle(4, 0x236b4c, 0.24);
-    goalPanel.fillRoundedRect(328, 650, 244, 180, 18);
-    goalPanel.strokeRoundedRect(328, 650, 244, 180, 18);
-    this.add.image(GAME_WIDTH / 2, 740, this.level.goalAssetKey).setScale(0.55);
   }
 
-  private createOptions() {
-    const scale = optionScale(this.level.options.length);
-    for (const option of this.level.options) {
-      const view = this.createOption(option, scale);
-      this.optionViews.push(view);
-    }
-  }
+  private showStoryIntro() {
+    const story = this.mission.story;
+    const text = story.introText[this.language];
 
-  private createOption(option: LevelOption, scale: number): OptionView {
-    const width = 270 * scale;
-    const height = 250 * scale;
-    const container = this.add.container(option.position.x, option.position.y);
-    const glow = this.add.graphics().setVisible(false);
-    const bg = this.add.graphics();
-    bg.fillStyle(0xfffdf7, 0.96);
-    bg.lineStyle(5, 0x236b4c, 0.3);
-    bg.fillRoundedRect(-width / 2, -height / 2, width, height, 18);
-    bg.strokeRoundedRect(-width / 2, -height / 2, width, height, 18);
+    this.storyModalContainer = this.add.container(0, 0);
 
-    const image = this.add.image(0, -26 * scale, option.assetKey).setScale(0.55 * scale);
-    const label = this.add
-      .text(0, 82 * scale, option.label, {
+    // Dim background
+    const overlay = this.add.graphics();
+    overlay.fillStyle(0x0f2d25, 0.65);
+    overlay.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+    // Modal Box
+    const box = this.add.graphics();
+    box.fillStyle(0xfff9ec, 0.98);
+    box.lineStyle(6, 0x236b4c, 0.5);
+    box.fillRoundedRect(70, 320, 760, 800, 30);
+    box.strokeRoundedRect(70, 320, 760, 800, 30);
+
+    // Title
+    const missionTitle = this.mission.title[this.language];
+    const titleText = this.add
+      .text(GAME_WIDTH / 2, 400, missionTitle, {
         align: 'center',
-        color: '#1f2933',
+        color: '#174c39',
         fontFamily: 'Arial',
-        fontSize: `${28 * scale}px`,
+        fontSize: '44px',
         fontStyle: 'bold',
-        wordWrap: { width: width - 28 },
+        wordWrap: { width: 680 },
       })
       .setOrigin(0.5);
 
-    container.add([glow, bg, image, label]);
-    container.setSize(width, height);
-    container.setInteractive(
-      new Phaser.Geom.Rectangle(-width / 2, -height / 2, width, height),
+    // Animal Illustration in modal
+    const animal = LevelManager.getAnimalById(this.mission.animalId);
+    const modalImg = this.add.image(GAME_WIDTH / 2, 570, animal?.assetKey ?? 'rabbit').setScale(1.15);
+
+    // Story Text
+    const storyText = this.add
+      .text(GAME_WIDTH / 2, 770, text, {
+        align: 'center',
+        color: '#1f2933',
+        fontFamily: 'Arial',
+        fontSize: '32px',
+        fontStyle: 'bold',
+        lineSpacing: 10,
+        wordWrap: { width: 660 },
+      })
+      .setOrigin(0.5);
+
+    // Start Mission CTA Button
+    const btnLabel = this.language === 'vi' ? 'BẮT ĐẦU 🚀' : 'START 🚀';
+    const btnContainer = this.add.container(GAME_WIDTH / 2, 990);
+
+    const btnBg = this.add.graphics();
+    btnBg.fillStyle(0xffd36a, 1);
+    btnBg.lineStyle(6, 0xc9812f, 1);
+    btnBg.fillRoundedRect(-170, -48, 340, 96, 18);
+    btnBg.strokeRoundedRect(-170, -48, 340, 96, 18);
+
+    const btnText = this.add
+      .text(0, 0, btnLabel, {
+        color: '#1f2933',
+        fontFamily: 'Arial',
+        fontSize: '38px',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5);
+
+    btnContainer.add([btnBg, btnText]);
+    btnContainer.setSize(340, 96);
+    btnContainer.setInteractive(
+      new Phaser.Geom.Rectangle(-170, -48, 340, 96),
       Phaser.Geom.Rectangle.Contains,
     );
-    container.on('pointerdown', () => this.handleOption(option, container));
 
-    glow.lineStyle(8, 0xffd36a, 1);
-    glow.strokeRoundedRect(-width / 2 - 8, -height / 2 - 8, width + 16, height + 16, 24);
-
-    return { container, glow, option };
-  }
-
-  private handleOption(option: LevelOption, container: Phaser.GameObjects.Container) {
-    if (this.inputLocked) {
-      return;
-    }
-
-    if (option.isCorrect) {
-      this.handleCorrect(option);
-      return;
-    }
-
-    this.attempts += 1;
-    this.tweens.add({
-      targets: container,
-      x: container.x + 12,
-      duration: 70,
-      ease: 'Sine.easeInOut',
-      repeat: 3,
-      yoyo: true,
-    });
-    void AudioManager.play(this.level.retryAudio, retryText[this.language], this.language);
-
-    if (this.attempts >= 2) {
-      this.optionViews
-        .find((view) => view.option.isCorrect)
-        ?.glow.setVisible(true);
-    }
-  }
-
-  private handleCorrect(option: LevelOption) {
-    this.inputLocked = true;
-    for (const view of this.optionViews) {
-      view.container.disableInteractive();
-    }
-
-    const animal = this.children.getByName('animal') as Phaser.GameObjects.Image | null;
-    if (animal) {
-      this.tweens.killTweensOf(animal);
+    btnContainer.on('pointerdown', () => {
       this.tweens.add({
-        targets: animal,
-        x: option.position.x,
-        y: option.position.y - 118,
-        scale: 0.72,
-        duration: 700,
-        ease: 'Back.easeInOut',
+        targets: this.storyModalContainer,
+        alpha: 0,
+        scale: 0.95,
+        duration: 250,
+        onComplete: () => {
+          this.storyModalContainer?.destroy();
+          this.storyModalContainer = null;
+          this.startChallenge(0);
+        },
+      });
+    });
+
+    this.storyModalContainer.add([overlay, box, titleText, modalImg, storyText, btnContainer]);
+
+    // Speak story intro voice
+    void AudioManager.play(story.introAudio, text, this.language);
+  }
+
+  private updateProgressLabel() {
+    const total = this.mission.challenges.length;
+    const current = Math.min(this.challengeIndex + 1, total);
+    const label =
+      this.language === 'vi' ? `Thử thách ${current}/${total}` : `Challenge ${current}/${total}`;
+    this.progressLabel?.setText(label);
+  }
+
+  private startChallenge(index: number) {
+    this.challengeIndex = index;
+    this.attempts = 0;
+    this.updateProgressLabel();
+
+    if (this.currentMechanic) {
+      this.currentMechanic.destroy();
+      this.currentMechanic = null;
+    }
+
+    const challenge = this.mission.challenges[index];
+    if (!challenge) {
+      this.handleMissionVictory();
+      return;
+    }
+
+    // Set instruction text & voice
+    const promptText = challenge.prompt[this.language];
+    this.instructionLabel?.setText(promptText);
+    void AudioManager.play(challenge.instructionAudio, promptText, this.language);
+
+    // Create mechanic
+    this.currentMechanic = MechanicFactory.create(
+      this,
+      challenge,
+      this.language,
+      {
+        onSuccess: () => this.handleChallengeSuccess(),
+        onFailAttempt: (attemptCount) => this.handleChallengeFail(attemptCount),
+      },
+    );
+  }
+
+  private handleChallengeSuccess() {
+    // Happy reaction from animal companion
+    if (this.animalSprite) {
+      this.tweens.add({
+        targets: this.animalSprite,
+        y: '-=50',
+        scale: 1.25,
+        duration: 200,
+        yoyo: true,
+        ease: 'Back.easeOut',
       });
     }
 
-    this.showConfetti();
-    void AudioManager.play(this.level.successAudio, successText[this.language], this.language);
+    this.showMiniConfetti();
 
-    void ProgressManager.completeLevel(this.level.id).then(() => {
-      this.time.delayedCall(1150, () => {
-        this.scene.start('RewardScene', { levelId: this.level.id });
+    // Voice praise
+    const phrases = successEncouragements[this.language];
+    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+    void AudioManager.play(undefined, phrase, this.language);
+
+    // Record learning progress
+    const challenge = this.mission.challenges[this.challengeIndex];
+    if (challenge?.skills) {
+      for (const skill of challenge.skills) {
+        void ProgressManager.recordSkillProgress(skill);
+      }
+    }
+
+    const nextIndex = this.challengeIndex + 1;
+    if (nextIndex < this.mission.challenges.length) {
+      this.time.delayedCall(1100, () => {
+        this.startChallenge(nextIndex);
+      });
+    } else {
+      this.time.delayedCall(1200, () => {
+        this.handleMissionVictory();
+      });
+    }
+  }
+
+  private handleChallengeFail(attemptCount: number) {
+    this.attempts = attemptCount;
+    void AudioManager.play(undefined, retryPhrases[this.language], this.language);
+
+    if (this.attempts >= 3) {
+      this.currentMechanic?.applyHint(3);
+    } else if (this.attempts >= 2) {
+      this.currentMechanic?.applyHint(2);
+    }
+  }
+
+  private handleMissionVictory() {
+    if (this.currentMechanic) {
+      this.currentMechanic.destroy();
+      this.currentMechanic = null;
+    }
+
+    this.showGrandCelebration();
+
+    const successText = this.mission.story.successText[this.language];
+    this.instructionLabel?.setText(successText);
+    void AudioManager.play(this.mission.story.successAudio, successText, this.language);
+
+    const allSkills = this.mission.challenges.flatMap((c) => c.skills);
+    void ProgressManager.completeMission(this.mission.id, this.mission.reward, allSkills).then(() => {
+      this.time.delayedCall(1600, () => {
+        this.scene.start('RewardScene', { levelId: this.mission.id });
       });
     });
   }
 
-  private showConfetti() {
-    const colors = [0xffd36a, 0xee7566, 0x3d8ed8, 0x74c76b, 0xffffff];
+  private showMiniConfetti() {
+    const colors = [0xffd36a, 0xee7566, 0x3d8ed8, 0x74c76b];
+    for (let i = 0; i < 20; i += 1) {
+      const dot = this.add.circle(GAME_WIDTH / 2, 460, 9, colors[i % colors.length]);
+      this.tweens.add({
+        targets: dot,
+        alpha: 0,
+        x: GAME_WIDTH / 2 + Phaser.Math.Between(-280, 280),
+        y: Phaser.Math.Between(260, 700),
+        duration: 900,
+        ease: 'Cubic.easeOut',
+        onComplete: () => dot.destroy(),
+      });
+    }
+  }
 
-    for (let i = 0; i < 42; i += 1) {
-      const dot = this.add.circle(GAME_WIDTH / 2, 420, 8, colors[i % colors.length]);
+  private showGrandCelebration() {
+    const colors = [0xffd36a, 0xee7566, 0x3d8ed8, 0x74c76b, 0xffffff];
+    for (let i = 0; i < 50; i += 1) {
+      const dot = this.add.circle(GAME_WIDTH / 2, 450, 10, colors[i % colors.length]);
       this.tweens.add({
         targets: dot,
         alpha: 0,
         angle: Phaser.Math.Between(0, 360),
-        duration: Phaser.Math.Between(900, 1450),
+        duration: Phaser.Math.Between(1100, 1600),
         ease: 'Cubic.easeOut',
-        x: GAME_WIDTH / 2 + Phaser.Math.Between(-360, 360),
-        y: Phaser.Math.Between(120, 980),
+        x: GAME_WIDTH / 2 + Phaser.Math.Between(-400, 400),
+        y: Phaser.Math.Between(150, 1100),
         onComplete: () => dot.destroy(),
       });
     }

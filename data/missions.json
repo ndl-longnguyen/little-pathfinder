@@ -1,0 +1,506 @@
+[
+  {
+    "id": 1,
+    "worldId": "forest",
+    "title": {
+      "vi": "Thỏ Con Tìm Nhà",
+      "en": "Bunny's Journey Home"
+    },
+    "animalId": "rabbit",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Cơn bão vừa qua làm bạn Thỏ bị lạc. Thỏ đang đói bụng và muốn về nhà màu đỏ. Con giúp bạn nhé!",
+        "en": "A storm passed and Bunny got lost. Bunny is hungry and wants to find the red house!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Giỏi quá! Bạn Thỏ đã được ăn no và về đến ngôi nhà màu đỏ ấm áp rồi!",
+        "en": "Great job! Bunny is full and safe inside the cozy red house!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m1_c1",
+        "mechanic": "choose",
+        "skills": ["animalRecognition", "matching"],
+        "prompt": {
+          "vi": "Bạn Thỏ đang đói bụng. Thỏ thích ăn món gì nhỉ?",
+          "en": "Bunny is hungry. What does Bunny love to eat?"
+        },
+        "targetAssetKey": "carrot",
+        "options": [
+          { "id": "opt_carrot", "label": "Cà rốt", "assetKey": "carrot", "isCorrect": true },
+          { "id": "opt_fish", "label": "Cá", "assetKey": "fish", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m1_c2",
+        "mechanic": "drag_drop",
+        "skills": ["fineMotor", "causeEffect"],
+        "prompt": {
+          "vi": "Bé hãy kéo củ cà rốt thơm ngon cho bạn Thỏ ăn nhé!",
+          "en": "Drag the tasty carrot to feed Bunny!"
+        },
+        "draggable": {
+          "id": "drag_carrot",
+          "label": "Cà rốt",
+          "assetKey": "carrot",
+          "startPos": { "x": 450, "y": 1080 }
+        },
+        "target": {
+          "id": "target_rabbit",
+          "label": "Bạn Thỏ",
+          "assetKey": "rabbit",
+          "targetPos": { "x": 450, "y": 500 },
+          "radius": 140
+        }
+      },
+      {
+        "id": "m1_c3",
+        "mechanic": "choose",
+        "skills": ["color", "matching"],
+        "prompt": {
+          "vi": "Đưa bạn Thỏ về đúng ngôi nhà màu đỏ nhé!",
+          "en": "Help Bunny go to the red house!"
+        },
+        "targetAssetKey": "home_red",
+        "options": [
+          { "id": "home_red", "label": "Nhà đỏ", "assetKey": "home_red", "isCorrect": true },
+          { "id": "home_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_rabbit_01",
+      "animalId": "rabbit",
+      "decorationId": "dec_red_flower",
+      "stars": 3
+    },
+    "map": {
+      "x": 220,
+      "y": 150,
+      "chapter": 1
+    }
+  },
+  {
+    "id": 2,
+    "worldId": "forest",
+    "title": {
+      "vi": "Vịt Nhỏ Vượt Sông",
+      "en": "Duck Crosses the River"
+    },
+    "animalId": "duck",
+    "backgroundKey": "bg_river_01",
+    "story": {
+      "introText": {
+        "vi": "Dòng sông chảy xiết làm bạn Vịt không thể bơi qua. Hãy giúp bạn Vịt qua sông về nhà xanh nhé!",
+        "en": "The river flows fast! Let us help little Duck cross over to the blue house!"
+      },
+      "introAudio": "/audio/vi/level_003_intro.mp3",
+      "successText": {
+        "vi": "Tuyệt vời! Vịt nhỏ đã đi thuyền an toàn về đến ngôi nhà màu xanh rồi!",
+        "en": "Wonderful! Duck sailed safely across the river to the blue house!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m2_c1",
+        "mechanic": "counting",
+        "skills": ["counting", "observation"],
+        "prompt": {
+          "vi": "Bé đếm xem có bao nhiêu chú cá nhỏ đang bơi dưới nước?",
+          "en": "How many little fish are swimming in the water?"
+        },
+        "itemAssetKey": "fish",
+        "count": 2,
+        "options": [
+          { "value": 1, "label": "1", "isCorrect": false },
+          { "value": 2, "label": "2", "isCorrect": true },
+          { "value": 3, "label": "3", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m2_c2",
+        "mechanic": "choose",
+        "skills": ["causeEffect", "observation"],
+        "prompt": {
+          "vi": "Chọn chiếc thuyền xinh xắn giúp bạn Vịt qua sông nhé!",
+          "en": "Choose the little boat so Duck can cross safely!"
+        },
+        "targetAssetKey": "boat",
+        "options": [
+          { "id": "opt_boat", "label": "Thuyền", "assetKey": "boat", "isCorrect": true },
+          { "id": "opt_mud", "label": "Bùn lầy", "assetKey": "path_mud", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m2_c3",
+        "mechanic": "drag_drop",
+        "skills": ["color", "fineMotor"],
+        "prompt": {
+          "vi": "Kéo bạn Vịt vào ngôi nhà màu xanh dương mát rượi nào!",
+          "en": "Drag Duck into the cozy blue house!"
+        },
+        "draggable": {
+          "id": "drag_duck",
+          "label": "Bạn Vịt",
+          "assetKey": "duck",
+          "startPos": { "x": 450, "y": 1080 }
+        },
+        "target": {
+          "id": "target_home_blue",
+          "label": "Nhà xanh",
+          "assetKey": "home_blue",
+          "targetPos": { "x": 450, "y": 480 },
+          "radius": 150
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_duck_01",
+      "animalId": "duck",
+      "decorationId": "dec_pond",
+      "stars": 3
+    },
+    "map": {
+      "x": 680,
+      "y": 340,
+      "chapter": 1
+    }
+  },
+  {
+    "id": 3,
+    "worldId": "forest",
+    "title": {
+      "vi": "Bác Gấu & Cầu Gỗ",
+      "en": "Bear & the Wooden Bridge"
+    },
+    "animalId": "bear",
+    "backgroundKey": "bg_mountain_01",
+    "story": {
+      "introText": {
+        "vi": "Bác Gấu to lớn đang tìm hũ mật ong thơm ngon và cần một cây cầu gỗ chắc chắn qua suối.",
+        "en": "Big Bear needs sweet honey and a sturdy wooden bridge to cross the rocky stream!"
+      },
+      "introAudio": "/audio/vi/level_005_intro.mp3",
+      "successText": {
+        "vi": "Bác Gấu đã no nê mật ngọt và bước qua cây cầu gỗ về nhà màu nâu ấm áp!",
+        "en": "Bear enjoyed sweet honey and crossed the wooden bridge to the brown home!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m3_c1",
+        "mechanic": "find_object",
+        "skills": ["observation", "animalRecognition"],
+        "prompt": {
+          "vi": "Bé hãy chạm vào hũ mật ong vàng óng giấu trong khu rừng nhé!",
+          "en": "Tap the golden honey pot hidden in the forest!"
+        },
+        "targets": [
+          { "id": "t1", "label": "Cây", "assetKey": "path_tree", "position": { "x": 220, "y": 950 }, "isTarget": false },
+          { "id": "t2", "label": "Mật ong", "assetKey": "honey", "position": { "x": 450, "y": 1050 }, "isTarget": true },
+          { "id": "t3", "label": "Đá", "assetKey": "path_stones", "position": { "x": 680, "y": 950 }, "isTarget": false }
+        ]
+      },
+      {
+        "id": "m3_c2",
+        "mechanic": "choose",
+        "skills": ["causeEffect", "matching"],
+        "prompt": {
+          "vi": "Bác Gấu rất nặng, hãy chọn cây cầu gỗ chắc chắn cho bác nhé!",
+          "en": "Bear is heavy! Choose the strong wooden bridge!"
+        },
+        "targetAssetKey": "bridge_wood",
+        "options": [
+          { "id": "b_wood", "label": "Cầu gỗ", "assetKey": "bridge_wood", "isCorrect": true },
+          { "id": "b_rope", "label": "Cầu dây", "assetKey": "bridge_rope", "isCorrect": false },
+          { "id": "p_mud", "label": "Vũng bùn", "assetKey": "path_mud", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m3_c3",
+        "mechanic": "choose",
+        "skills": ["color", "matching"],
+        "prompt": {
+          "vi": "Bác Gấu muốn về ngôi nhà màu nâu gỗ ấm áp.",
+          "en": "Bear wants to rest in the warm brown forest home."
+        },
+        "targetAssetKey": "home_brown",
+        "options": [
+          { "id": "h_brown", "label": "Nhà nâu", "assetKey": "home_brown", "isCorrect": true },
+          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": false },
+          { "id": "h_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_honey_01",
+      "animalId": "bear",
+      "decorationId": "dec_wood_bridge",
+      "stars": 3
+    },
+    "map": {
+      "x": 300,
+      "y": 560,
+      "chapter": 2
+    }
+  },
+  {
+    "id": 4,
+    "worldId": "forest",
+    "title": {
+      "vi": "Khỉ Con Hái Chuối",
+      "en": "Monkey's Sweet Bananas"
+    },
+    "animalId": "monkey",
+    "backgroundKey": "bg_farm_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Khỉ tinh nghịch bị rơi mất chuối và lạc đường về ngôi nhà màu vàng.",
+        "en": "Playful Monkey dropped tasty bananas and lost the way to the sunny yellow house!"
+      },
+      "introAudio": "/audio/vi/level_007_intro.mp3",
+      "successText": {
+        "vi": "Khỉ con vui sướng nhảy nhót! Bé đã giúp bạn ấy ăn chuối và về nhà vàng rồi!",
+        "en": "Monkey is hopping with joy! You fed Monkey sweet bananas and reached home!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m4_c1",
+        "mechanic": "counting",
+        "skills": ["counting", "observation"],
+        "prompt": {
+          "vi": "Đếm xem trên cây có bao nhiêu quả chuối vàng chín mọng?",
+          "en": "How many ripe bananas are on the tree?"
+        },
+        "itemAssetKey": "banana",
+        "count": 3,
+        "options": [
+          { "value": 2, "label": "2", "isCorrect": false },
+          { "value": 3, "label": "3", "isCorrect": true },
+          { "value": 4, "label": "4", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m4_c2",
+        "mechanic": "drag_drop",
+        "skills": ["fineMotor", "causeEffect"],
+        "prompt": {
+          "vi": "Kéo quả chuối vàng ngon lành cho bạn Khỉ ăn nào!",
+          "en": "Drag the sweet yellow banana to feed Monkey!"
+        },
+        "draggable": {
+          "id": "drag_banana",
+          "label": "Chuối",
+          "assetKey": "banana",
+          "startPos": { "x": 450, "y": 1080 }
+        },
+        "target": {
+          "id": "target_monkey",
+          "label": "Bạn Khỉ",
+          "assetKey": "monkey",
+          "targetPos": { "x": 450, "y": 480 },
+          "radius": 140
+        }
+      },
+      {
+        "id": "m4_c3",
+        "mechanic": "choose",
+        "skills": ["color", "matching"],
+        "prompt": {
+          "vi": "Chọn ngôi nhà màu vàng rực rỡ cho bạn Khỉ nhé!",
+          "en": "Pick the bright yellow house for little Monkey!"
+        },
+        "targetAssetKey": "home_yellow",
+        "options": [
+          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": true },
+          { "id": "h_red", "label": "Nhà đỏ", "assetKey": "home_red", "isCorrect": false },
+          { "id": "h_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_banana_01",
+      "animalId": "monkey",
+      "decorationId": "dec_honey_pot",
+      "stars": 3
+    },
+    "map": {
+      "x": 720,
+      "y": 780,
+      "chapter": 2
+    }
+  },
+  {
+    "id": 5,
+    "worldId": "forest",
+    "title": {
+      "vi": "Gấu Trúc & Rừng Trúc",
+      "en": "Panda's Bamboo Grove"
+    },
+    "animalId": "panda",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Gấu Trúc đang tìm cành trúc xanh và con đường về ngôi nhà màu xanh lá cây.",
+        "en": "Panda is searching for fresh green bamboo and the path to the green house!"
+      },
+      "introAudio": "/audio/vi/level_009_intro.mp3",
+      "successText": {
+        "vi": "Gấu Trúc ăn trúc no căng bụng và đã về đến ngôi nhà xanh mát rồi!",
+        "en": "Panda is happily munching bamboo at the lovely green house!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m5_c1",
+        "mechanic": "find_object",
+        "skills": ["observation", "matching"],
+        "prompt": {
+          "vi": "Chạm vào khóm tre trúc xanh mát trong rừng giúp Gấu Trúc!",
+          "en": "Tap the fresh green bamboo grove for Panda!"
+        },
+        "targets": [
+          { "id": "p1", "label": "Bông hoa", "assetKey": "path_flowers", "position": { "x": 220, "y": 980 }, "isTarget": false },
+          { "id": "p2", "label": "Tre trúc", "assetKey": "bamboo", "position": { "x": 450, "y": 1050 }, "isTarget": true },
+          { "id": "p3", "label": "Cây nấm", "assetKey": "path_tree", "position": { "x": 680, "y": 980 }, "isTarget": false }
+        ]
+      },
+      {
+        "id": "m5_c2",
+        "mechanic": "choose",
+        "skills": ["causeEffect", "matching"],
+        "prompt": {
+          "vi": "Chọn con đường lát tre xanh để bạn Gấu Trúc bước đi nhé!",
+          "en": "Choose the bamboo path for Panda to walk on!"
+        },
+        "targetAssetKey": "path_bamboo",
+        "options": [
+          { "id": "p_bamboo", "label": "Đường tre", "assetKey": "path_bamboo", "isCorrect": true },
+          { "id": "p_mud", "label": "Vũng bùn", "assetKey": "path_mud", "isCorrect": false },
+          { "id": "p_stones", "label": "Đá gập ghềnh", "assetKey": "path_stones", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m5_c3",
+        "mechanic": "choose",
+        "skills": ["color", "matching"],
+        "prompt": {
+          "vi": "Đưa bạn Gấu Trúc về ngôi nhà màu xanh lá cây mát lành!",
+          "en": "Guide Panda into the peaceful green house!"
+        },
+        "targetAssetKey": "home_green",
+        "options": [
+          { "id": "h_green", "label": "Nhà xanh lá", "assetKey": "home_green", "isCorrect": true },
+          { "id": "h_brown", "label": "Nhà nâu", "assetKey": "home_brown", "isCorrect": false },
+          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": false }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_bamboo_01",
+      "animalId": "panda",
+      "decorationId": "dec_bamboo_garden",
+      "stars": 3
+    },
+    "map": {
+      "x": 260,
+      "y": 1020,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 6,
+    "worldId": "forest",
+    "title": {
+      "vi": "Đại Tiệc Rừng Vui Vẻ",
+      "en": "Forest Grand Celebration"
+    },
+    "animalId": "rabbit",
+    "backgroundKey": "bg_city_01",
+    "story": {
+      "introText": {
+        "vi": "Cả 5 bạn thú đều đã được cứu an toàn! Chúng ta hãy cùng nhau trang trí lại Khu Rừng Rực Rỡ nhé!",
+        "en": "All five animal friends are rescued! Let us decorate and celebrate in the Happy Forest!"
+      },
+      "introAudio": "/audio/vi/reward_01.mp3",
+      "successText": {
+        "vi": "Hoan hô! Bé là Hiệp Sĩ Rừng Xanh tuyệt vời nhất! Khu Rừng Vui Vẻ đã được phục hồi hoàn toàn!",
+        "en": "Hooray! You are the greatest Forest Helper! Happy Forest is fully restored and full of joy!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m6_c1",
+        "mechanic": "find_object",
+        "skills": ["observation", "color"],
+        "prompt": {
+          "vi": "Tìm bông hoa sắc màu rực rỡ nhất để cài lên cổng chào khu rừng!",
+          "en": "Find the colorful flower to decorate the forest entrance!"
+        },
+        "targets": [
+          { "id": "f1", "label": "Tảng đá", "assetKey": "path_stones", "position": { "x": 220, "y": 980 }, "isTarget": false },
+          { "id": "f2", "label": "Hoa tươi", "assetKey": "path_flowers", "position": { "x": 450, "y": 1050 }, "isTarget": true },
+          { "id": "f3", "label": "Vũng nước", "assetKey": "path_pond", "position": { "x": 680, "y": 980 }, "isTarget": false }
+        ]
+      },
+      {
+        "id": "m6_c2",
+        "mechanic": "counting",
+        "skills": ["counting", "observation"],
+        "prompt": {
+          "vi": "Bé hãy đếm xem trong làng có bao nhiêu củ cà rốt ngon cho các bạn thú?",
+          "en": "Count how many delicious carrots are prepared for the party!"
+        },
+        "itemAssetKey": "carrot",
+        "count": 3,
+        "options": [
+          { "value": 2, "label": "2", "isCorrect": false },
+          { "value": 3, "label": "3", "isCorrect": true },
+          { "value": 4, "label": "4", "isCorrect": false }
+        ]
+      },
+      {
+        "id": "m6_c3",
+        "mechanic": "drag_drop",
+        "skills": ["fineMotor", "causeEffect"],
+        "prompt": {
+          "vi": "Kéo ngôi nhà cầu vồng vào giữa quảng trường để mở đại tiệc nào!",
+          "en": "Drag the rainbow house to the square to start the grand party!"
+        },
+        "draggable": {
+          "id": "drag_home",
+          "label": "Nhà cầu vồng",
+          "assetKey": "home_yellow",
+          "startPos": { "x": 450, "y": 1080 }
+        },
+        "target": {
+          "id": "target_square",
+          "label": "Quảng trường",
+          "assetKey": "path_flowers",
+          "targetPos": { "x": 450, "y": 500 },
+          "radius": 150
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_flower_path_01",
+      "decorationId": "dec_rainbow_home",
+      "stars": 3
+    },
+    "map": {
+      "x": 500,
+      "y": 1250,
+      "chapter": 3
+    }
+  }
+]
