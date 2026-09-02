@@ -48,13 +48,18 @@ export function ParentGateModal({
           {num1} × {num2} = ?
         </div>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="parent-gate-answer" className="sr-only">
+            Kết quả phép tính
+          </label>
           <input
+            id="parent-gate-answer"
             type="number"
             inputMode="numeric"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             placeholder="Nhập kết quả"
             className="parent-gate-input"
+            aria-label="Kết quả phép tính dành cho phụ huynh"
             autoFocus
           />
           {error && (
