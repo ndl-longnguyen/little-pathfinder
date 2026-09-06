@@ -1,8 +1,10 @@
+import Script from 'next/script';
+import { SITE_URL, MAIN_SITE_URL } from '@/lib/config/site';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://little-pathfinder.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Animal Rescue Adventure - Game Giáo Dục An Toàn Cho Trẻ 1-6 Tuổi',
     template: '%s | Animal Rescue Adventure',
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Animal Rescue Adventure - Cuộc Phiêu Lưu Cứu Hộ Động Vật Cho Bé',
     description:
       'Trò chơi giáo dục theo cốt truyện an toàn, không quảng cáo, phát triển tư duy nhân - quả và nhận biết màu sắc cho trẻ 1-6 tuổi.',
-    url: 'https://little-pathfinder.vercel.app',
+    url: SITE_URL,
     siteName: 'Animal Rescue Adventure',
     locale: 'vi_VN',
     type: 'website',
@@ -53,6 +55,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: '2n_hKWDM5r9dlRixMDRAsSCW6hbadPKFb5ccKFfG3i0',
+  },
+  other: {
+    'google-adsense-account': 'ca-pub-9166964727480227',
   },
 };
 
@@ -91,6 +96,12 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9166964727480227"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
