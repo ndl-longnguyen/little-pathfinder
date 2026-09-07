@@ -6,7 +6,7 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Animal Rescue Adventure - Game Giáo Dục An Toàn Cho Trẻ 1-6 Tuổi',
+    default: 'Animal Rescue Adventure – Game Giáo Dục Cho Bé 1-6 Tuổi',
     template: '%s | Animal Rescue Adventure',
   },
   description:
@@ -24,11 +24,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Little Pathfinder Team' }],
   creator: 'Little Pathfinder',
   publisher: 'Little Pathfinder',
+  manifest: '/site.webmanifest',
   formatDetection: {
     telephone: false,
   },
   openGraph: {
-    title: 'Animal Rescue Adventure - Cuộc Phiêu Lưu Cứu Hộ Động Vật Cho Bé',
+    title: 'Animal Rescue Adventure – Game Giáo Dục Cho Bé 1-6 Tuổi',
     description:
       'Trò chơi giáo dục theo cốt truyện an toàn, không quảng cáo, phát triển tư duy nhân - quả và nhận biết màu sắc cho trẻ 1-6 tuổi.',
     url: SITE_URL,
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Animal Rescue Adventure - Game Giáo Dục Cho Bé 1-6 Tuổi',
+    title: 'Animal Rescue Adventure – Game Giáo Dục Cho Bé 1-6 Tuổi',
     description:
       'Game giải cứu động vật vui nhộn, an toàn, không quảng cáo giúp bé khám phá thiên nhiên và phát triển tư duy.',
   },
@@ -71,21 +72,39 @@ export const viewport: Viewport = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Animal Rescue Adventure',
-  operatingSystem: 'Web, iOS, Android',
-  applicationCategory: 'EducationalGame',
-  audience: {
-    '@type': 'Audience',
-    audienceType: 'Toddlers and Preschoolers (1-6 years old)',
-  },
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'VND',
-  },
-  description:
-    'Trò chơi giáo dục giải cứu bạn động vật an toàn, không quảng cáo, giúp trẻ 1-6 tuổi phát triển tư duy, học đếm số và nhận biết màu sắc.',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'Animal Rescue Adventure',
+      alternateName: ['Little Pathfinder', 'kids.ndlong.site', 'Animal Rescue'],
+      description: 'Game giải cứu động vật vui nhộn, an toàn, 100% không quảng cáo cho trẻ 1-6 tuổi.',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Little Pathfinder',
+        url: SITE_URL,
+      },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${SITE_URL}/#app`,
+      name: 'Animal Rescue Adventure',
+      operatingSystem: 'Web, iOS, Android',
+      applicationCategory: 'EducationalGame',
+      audience: {
+        '@type': 'Audience',
+        audienceType: 'Toddlers and Preschoolers (1-6 years old)',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'VND',
+      },
+      description:
+        'Trò chơi giáo dục giải cứu bạn động vật an toàn, không quảng cáo, giúp trẻ 1-6 tuổi phát triển tư duy, học đếm số và nhận biết màu sắc.',
+    },
+  ],
 };
 
 export default function RootLayout({
