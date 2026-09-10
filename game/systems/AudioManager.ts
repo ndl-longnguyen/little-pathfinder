@@ -21,7 +21,7 @@ export class AudioManager {
   /**
    * Play instant tactile sound effects for children
    */
-  static playSound(type: 'tap' | 'success' | 'cheer' | 'pop' | 'drop' | 'wrong'): void {
+  static playSound(type: 'tap' | 'success' | 'cheer' | 'pop' | 'drop' | 'wrong' | 'level_start'): void {
     try {
       const ctx = AudioManager.getAudioContext();
       if (!ctx) return;
@@ -32,7 +32,22 @@ export class AudioManager {
       osc.connect(gain);
       gain.connect(ctx.destination);
 
-      if (type === 'tap' || type === 'pop') {
+            if (type === 'level_start') {
+        // Bright playful intro melody (G4 -> C5 -> E5 -> G5)
+        const notes = [392.0, 523.25, 659.25, 783.99];
+        notes.forEach((freq, idx) => {
+          const o = ctx.createOscillator();
+          const g = ctx.createGain();
+          o.type = 'sine';
+          o.frequency.setValueAtTime(freq, now + idx * 0.09);
+          g.gain.setValueAtTime(0.2, now + idx * 0.09);
+          g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.2);
+          o.connect(g);
+          g.connect(ctx.destination);
+          o.start(now + idx * 0.09);
+          o.stop(now + idx * 0.09 + 0.22);
+        });
+      } else if (type === 'tap' || type === 'pop') {
         osc.type = 'sine';
         osc.frequency.setValueAtTime(480, now);
         osc.frequency.exponentialRampToValueAtTime(880, now + 0.06);
@@ -156,9 +171,20 @@ export class AudioManager {
     try {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = language === 'vi' ? 'vi-VN' : 'en-US';
-      utterance.rate = 0.88;
-      utterance.pitch = 1.1;
+      const targetLang = language === 'vi' ? 'vi-VN' : 'en-US';
+      utterance.lang = targetLang;
+
+      // Optimizations for kid-friendly voiceover: faster rate + animated high pitch
+      utterance.rate = 1.05;
+      utterance.pitch = 1.22;
+      utterance.volume = 1.0;
+
+      // Select natural sounding voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const matchedVoice = voices.find(v => v.lang.startsWith(language === 'vi' ? 'vi' : 'en'));
+      if (matchedVoice) {
+        utterance.voice = matchedVoice;
+      }
 
       utterance.onend = () => {
         AudioManager.isSpeaking = false;

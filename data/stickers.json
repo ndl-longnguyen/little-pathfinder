@@ -206,5 +206,53 @@
     "assetKey": "sticker_seashell_01",
     "factVi": "Vỏ sò chứa đựng những viên ngọc trai lấp lánh kỳ diệu!",
     "factEn": "Seashells can hold magical, glistening pearls!"
+  },
+  {
+    "id": "sticker_cow_01",
+    "name": "Bò Sữa Hiền Hòa",
+    "category": "animals",
+    "assetKey": "sticker_cow_01",
+    "factVi": "Bò Sữa mang lại nguồn sữa giàu canxi cho bé khỏe mạnh!",
+    "factEn": "Cows provide rich milk for strong bones!"
+  },
+  {
+    "id": "sticker_hen_01",
+    "name": "Gà Mái Chăm Chỉ",
+    "category": "animals",
+    "assetKey": "sticker_hen_01",
+    "factVi": "Gà Mái ấp trứng cẩn thận và gọi con tục tác.",
+    "factEn": "Hens take great care of their warm eggs!"
+  },
+  {
+    "id": "sticker_sheep_01",
+    "name": "Cừu Bông Xù",
+    "category": "animals",
+    "assetKey": "sticker_sheep_01",
+    "factVi": "Lông cừu siêu mềm mại và êm ái.",
+    "factEn": "Fluffy sheep wool is super soft!"
+  },
+  {
+    "id": "sticker_pig_01",
+    "name": "Lợn Hồng Đáng Yêu",
+    "category": "animals",
+    "assetKey": "sticker_pig_01",
+    "factVi": "Chú Lợn Hồng luôn tươi cười rạng rỡ.",
+    "factEn": "Little Piggy always smiles brightly!"
+  },
+  {
+    "id": "sticker_bee_01",
+    "name": "Ong Vàng Thu Mật",
+    "category": "animals",
+    "assetKey": "sticker_bee_01",
+    "factVi": "Ong Vàng mang lại vị mật ngọt ngào.",
+    "factEn": "Busy bee brings delicious sweet honey!"
+  },
+  {
+    "id": "sticker_farm_party_01",
+    "name": "Đại Tiệc Nông Trại",
+    "category": "animals",
+    "assetKey": "sticker_farm_party_01",
+    "factVi": "Hội nông trại rực rỡ ánh mặt trời!",
+    "factEn": "Sunny farm festival full of joy!"
   }
 ]

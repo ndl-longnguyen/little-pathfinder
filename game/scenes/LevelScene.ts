@@ -23,6 +23,12 @@ const animalEmojiMap: Record<string, string> = {
   octopus: '🐙',
   crab: '🦀',
   whale: '🐳',
+  cow: '🐄',
+  hen: '🐓',
+  sheep: '🐑',
+  pig: '🐷',
+  bee: '🐝',
+  farm_party: '🌻',
 };
 
 const retryPhrases = {

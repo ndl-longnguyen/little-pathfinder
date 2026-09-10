@@ -97,5 +97,50 @@
     },
     "assetKey": "home_coral_reef",
     "worldId": "ocean"
+  },
+  {
+    "id": "dec_yellow_flower",
+    "name": {
+      "vi": "Hoa Vàng Rực Rỡ",
+      "en": "Yellow Flower"
+    },
+    "assetKey": "dec_yellow_flower",
+    "worldId": "farm"
+  },
+  {
+    "id": "dec_green_flower",
+    "name": {
+      "vi": "Khóm Cỏ Xanh",
+      "en": "Green Grass"
+    },
+    "assetKey": "dec_green_flower",
+    "worldId": "farm"
+  },
+  {
+    "id": "dec_brown_house",
+    "name": {
+      "vi": "Chuồng Nông Trại Nâu",
+      "en": "Brown Barn"
+    },
+    "assetKey": "dec_brown_house",
+    "worldId": "farm"
+  },
+  {
+    "id": "dec_flower_pot",
+    "name": {
+      "vi": "Chậu Hoa Nông Trại",
+      "en": "Farm Flower Pot"
+    },
+    "assetKey": "dec_flower_pot",
+    "worldId": "farm"
+  },
+  {
+    "id": "dec_farm_flag",
+    "name": {
+      "vi": "Cờ Lễ Hội Nông Trại",
+      "en": "Farm Party Flag"
+    },
+    "assetKey": "dec_farm_flag",
+    "worldId": "farm"
   }
 ]

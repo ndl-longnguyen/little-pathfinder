@@ -62,6 +62,12 @@ export default function WorldMapPage() {
     octopus: '🐙',
     crab: '🦀',
     whale: '🐳',
+    cow: '🐄',
+    hen: '🐓',
+    sheep: '🐑',
+    pig: '🐷',
+    bee: '🐝',
+    farm_party: '🌻',
   };
 
   const missionTargetEmojis: Record<number, string> = {
@@ -77,6 +83,12 @@ export default function WorldMapPage() {
     10: '🧴',
     11: '🐳',
     12: '🏰',
+    13: '🥛',
+    14: '🪺',
+    15: '🌾',
+    16: '🌽',
+    17: '🍯',
+    18: '🌻',
   };
 
   const displayedMissions =

@@ -67,6 +67,11 @@ export default function AnimalHomePage() {
     dec_pearl_bubble: '🫧',
     dec_starfish: '⭐',
     dec_sea_castle: '🏰',
+    dec_yellow_flower: '🌼',
+    dec_green_flower: '🌱',
+    dec_brown_house: '🏚️',
+    dec_flower_pot: '🪴',
+    dec_farm_flag: '🎏',
   };
 
   function handleAnimalTap(animal: AnimalData, isUnlocked: boolean) {

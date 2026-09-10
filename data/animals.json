@@ -108,5 +108,71 @@
     "personalityEn": "A gentle giant with a melodious song echoing across the ocean.",
     "funFactVi": "Cá voi xanh là người bạn to lớn nhất hành tinh, mỗi lần thở tạo nên đài phun nước tuyệt đẹp!",
     "funFactEn": "Blue whales are the biggest animals on Earth and shoot huge water spouts when breathing!"
+  },
+  {
+    "id": "cow",
+    "nameVi": "Bạn Bò Sữa",
+    "nameEn": "Little Cow",
+    "assetKey": "cow",
+    "favoriteAssetKey": "carrot",
+    "personalityVi": "Hiền lành, chăm chỉ và cho những dòng sữa thơm ngon mát lành.",
+    "personalityEn": "Gentle, hardworking, and provides fresh tasty milk.",
+    "funFactVi": "Bò Sữa nhai cỏ suốt ngày và rất thích những đồng cỏ xanh ngút ngàn!",
+    "funFactEn": "Cows love munching fresh green grass all day long!"
+  },
+  {
+    "id": "hen",
+    "nameVi": "Gà Mái",
+    "nameEn": "Hen",
+    "assetKey": "hen",
+    "favoriteAssetKey": "banana",
+    "personalityVi": "Ấm áp, chăm chỉ ấp trứng và tục tác gọi con vui vẻ.",
+    "personalityEn": "Warm, caring, and clucks happily around the farm.",
+    "funFactVi": "Gà Mái đẻ những quả trứng thơm ngon và sưởi ấm cho gà con.",
+    "funFactEn": "Hens lay nutritious eggs and keep their chicks warm!"
+  },
+  {
+    "id": "sheep",
+    "nameVi": "Bạn Cừu Trắng",
+    "nameEn": "Fluffy Sheep",
+    "assetKey": "sheep",
+    "favoriteAssetKey": "carrot",
+    "personalityVi": "Bông xù, hiền hòa và thích gặm cỏ cùng bầy trên đồi.",
+    "personalityEn": "Fluffy, sweet, and loves grazing on sunny hillsides.",
+    "funFactVi": "Bộ lông cừu dày mịn được dùng để may những chiếc áo ấm áp mùa đông!",
+    "funFactEn": "Soft sheep wool is used to make warm cozy winter sweaters!"
+  },
+  {
+    "id": "pig",
+    "nameVi": "Lợn Con Ủn Ỉn",
+    "nameEn": "Piggy",
+    "assetKey": "pig",
+    "favoriteAssetKey": "banana",
+    "personalityVi": "Ủn ỉn, dễ thương và rất thích ăn ngô ngọt chín mọng.",
+    "personalityEn": "Cute, cheerful, and loves eating sweet fresh corn.",
+    "funFactVi": "Chú Lợn Con có chiếc mũi hồng xinh xắn rất giỏi ngửi tìm thức ăn!",
+    "funFactEn": "Little pigs have great noses to sniff out tasty treats!"
+  },
+  {
+    "id": "bee",
+    "nameVi": "Ong Vàng",
+    "nameEn": "Busy Bee",
+    "assetKey": "bee",
+    "favoriteAssetKey": "honey",
+    "personalityVi": "Chăm chỉ, nhanh nhẹn và giúp hoa nở rực rỡ khắp nông trại.",
+    "personalityEn": "Hardworking, fast, and helps bright flowers bloom.",
+    "funFactVi": "Ong Vàng vỗ cánh cực nhanh và tạo ra những giọt mật ngọt lịm!",
+    "funFactEn": "Bees flap their wings super fast and make delicious sweet honey!"
+  },
+  {
+    "id": "farm_party",
+    "nameVi": "Đội Nông Trại Vui Vẻ",
+    "nameEn": "Sunny Farm Team",
+    "assetKey": "farm_party",
+    "favoriteAssetKey": "home_yellow",
+    "personalityVi": "Tất cả các bạn thú cùng mở hội nông trại rộn ràng.",
+    "personalityEn": "All farm friends celebrating together with joy.",
+    "funFactVi": "Mùa thu hoạch nông trại luôn ngập tràn tiếng cười và niềm vui!",
+    "funFactEn": "Farm harvest festival is full of laughter, fun, and delicious food!"
   }
 ]

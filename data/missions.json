@@ -1607,5 +1607,784 @@
       "y": 1250,
       "chapter": 3
     }
+  },
+  {
+    "id": 13,
+    "worldId": "farm",
+    "title": {
+      "vi": "Bò Sữa & Xô Sữa",
+      "en": "Cow & Milk Bucket"
+    },
+    "animalId": "cow",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Bò Sữa đang đói bụng và cần xô đựng sữa ngon lành. Con giúp bạn nhé!",
+        "en": "Little Cow is hungry and needs a milk bucket! Help Cow!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Giỏi quá! Bạn Bò Sữa đã được ăn cỏ tươi và vắt sữa vào xô rồi!",
+        "en": "Awesome! Little Cow ate fresh grass and got filled up!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m13_c1",
+        "mechanic": "choose",
+        "skills": [
+          "animalRecognition",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Bò Sữa thích ăn món gì nhất nhỉ?",
+          "en": "What does Cow love to eat?"
+        },
+        "targetAssetKey": "carrot",
+        "options": [
+          {
+            "id": "opt_carrot",
+            "label": "Cỏ tươi / Cà rốt",
+            "assetKey": "carrot",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_fish",
+            "label": "Cá",
+            "assetKey": "fish",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m13_c2",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Bé hãy kéo thức ăn ngon lành cho bạn Bò Sữa nhé!",
+          "en": "Feed tasty food to little Cow!"
+        },
+        "draggable": {
+          "id": "drag_carrot",
+          "label": "Cỏ / Cà rốt",
+          "assetKey": "carrot",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_cow",
+          "label": "Bạn Bò Sữa",
+          "assetKey": "rabbit",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 140
+        }
+      },
+      {
+        "id": "m13_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Đưa bạn Bò Sữa về đúng ngôi nhà màu vàng rực rỡ nhé!",
+          "en": "Help Cow return to the yellow house!"
+        },
+        "targetAssetKey": "home_yellow",
+        "options": [
+          {
+            "id": "home_yellow",
+            "label": "Nhà vàng",
+            "assetKey": "home_yellow",
+            "isCorrect": true
+          },
+          {
+            "id": "home_blue",
+            "label": "Nhà xanh",
+            "assetKey": "home_blue",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_cow_01",
+      "animalId": "cow",
+      "decorationId": "dec_yellow_flower",
+      "stars": 3
+    },
+    "map": {
+      "x": 220,
+      "y": 150,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 14,
+    "worldId": "farm",
+    "title": {
+      "vi": "Gà Mái Tìm Trứng",
+      "en": "Hen Finds Eggs"
+    },
+    "animalId": "hen",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Gà Mái đẻ những quả trứng ấp áp. Bé hãy giúp Gà Mái tìm và đếm trứng nhé!",
+        "en": "Hen laid warm eggs! Let us help Hen find and count them!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Tuyệt vời! Tất cả trứng đã được tìm thấy và giữ ấm an toàn!",
+        "en": "Great job! All eggs are found and safe!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m14_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Bé hãy chạm vào vật thể phát sáng giấu trong nông trại nhé!",
+          "en": "Tap the glowing item hidden in the farm!"
+        },
+        "targets": [
+          {
+            "id": "t1",
+            "label": "Cây",
+            "assetKey": "path_tree",
+            "position": {
+              "x": 220,
+              "y": 950
+            },
+            "isTarget": false
+          },
+          {
+            "id": "t2",
+            "label": "Trái cây",
+            "assetKey": "banana",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "t3",
+            "label": "Đá",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 680,
+              "y": 950
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m14_c2",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé đếm xem có bao nhiêu quả chuối vàng rực rỡ?",
+          "en": "How many yellow bananas are there?"
+        },
+        "itemAssetKey": "banana",
+        "count": 3,
+        "options": [
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m14_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Chọn ngôi nhà màu đỏ ấm áp cho Gà Mái nghỉ ngơi nhé!",
+          "en": "Choose the warm red house for Hen!"
+        },
+        "targetAssetKey": "home_red",
+        "options": [
+          {
+            "id": "home_red",
+            "label": "Nhà đỏ",
+            "assetKey": "home_red",
+            "isCorrect": true
+          },
+          {
+            "id": "home_brown",
+            "label": "Nhà nâu",
+            "assetKey": "home_brown",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_hen_01",
+      "animalId": "hen",
+      "decorationId": "dec_red_flower",
+      "stars": 3
+    },
+    "map": {
+      "x": 450,
+      "y": 250,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 15,
+    "worldId": "farm",
+    "title": {
+      "vi": "Cừu Trắng Qua Đồng",
+      "en": "Sheep Across the Field"
+    },
+    "animalId": "sheep",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Cừu Trắng bông xù muốn đi qua đồng cỏ để về nhà xinh đẹp!",
+        "en": "Fluffy Sheep wants to cross the green meadow to go home!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Hoan hô! Cừu Trắng đã đi qua đồng cỏ an toàn về nhà rồi!",
+        "en": "Hooray! Sheep crossed the meadow safely!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m15_c1",
+        "mechanic": "choose",
+        "skills": [
+          "causeEffect",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Chọn con đường lát tre xanh để bạn Cừu bước đi êm ái nhé!",
+          "en": "Choose the bamboo path for Sheep!"
+        },
+        "targetAssetKey": "path_bamboo",
+        "options": [
+          {
+            "id": "opt_bamboo",
+            "label": "Đường tre",
+            "assetKey": "path_bamboo",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_mud",
+            "label": "Bùn lầy",
+            "assetKey": "path_mud",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m15_c2",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Bé hãy kéo thức ăn thơm ngon cho bạn Cừu ăn nhé!",
+          "en": "Feed tasty food to Sheep!"
+        },
+        "draggable": {
+          "id": "drag_carrot",
+          "label": "Cà rốt",
+          "assetKey": "carrot",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_sheep",
+          "label": "Bạn Cừu",
+          "assetKey": "rabbit",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 140
+        }
+      },
+      {
+        "id": "m15_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Đưa bạn Cừu về ngôi nhà màu xanh lá cây mát lành nhé!",
+          "en": "Help Sheep return to the green house!"
+        },
+        "targetAssetKey": "home_green",
+        "options": [
+          {
+            "id": "home_green",
+            "label": "Nhà xanh lá",
+            "assetKey": "home_green",
+            "isCorrect": true
+          },
+          {
+            "id": "home_yellow",
+            "label": "Nhà vàng",
+            "assetKey": "home_yellow",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_sheep_01",
+      "animalId": "sheep",
+      "decorationId": "dec_green_flower",
+      "stars": 3
+    },
+    "map": {
+      "x": 680,
+      "y": 380,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 16,
+    "worldId": "farm",
+    "title": {
+      "vi": "Lợn Con Ủn Ỉn",
+      "en": "Piggy’s Corn Feast"
+    },
+    "animalId": "pig",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Chú Lợn Hồng ủn ỉn đang tìm những món ăn ngon trên cánh đồng nông trại!",
+        "en": "Little Piggy is looking for sweet food in the farm!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Bé giỏi lắm! Lợn Hồng đã ăn no căng bụng và về nhà ngủ ngoan rồi!",
+        "en": "Yay! Piggy is full and happy inside the house!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m16_c1",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé hãy đếm xem có bao nhiêu củ cà rốt ngon ngon?",
+          "en": "How many tasty carrots are there?"
+        },
+        "itemAssetKey": "carrot",
+        "count": 4,
+        "options": [
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": false
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": true
+          },
+          {
+            "value": 5,
+            "label": "5",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m16_c2",
+        "mechanic": "choose",
+        "skills": [
+          "causeEffect",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Chọn cây cầu gỗ chắc chắn giúp Lợn Con qua suối nhỏ!",
+          "en": "Choose the wooden bridge for Piggy!"
+        },
+        "targetAssetKey": "bridge_wood",
+        "options": [
+          {
+            "id": "opt_bridge",
+            "label": "Cầu gỗ",
+            "assetKey": "bridge_wood",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_rope",
+            "label": "Cầu dây",
+            "assetKey": "bridge_rope",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m16_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Đưa Lợn Con về ngôi nhà màu nâu gỗ ấm áp nhé!",
+          "en": "Help Piggy go to the warm brown house!"
+        },
+        "targetAssetKey": "home_brown",
+        "options": [
+          {
+            "id": "home_brown",
+            "label": "Nhà nâu",
+            "assetKey": "home_brown",
+            "isCorrect": true
+          },
+          {
+            "id": "home_red",
+            "label": "Nhà đỏ",
+            "assetKey": "home_red",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_pig_01",
+      "animalId": "pig",
+      "decorationId": "dec_brown_house",
+      "stars": 3
+    },
+    "map": {
+      "x": 450,
+      "y": 520,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 17,
+    "worldId": "farm",
+    "title": {
+      "vi": "Ong Vàng Thu Mật",
+      "en": "Bee Collects Honey"
+    },
+    "animalId": "bee",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Chú Ong Vàng chăm chỉ đang bay tìm hoa tươi để làm mật ngọt ngào!",
+        "en": "Busy Bee is looking for bright flowers to make sweet honey!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Tuyệt vời! Ong Vàng đã thu thập đủ mật ngọt và trở về tổ!",
+        "en": "Wonderful! Bee made lots of delicious honey!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m17_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "color"
+        ],
+        "prompt": {
+          "vi": "Bé hãy tìm bông hoa rực rỡ nhất cho Ong Vàng nhé!",
+          "en": "Find the brightest flower for Bee!"
+        },
+        "targets": [
+          {
+            "id": "t1",
+            "label": "Đá",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 220,
+              "y": 950
+            },
+            "isTarget": false
+          },
+          {
+            "id": "t2",
+            "label": "Hoa tươi",
+            "assetKey": "path_flowers",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "t3",
+            "label": "Bùn lầy",
+            "assetKey": "path_mud",
+            "position": {
+              "x": 680,
+              "y": 950
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m17_c2",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Đếm xem có bao nhiêu bông hoa thơm mát?",
+          "en": "How many sweet flowers are there?"
+        },
+        "itemAssetKey": "path_flowers",
+        "count": 3,
+        "options": [
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m17_c3",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo củ cà rốt thưởng cho các bạn thú nông trại nào!",
+          "en": "Drag the carrot for farm friends!"
+        },
+        "draggable": {
+          "id": "drag_carrot",
+          "label": "Cà rốt",
+          "assetKey": "carrot",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_bee",
+          "label": "Tổ ong",
+          "assetKey": "rabbit",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 140
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_bee_01",
+      "animalId": "bee",
+      "decorationId": "dec_flower_pot",
+      "stars": 3
+    },
+    "map": {
+      "x": 220,
+      "y": 650,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 18,
+    "worldId": "farm",
+    "title": {
+      "vi": "Đại Tiệc Nông Trại Vui Vẻ",
+      "en": "Sunny Farm Festival"
+    },
+    "animalId": "farm_party",
+    "backgroundKey": "bg_forest_01",
+    "story": {
+      "introText": {
+        "vi": "Tất cả các bạn thú nông trại đang họp mặt mở đại tiệc mừng mùa thu hoạch!",
+        "en": "All farm friends are gathering for the big Harvest Party!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Chúc mừng bé! Bé đã hoàn thành tất cả các thử thách Nông Trại Mặt Trời!",
+        "en": "Congratulations! You completed the Sunny Farm adventure!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m18_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "color"
+        ],
+        "prompt": {
+          "vi": "Tìm bông hoa cầu vồng rực rỡ trang trí đại tiệc nhé!",
+          "en": "Find the rainbow flower for the party!"
+        },
+        "targets": [
+          {
+            "id": "t1",
+            "label": "Vùng nước",
+            "assetKey": "path_pond",
+            "position": {
+              "x": 220,
+              "y": 950
+            },
+            "isTarget": false
+          },
+          {
+            "id": "t2",
+            "label": "Hoa tươi",
+            "assetKey": "path_flowers",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "t3",
+            "label": "Đá",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 680,
+              "y": 950
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m18_c2",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé hãy đếm xem có bao nhiêu quả chuối chuẩn bị cho đại tiệc?",
+          "en": "How many party bananas are ready?"
+        },
+        "itemAssetKey": "banana",
+        "count": 5,
+        "options": [
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          },
+          {
+            "value": 5,
+            "label": "5",
+            "isCorrect": true
+          },
+          {
+            "value": 6,
+            "label": "6",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m18_c3",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo ngôi nhà rực rỡ vào trung tâm nông trại mở hội nào!",
+          "en": "Drag the golden house to start the festival!"
+        },
+        "draggable": {
+          "id": "drag_house",
+          "label": "Nhà vàng",
+          "assetKey": "home_yellow",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_center",
+          "label": "Quảng trường",
+          "assetKey": "path_flowers",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 140
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_farm_party_01",
+      "animalId": "farm_party",
+      "decorationId": "dec_farm_flag",
+      "stars": 3
+    },
+    "map": {
+      "x": 450,
+      "y": 800,
+      "chapter": 3
+    }
   }
 ]
