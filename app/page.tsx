@@ -7,28 +7,36 @@ import { Footer } from '@/components/Footer';
 import { AudioManager } from '@/game/systems/AudioManager';
 import { LevelManager } from '@/game/systems/LevelManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
-import type { Progress } from '@/game/types';
+import type { Language, Progress, Settings } from '@/game/types';
+import { pick, HOME } from '@/lib/i18n';
 
 export default function HomePage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
   const [companionBounce, setCompanionBounce] = useState(false);
+  const [settings, setSettings] = useState<Settings>(ProgressManager.defaultSettings);
 
   useEffect(() => {
     let alive = true;
 
     async function load() {
-      const saved = await ProgressManager.getProgress();
+      const [saved, savedSettings] = await Promise.all([
+        ProgressManager.getProgress(),
+        ProgressManager.getSettings(),
+      ]);
       if (alive) {
         setProgress(saved);
+        setSettings(savedSettings);
       }
     }
 
     void load();
     window.addEventListener('progress-changed', load);
+    window.addEventListener('settings-changed', load);
 
     return () => {
       alive = false;
       window.removeEventListener('progress-changed', load);
+      window.removeEventListener('settings-changed', load);
     };
   }, []);
 
@@ -58,7 +66,7 @@ export default function HomePage() {
 
   function handleTapCompanion() {
     setCompanionBounce(true);
-    AudioManager.speak(companion.sound, 'vi');
+    AudioManager.speak(companion.sound, settings.language);
     setTimeout(() => setCompanionBounce(false), 500);
   }
 
@@ -69,7 +77,7 @@ export default function HomePage() {
         <section className="home-copy" aria-labelledby="home-title">
           <div className="world-badge">
             <span>🌲</span>
-            <span>Thế giới: Rừng Vui Vẻ</span>
+            <span>{pick(HOME.worldBadge, settings.language)}</span>
           </div>
 
           <h1 className="home-title" id="home-title">
@@ -77,7 +85,7 @@ export default function HomePage() {
           </h1>
 
           <p className="home-subtitle">
-            Cùng các bạn thú vượt qua thử thách, sửa cầu, tìm thức ăn và khôi phục lại khu rừng xanh ngát!
+            {pick(HOME.subtitle, settings.language)}
           </p>
 
           {/* Primary Big Call To Action */}

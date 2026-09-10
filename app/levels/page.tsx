@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { LevelManager } from '@/game/systems/LevelManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { Progress, Settings } from '@/game/types';
+import { pick, LEVELS, GAME_UI } from '@/lib/i18n';
 
 export default function WorldMapPage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
@@ -105,14 +106,14 @@ export default function WorldMapPage() {
 
         <div className="page-title-row">
           <div>
-            <h1>Bản Đồ Thám Hiểm 🗺️</h1>
+            <h1>{pick(LEVELS.title, settings.language)}</h1>
             <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800, fontSize: '1.05rem' }}>
-              Chạm vào bất kỳ màn chơi nào để giải cứu các bạn thú đáng yêu!
+              {pick(LEVELS.subtitle, settings.language)}
             </p>
           </div>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
             <span className="compact-status">
-              ⭐ Đã hoàn thành: {completedMissions.length}/{allMissions.length}
+              ⭐ {pick(LEVELS.completedCount, settings.language)}: {completedMissions.length}/{allMissions.length}
             </span>
             <button
               onClick={() => setFreeMode(!freeMode)}
@@ -283,7 +284,7 @@ export default function WorldMapPage() {
                   <div className="node-info">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                       <h3 style={{ margin: 0 }}>
-                        Màn {mission.id}: {mission.title[settings.language] || mission.title.vi}
+                        {pick(GAME_UI.mission, settings.language)} {mission.id}: {mission.title[settings.language] || mission.title.vi}
                       </h3>
                       <span
                         style={{
@@ -295,28 +296,28 @@ export default function WorldMapPage() {
                           borderRadius: '6px',
                         }}
                       >
-                        {targetEmoji} Thử thách
+                        {targetEmoji} {pick(GAME_UI.challenge, settings.language)}
                       </span>
                     </div>
                     <p style={{ marginTop: '4px' }}>
                       {isCompleted
-                        ? `Đã giải cứu thành công! ${'⭐'.repeat(stars)}`
+                        ? `${pick(GAME_UI.completed, settings.language)} ${'⭐'.repeat(stars)}`
                         : isCurrent
-                        ? 'Nhiệm vụ tiếp theo đang chờ bé giải cứu!'
+                        ? pick(GAME_UI.current, settings.language)
                         : isUnlocked
-                        ? 'Sẵn sàng bắt đầu giải cứu bạn thú'
-                        : 'Bấm để mở khóa chơi thử ngay'}
+                        ? pick(GAME_UI.unlocked, settings.language)
+                        : pick(GAME_UI.locked, settings.language)}
                     </p>
                   </div>
                   <div>
                     {isCompleted ? (
-                      <span className="node-status-tag done">Chơi lại ↺</span>
+                      <span className="node-status-tag done">{pick(GAME_UI.replay, settings.language)}</span>
                     ) : isCurrent ? (
-                      <span className="node-status-tag play">CHƠI NGAY 🚀</span>
+                      <span className="node-status-tag play">{pick(GAME_UI.playNow, settings.language)}</span>
                     ) : isUnlocked ? (
-                      <span className="node-status-tag play">Bắt đầu 🎯</span>
+                      <span className="node-status-tag play">{pick(GAME_UI.start, settings.language)}</span>
                     ) : (
-                      <span className="node-status-tag lock">Chơi thử 🎮</span>
+                      <span className="node-status-tag lock">{pick(GAME_UI.tryFree, settings.language)}</span>
                     )}
                   </div>
                 </div>
@@ -344,7 +345,7 @@ export default function WorldMapPage() {
         {/* Future Worlds Preview */}
         <section aria-label="Các thế giới tiếp theo">
           <h2 style={{ color: 'var(--leaf-deep)', margin: '24px 0 16px', fontSize: '1.6rem' }}>
-            Các Thế Giới Tương Lai (Coming Soon)
+            {pick(GAME_UI.futureWorlds, settings.language)}
           </h2>
           <div className="future-worlds-grid">
             {worlds
@@ -358,7 +359,7 @@ export default function WorldMapPage() {
                   <p style={{ margin: 0, color: 'var(--muted)', fontSize: '0.9rem' }}>
                     {w.description[settings.language] || w.description.vi}
                   </p>
-                  <span className="future-badge">Sắp ra mắt</span>
+                  <span className="future-badge">{pick(GAME_UI.comingSoon, settings.language)}</span>
                 </div>
               ))}
           </div>

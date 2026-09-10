@@ -88,7 +88,7 @@ export class CountingMechanic extends BaseMechanic {
     bg.strokeCircle(0, 0, 82);
 
     const numText = this.scene.add
-      .text(0, 0, opt.label, {
+      .text(0, 0, (this.language === 'en' && opt.labelEn) ? opt.labelEn : opt.label, {
         color: '#174c39',
         fontFamily: 'Arial',
         fontSize: '56px',

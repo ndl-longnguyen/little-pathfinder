@@ -81,7 +81,7 @@ export class ChooseMechanic extends BaseMechanic {
       .setScale(0.72 * scale);
 
     const label = this.scene.add
-      .text(0, 82 * scale, option.label, {
+      .text(0, 82 * scale, (this.language === 'en' && option.labelEn) ? option.labelEn : option.label, {
         align: 'center',
         color: '#1f2933',
         fontFamily: 'Arial',

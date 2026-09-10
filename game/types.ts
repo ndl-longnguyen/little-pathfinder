@@ -49,6 +49,7 @@ export type ChooseChallengeConfig = {
   options: Array<{
     id: string;
     label: string;
+    labelEn?: string;
     assetKey: string;
     isCorrect: boolean;
     position?: { x: number; y: number };
@@ -64,12 +65,14 @@ export type DragDropChallengeConfig = {
   draggable: {
     id: string;
     label: string;
+    labelEn?: string;
     assetKey: string;
     startPos: { x: number; y: number };
   };
   target: {
     id: string;
     label: string;
+    labelEn?: string;
     assetKey: string;
     targetPos: { x: number; y: number };
     radius?: number;
@@ -85,6 +88,7 @@ export type FindObjectChallengeConfig = {
   targets: Array<{
     id: string;
     label: string;
+    labelEn?: string;
     assetKey: string;
     position: { x: number; y: number };
     isTarget: boolean;
@@ -102,6 +106,7 @@ export type CountingChallengeConfig = {
   options: Array<{
     value: number;
     label: string;
+    labelEn?: string;
     isCorrect: boolean;
   }>;
 };

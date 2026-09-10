@@ -38,13 +38,15 @@
             "id": "opt_carrot",
             "label": "Cà rốt",
             "assetKey": "carrot",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Carrot"
           },
           {
             "id": "opt_fish",
             "label": "Cá",
             "assetKey": "fish",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Fish"
           }
         ]
       },
@@ -66,7 +68,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Carrot"
         },
         "target": {
           "id": "target_rabbit",
@@ -76,7 +79,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Bunny"
         }
       },
       {
@@ -96,13 +100,15 @@
             "id": "home_red",
             "label": "Nhà đỏ",
             "assetKey": "home_red",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Red House"
           },
           {
             "id": "home_blue",
             "label": "Nhà xanh",
             "assetKey": "home_blue",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Blue House"
           }
         ]
       }
@@ -158,17 +164,20 @@
           {
             "value": 1,
             "label": "1",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "1"
           },
           {
             "value": 2,
             "label": "2",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "3"
           }
         ]
       },
@@ -189,13 +198,15 @@
             "id": "opt_boat",
             "label": "Thuyền",
             "assetKey": "boat",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Boat"
           },
           {
             "id": "opt_mud",
             "label": "Bùn lầy",
             "assetKey": "path_mud",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Muddy Path"
           }
         ]
       },
@@ -217,7 +228,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Little Duck"
         },
         "target": {
           "id": "target_home_blue",
@@ -227,7 +239,8 @@
             "x": 450,
             "y": 480
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Blue House"
         }
       }
     ],
@@ -285,7 +298,8 @@
               "x": 220,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Tree"
           },
           {
             "id": "t2",
@@ -295,7 +309,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Honey"
           },
           {
             "id": "t3",
@@ -305,7 +320,8 @@
               "x": 680,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Rock"
           }
         ]
       },
@@ -326,19 +342,22 @@
             "id": "b_wood",
             "label": "Cầu gỗ",
             "assetKey": "bridge_wood",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Wood Bridge"
           },
           {
             "id": "b_rope",
             "label": "Cầu dây",
             "assetKey": "bridge_rope",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Rope Bridge"
           },
           {
             "id": "p_mud",
             "label": "Vũng bùn",
             "assetKey": "path_mud",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Mud Puddle"
           }
         ]
       },
@@ -359,19 +378,22 @@
             "id": "h_brown",
             "label": "Nhà nâu",
             "assetKey": "home_brown",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Brown House"
           },
           {
             "id": "h_yellow",
             "label": "Nhà vàng",
             "assetKey": "home_yellow",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Yellow House"
           },
           {
             "id": "h_blue",
             "label": "Nhà xanh",
             "assetKey": "home_blue",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Blue House"
           }
         ]
       }
@@ -427,17 +449,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -459,7 +484,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Banana"
         },
         "target": {
           "id": "target_monkey",
@@ -469,7 +495,8 @@
             "x": 450,
             "y": 480
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Monkey"
         }
       },
       {
@@ -489,19 +516,22 @@
             "id": "h_yellow",
             "label": "Nhà vàng",
             "assetKey": "home_yellow",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Yellow House"
           },
           {
             "id": "h_red",
             "label": "Nhà đỏ",
             "assetKey": "home_red",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Red House"
           },
           {
             "id": "h_blue",
             "label": "Nhà xanh",
             "assetKey": "home_blue",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Blue House"
           }
         ]
       }
@@ -560,7 +590,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Flower"
           },
           {
             "id": "p2",
@@ -570,7 +601,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Bamboo"
           },
           {
             "id": "p3",
@@ -580,7 +612,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Mushroom"
           }
         ]
       },
@@ -601,19 +634,22 @@
             "id": "p_bamboo",
             "label": "Đường tre",
             "assetKey": "path_bamboo",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Bamboo Path"
           },
           {
             "id": "p_mud",
             "label": "Vũng bùn",
             "assetKey": "path_mud",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Mud Puddle"
           },
           {
             "id": "p_stones",
             "label": "Đá gập ghềnh",
             "assetKey": "path_stones",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Rocky Path"
           }
         ]
       },
@@ -634,19 +670,22 @@
             "id": "h_green",
             "label": "Nhà xanh lá",
             "assetKey": "home_green",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Green House"
           },
           {
             "id": "h_brown",
             "label": "Nhà nâu",
             "assetKey": "home_brown",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Brown House"
           },
           {
             "id": "h_yellow",
             "label": "Nhà vàng",
             "assetKey": "home_yellow",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Yellow House"
           }
         ]
       }
@@ -705,7 +744,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Boulder"
           },
           {
             "id": "f2",
@@ -715,7 +755,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Fresh Flower"
           },
           {
             "id": "f3",
@@ -725,7 +766,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Water Puddle"
           }
         ]
       },
@@ -746,17 +788,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -778,7 +823,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Rainbow House"
         },
         "target": {
           "id": "target_square",
@@ -788,7 +834,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Town Square"
         }
       }
     ],
@@ -842,19 +889,22 @@
             "id": "opt_fish",
             "label": "Cá nhỏ",
             "assetKey": "fish",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Small Fish"
           },
           {
             "id": "opt_banana",
             "label": "Chuối",
             "assetKey": "banana",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Banana"
           },
           {
             "id": "opt_carrot",
             "label": "Cà rốt",
             "assetKey": "carrot",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Carrot"
           }
         ]
       },
@@ -876,7 +926,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Small Fish"
         },
         "target": {
           "id": "target_dolphin",
@@ -886,7 +937,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Dolphin"
         }
       },
       {
@@ -906,13 +958,15 @@
             "id": "coral_blue",
             "label": "San hô xanh",
             "assetKey": "home_coral_blue",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Blue Coral"
           },
           {
             "id": "coral_red",
             "label": "San hô đỏ",
             "assetKey": "home_coral_red",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Red Coral"
           }
         ]
       }
@@ -971,7 +1025,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Underwater Rock"
           },
           {
             "id": "t2",
@@ -981,7 +1036,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Seaweed"
           },
           {
             "id": "t3",
@@ -991,7 +1047,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Sea Mud"
           }
         ]
       },
@@ -1013,7 +1070,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Seaweed"
         },
         "target": {
           "id": "target_turtle",
@@ -1023,7 +1081,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Sea Turtle"
         }
       },
       {
@@ -1043,13 +1102,15 @@
             "id": "opt_sand",
             "label": "Đường cát",
             "assetKey": "path_sand",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Sand Path"
           },
           {
             "id": "opt_mud",
             "label": "Bùn lầy",
             "assetKey": "path_mud",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Muddy Path"
           }
         ]
       }
@@ -1105,17 +1166,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -1139,7 +1203,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Seaweed"
           },
           {
             "id": "p2",
@@ -1149,7 +1214,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Pearl"
           },
           {
             "id": "p3",
@@ -1159,7 +1225,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Seashell"
           }
         ]
       },
@@ -1181,7 +1248,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Pearl"
         },
         "target": {
           "id": "target_octopus",
@@ -1191,7 +1259,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Octopus"
         }
       }
     ],
@@ -1249,7 +1318,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Starfish"
           },
           {
             "id": "c2",
@@ -1259,7 +1329,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Plastic Bottle"
           },
           {
             "id": "c3",
@@ -1269,7 +1340,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Coral"
           }
         ]
       },
@@ -1291,7 +1363,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Plastic Bottle"
         },
         "target": {
           "id": "target_bin",
@@ -1301,7 +1374,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Recycle Bin"
         }
       },
       {
@@ -1321,13 +1395,15 @@
             "id": "home_red",
             "label": "San hô đỏ",
             "assetKey": "home_coral_red",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Red Coral"
           },
           {
             "id": "home_blue",
             "label": "San hô xanh",
             "assetKey": "home_coral_blue",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Blue Coral"
           }
         ]
       }
@@ -1383,17 +1459,20 @@
           {
             "value": 3,
             "label": "3",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "4"
           },
           {
             "value": 5,
             "label": "5",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "5"
           }
         ]
       },
@@ -1414,13 +1493,15 @@
             "id": "opt_bubble",
             "label": "Bong bóng",
             "assetKey": "bubble_shield",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Bubble"
           },
           {
             "id": "opt_stone",
             "label": "Đá ngầm",
             "assetKey": "path_stones",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Underwater Rock"
           }
         ]
       },
@@ -1442,7 +1523,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Small Fish"
         },
         "target": {
           "id": "target_whale",
@@ -1452,7 +1534,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Blue Whale"
         }
       }
     ],
@@ -1510,7 +1593,8 @@
               "x": 220,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Underwater Rock"
           },
           {
             "id": "f2",
@@ -1520,7 +1604,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Starfish"
           },
           {
             "id": "f3",
@@ -1530,7 +1615,8 @@
               "x": 680,
               "y": 980
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Seaweed"
           }
         ]
       },
@@ -1551,17 +1637,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -1583,7 +1672,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Coral Castle"
         },
         "target": {
           "id": "target_stage",
@@ -1593,7 +1683,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 150
+          "radius": 150,
+          "labelEn": "Ocean Square"
         }
       }
     ],
@@ -1647,13 +1738,15 @@
             "id": "opt_carrot",
             "label": "Cỏ tươi / Cà rốt",
             "assetKey": "carrot",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Fresh Grass"
           },
           {
             "id": "opt_fish",
             "label": "Cá",
             "assetKey": "fish",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Fish"
           }
         ]
       },
@@ -1675,7 +1768,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Grass"
         },
         "target": {
           "id": "target_cow",
@@ -1685,7 +1779,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Little Cow"
         }
       },
       {
@@ -1705,13 +1800,15 @@
             "id": "home_yellow",
             "label": "Nhà vàng",
             "assetKey": "home_yellow",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Yellow House"
           },
           {
             "id": "home_blue",
             "label": "Nhà xanh",
             "assetKey": "home_blue",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Blue House"
           }
         ]
       }
@@ -1770,7 +1867,8 @@
               "x": 220,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Tree"
           },
           {
             "id": "t2",
@@ -1780,7 +1878,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Fruit"
           },
           {
             "id": "t3",
@@ -1790,7 +1889,8 @@
               "x": 680,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Rock"
           }
         ]
       },
@@ -1811,17 +1911,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -1842,13 +1945,15 @@
             "id": "home_red",
             "label": "Nhà đỏ",
             "assetKey": "home_red",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Red House"
           },
           {
             "id": "home_brown",
             "label": "Nhà nâu",
             "assetKey": "home_brown",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Brown House"
           }
         ]
       }
@@ -1904,13 +2009,15 @@
             "id": "opt_bamboo",
             "label": "Đường tre",
             "assetKey": "path_bamboo",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Bamboo Path"
           },
           {
             "id": "opt_mud",
             "label": "Bùn lầy",
             "assetKey": "path_mud",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Muddy Path"
           }
         ]
       },
@@ -1932,7 +2039,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Carrot"
         },
         "target": {
           "id": "target_sheep",
@@ -1942,7 +2050,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Sheep"
         }
       },
       {
@@ -1962,13 +2071,15 @@
             "id": "home_green",
             "label": "Nhà xanh lá",
             "assetKey": "home_green",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Green House"
           },
           {
             "id": "home_yellow",
             "label": "Nhà vàng",
             "assetKey": "home_yellow",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Yellow House"
           }
         ]
       }
@@ -2024,17 +2135,20 @@
           {
             "value": 3,
             "label": "3",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "4"
           },
           {
             "value": 5,
             "label": "5",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "5"
           }
         ]
       },
@@ -2055,13 +2169,15 @@
             "id": "opt_bridge",
             "label": "Cầu gỗ",
             "assetKey": "bridge_wood",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Wood Bridge"
           },
           {
             "id": "opt_rope",
             "label": "Cầu dây",
             "assetKey": "bridge_rope",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Rope Bridge"
           }
         ]
       },
@@ -2082,13 +2198,15 @@
             "id": "home_brown",
             "label": "Nhà nâu",
             "assetKey": "home_brown",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "Brown House"
           },
           {
             "id": "home_red",
             "label": "Nhà đỏ",
             "assetKey": "home_red",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "Red House"
           }
         ]
       }
@@ -2147,7 +2265,8 @@
               "x": 220,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Rock"
           },
           {
             "id": "t2",
@@ -2157,7 +2276,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Fresh Flower"
           },
           {
             "id": "t3",
@@ -2167,7 +2287,8 @@
               "x": 680,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Muddy Path"
           }
         ]
       },
@@ -2188,17 +2309,20 @@
           {
             "value": 2,
             "label": "2",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "2"
           },
           {
             "value": 3,
             "label": "3",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "3"
           },
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           }
         ]
       },
@@ -2220,7 +2344,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Carrot"
         },
         "target": {
           "id": "target_bee",
@@ -2230,7 +2355,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Beehive"
         }
       }
     ],
@@ -2288,7 +2414,8 @@
               "x": 220,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Water Pool"
           },
           {
             "id": "t2",
@@ -2298,7 +2425,8 @@
               "x": 450,
               "y": 1050
             },
-            "isTarget": true
+            "isTarget": true,
+            "labelEn": "Fresh Flower"
           },
           {
             "id": "t3",
@@ -2308,7 +2436,8 @@
               "x": 680,
               "y": 950
             },
-            "isTarget": false
+            "isTarget": false,
+            "labelEn": "Rock"
           }
         ]
       },
@@ -2329,17 +2458,20 @@
           {
             "value": 4,
             "label": "4",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "4"
           },
           {
             "value": 5,
             "label": "5",
-            "isCorrect": true
+            "isCorrect": true,
+            "labelEn": "5"
           },
           {
             "value": 6,
             "label": "6",
-            "isCorrect": false
+            "isCorrect": false,
+            "labelEn": "6"
           }
         ]
       },
@@ -2361,7 +2493,8 @@
           "startPos": {
             "x": 450,
             "y": 1080
-          }
+          },
+          "labelEn": "Yellow House"
         },
         "target": {
           "id": "target_center",
@@ -2371,7 +2504,8 @@
             "x": 450,
             "y": 500
           },
-          "radius": 140
+          "radius": 140,
+          "labelEn": "Town Square"
         }
       }
     ],

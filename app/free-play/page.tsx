@@ -6,6 +6,7 @@ import { AudioManager } from '@/game/systems/AudioManager';
 import { LevelManager } from '@/game/systems/LevelManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { Settings } from '@/game/types';
+import { pick, FREE_PLAY } from '@/lib/i18n';
 
 export default function FreePlayPage() {
   const [settings, setSettings] = useState<Settings>(ProgressManager.defaultSettings);

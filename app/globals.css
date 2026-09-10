@@ -1426,3 +1426,28 @@ button {
   0% { transform: translateY(0); }
   100% { transform: translateY(-6px); }
 }
+
+/* ── Language Toggle Button ───────────────────── */
+.lang-toggle-btn {
+  background: linear-gradient(135deg, #dcfce7, #d1fae5);
+  border: 2px solid #16a34a;
+  color: #15803d;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+.lang-toggle-btn:hover {
+  background: linear-gradient(135deg, #bbf7d0, #a7f3d0);
+  transform: scale(1.05);
+}
+.lang-toggle-btn:active {
+  transform: scale(0.95);
+}

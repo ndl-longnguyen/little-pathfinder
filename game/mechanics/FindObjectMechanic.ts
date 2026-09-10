@@ -48,7 +48,7 @@ export class FindObjectMechanic extends BaseMechanic {
 
     const img = this.scene.add.image(0, -10, item.assetKey).setScale(0.85);
     const label = this.scene.add
-      .text(0, 58, item.label, {
+      .text(0, 58, (this.language === 'en' && item.labelEn) ? item.labelEn : item.label, {
         color: '#1f2933',
         fontFamily: 'Arial',
         fontSize: '24px',

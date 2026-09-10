@@ -1,21 +1,32 @@
 {
   "name": "Animal Rescue Adventure",
   "short_name": "Animal Rescue",
-  "description": "Game giáo dục an toàn cho trẻ 1-6 tuổi - Little Pathfinder",
+  "description": "Game giáo dục an toàn cho trẻ 1-6 tuổi - Educational game for kids",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "background_color": "#f0fdf4",
   "theme_color": "#4b9d62",
+  "lang": "vi",
+  "dir": "ltr",
+  "categories": [
+    "education",
+    "games",
+    "kids"
+  ],
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

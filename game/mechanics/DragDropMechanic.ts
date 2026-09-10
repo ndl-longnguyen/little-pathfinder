@@ -39,7 +39,7 @@ export class DragDropMechanic extends BaseMechanic {
 
     const targetImg = this.scene.add.image(0, -10, target.assetKey).setScale(1.0);
     const targetLabel = this.scene.add
-      .text(0, 80, target.label, {
+      .text(0, 80, (this.language === 'en' && target.labelEn) ? target.labelEn : target.label, {
         color: '#174c39',
         fontFamily: 'Arial',
         fontSize: '26px',
@@ -61,7 +61,7 @@ export class DragDropMechanic extends BaseMechanic {
 
     const dragImg = this.scene.add.image(0, -20, draggable.assetKey).setScale(0.85);
     const dragLabel = this.scene.add
-      .text(0, 56, draggable.label, {
+      .text(0, 56, (this.language === 'en' && draggable.labelEn) ? draggable.labelEn : draggable.label, {
         color: '#1f2933',
         fontFamily: 'Arial',
         fontSize: '26px',

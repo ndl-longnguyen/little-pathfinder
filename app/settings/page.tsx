@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { ParentGateModal } from '@/components/ParentGateModal';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { AgeMode, Language, Progress, Settings } from '@/game/types';
+import { pick, SETTINGS } from '@/lib/i18n';
 
 const languages: Array<{ label: string; value: Language }> = [
   { label: 'Tiếng Việt', value: 'vi' },
@@ -83,20 +84,20 @@ export default function SettingsPage() {
 
         <div className="page-title-row">
           <div>
-            <h1>Góc Phụ Huynh & Cài Đặt</h1>
+            <h1>{pick(SETTINGS.title, settings.language)}</h1>
             <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800 }}>
-              Không gian điều chỉnh trải nghiệm học tập an toàn cho bé
+              {pick(SETTINGS.subtitle, settings.language)}
             </p>
           </div>
           <span className="compact-status">
-            Đã hoàn thành: {completedMissionsCount} nhiệm vụ
+            {pick(SETTINGS.completedCount, settings.language)}: {completedMissionsCount} {pick(SETTINGS.completedMissions, settings.language)}
           </span>
         </div>
 
         <section className="settings-grid" aria-label="Bảng điều khiển phụ huynh">
           {/* Main Controls Panel */}
           <div className="settings-panel">
-            <h2>Âm Thanh & Lời Thoại</h2>
+            <h2>{pick(SETTINGS.soundTitle, settings.language)}</h2>
             <div className="control-row">
               <button
                 aria-pressed={settings.sound}
@@ -104,12 +105,12 @@ export default function SettingsPage() {
                 onClick={() => void updateSettings({ sound: !settings.sound })}
                 type="button"
               >
-                <span>{settings.sound ? 'Bật âm thanh' : 'Tắt âm thanh'}</span>
+                <span>{settings.sound ? pick(SETTINGS.soundOn, settings.language) : pick(SETTINGS.soundOff, settings.language)}</span>
                 <span aria-hidden="true" className="toggle-knob" />
               </button>
             </div>
 
-            <h2>Ngôn Ngữ Giọng Đọc</h2>
+            <h2>{pick(SETTINGS.langTitle, settings.language)}</h2>
             <div className="control-row">
               <div className="segmented">
                 {languages.map((language) => (
@@ -125,7 +126,7 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <h2>Nhóm Tuổi Của Bé</h2>
+            <h2>{pick(SETTINGS.ageTitle, settings.language)}</h2>
             <div className="control-row">
               <div className="segmented">
                 {ageModes.map((ageMode) => (
@@ -142,9 +143,9 @@ export default function SettingsPage() {
             </div>
 
             {/* Learning Skills Summary */}
-            <h2 style={{ marginTop: '28px' }}>Kỹ Năng Bé Đã Rèn Luyện</h2>
+            <h2 style={{ marginTop: '28px' }}>{pick(SETTINGS.skillsTitle, settings.language)}</h2>
             <p style={{ margin: '0 0 12px', color: 'var(--muted)', fontSize: '0.9rem', fontWeight: 800 }}>
-              Ghi nhận các thử thách tích cực mà bé đã tương tác:
+              {pick(SETTINGS.skillsDesc, settings.language)}
             </p>
             <div className="skills-summary-grid">
               {Object.entries(skillDisplayNames).map(([key, item]) => {
@@ -164,13 +165,13 @@ export default function SettingsPage() {
 
           {/* Parent Security & Data Management Panel */}
           <aside className="settings-panel">
-            <h2>Khu Vực Bảo Mật Phụ Huynh</h2>
+            <h2>{pick(SETTINGS.securityTitle, settings.language)}</h2>
             <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '16px' }}>
-              Mọi hành động nhạy cảm đều được bảo vệ bởi Parent Gate (câu hỏi toán người lớn) để bé không vô tình bấm nhầm.
+              {pick(SETTINGS.securityDesc, settings.language)}
             </p>
 
             <div className="control-row">
-              <span className="control-label">Tiến Độ Hiện Tại</span>
+              <span className="control-label">{pick(SETTINGS.progressLabel, settings.language)}</span>
               <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '2px solid var(--line)' }}>
                 <div style={{ fontWeight: 900, color: 'var(--leaf-deep)', marginBottom: '4px' }}>
                   🐾 {rescuedAnimalsCount}/5 Bạn thú đã được cứu
@@ -185,20 +186,20 @@ export default function SettingsPage() {
             </div>
 
             <div className="control-row" style={{ marginTop: '24px' }}>
-              <span className="control-label">Xóa Tiến Trình Chơi</span>
+              <span className="control-label">{pick(SETTINGS.resetLabel, settings.language)}</span>
               <p style={{ fontSize: '0.85rem', color: 'var(--muted)', margin: '4px 0 10px' }}>
-                Khởi tạo lại trò chơi từ đầu để bé chơi lại từ đầu hành trình.
+                {pick(SETTINGS.resetDesc, settings.language)}
               </p>
               <Button
                 variant="coral"
                 onClick={() => setIsGateOpen(true)}
                 type="button"
               >
-                🔒 Mở Parent Gate để Reset
+                {pick(SETTINGS.resetBtn, settings.language)}
               </Button>
               {resetFeedback && (
                 <p style={{ color: 'var(--leaf-deep)', fontWeight: 900, marginTop: '8px' }}>
-                  ✓ Đã làm mới tiến trình thành công!
+                  {pick(SETTINGS.resetSuccess, settings.language)}
                 </p>
               )}
             </div>

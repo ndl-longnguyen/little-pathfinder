@@ -6,6 +6,7 @@ import stickers from '@/data/stickers.json';
 import { AudioManager } from '@/game/systems/AudioManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { Progress, Settings, StickerData } from '@/game/types';
+import { pick, STICKERS } from '@/lib/i18n';
 
 const allStickers = stickers as StickerData[];
 const stickerEmojis: Record<string, string> = {

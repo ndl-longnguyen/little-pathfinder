@@ -6,6 +6,7 @@ import { AudioManager } from '@/game/systems/AudioManager';
 import { LevelManager } from '@/game/systems/LevelManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { AnimalData, Progress, Settings } from '@/game/types';
+import { pick, ANIMAL_HOME } from '@/lib/i18n';
 
 export default function AnimalHomePage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
@@ -78,7 +79,7 @@ export default function AnimalHomePage() {
     if (!isUnlocked) {
       AudioManager.speak(
         settings.language === 'vi'
-          ? `Bạn ${animal.nameVi} đang chờ bé đến cứu ở các màn chơi nhé!`
+          ? settings.language === 'vi' ? `Bạn ${animal.nameVi} đang chờ bé đến cứu ở các màn chơi nhé!` : `${animal.nameEn} is waiting for you to rescue them!`
           : `${animal.nameEn} is waiting for you to rescue them in adventure missions!`,
         settings.language,
       );
@@ -104,13 +105,13 @@ export default function AnimalHomePage() {
 
         <div className="page-title-row">
           <div>
-            <h1>Ngôi Nhà Động Vật</h1>
+            <h1>{pick(ANIMAL_HOME.title, settings.language)}</h1>
             <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800 }}>
-              Khu vườn bình yên nơi các bạn thú đã được cứu cùng sum vầy sinh sống!
+              {pick(ANIMAL_HOME.subtitle, settings.language)}
             </p>
           </div>
           <span className="compact-status">
-            Đã đón về: {unlockedAnimals.length}/{allAnimals.length} bạn thú
+            {pick(ANIMAL_HOME.rescued, settings.language)}: {unlockedAnimals.length}/{allAnimals.length} {pick(ANIMAL_HOME.animalCount, settings.language)}
           </span>
         </div>
 
@@ -145,7 +146,7 @@ export default function AnimalHomePage() {
                     ? settings.language === 'vi'
                       ? animal.personalityVi
                       : animal.personalityEn
-                    : 'Đang chờ được cứu...'}
+                    : pick(ANIMAL_HOME.waiting, settings.language)}
                 </p>
 
                 <span
@@ -159,7 +160,7 @@ export default function AnimalHomePage() {
                     fontSize: '0.85rem',
                   }}
                 >
-                  {isUnlocked ? 'Đã về nhà 🏡' : 'Chưa cứu 🔒'}
+                  {isUnlocked ? pick(ANIMAL_HOME.atHome, settings.language) : pick(ANIMAL_HOME.notRescued, settings.language)}
                 </span>
               </div>
             );
@@ -184,7 +185,7 @@ export default function AnimalHomePage() {
             <div style={{ fontSize: '5rem', lineHeight: 1, filter: 'drop-shadow(0 6px 14px rgba(0,0,0,0.15))' }}>{animalEmojis[activeAnimal.id]}</div>
             <div>
               <h3 style={{ margin: '0 0 4px', color: 'var(--leaf-deep)' }}>
-                {settings.language === 'vi' ? activeAnimal.nameVi : activeAnimal.nameEn} trò chuyện:
+                {settings.language === 'vi' ? activeAnimal.nameVi : activeAnimal.nameEn} {pick(ANIMAL_HOME.chatLabel, settings.language)}
               </h3>
               <p style={{ margin: 0, color: '#1f2933', fontWeight: 800, fontSize: '1.05rem' }}>
                 {settings.language === 'vi' ? activeAnimal.funFactVi : activeAnimal.funFactEn}
@@ -196,7 +197,7 @@ export default function AnimalHomePage() {
         {/* Unlocked Decorations Shelf */}
         <section aria-label="Đồ trang trí khu rừng đã mở khóa">
           <h2 style={{ color: 'var(--leaf-deep)', margin: '24px 0 14px', fontSize: '1.5rem' }}>
-            Vật Phẩm Trang Trí Khu Rừng ({unlockedDecorations.length}/{allDecorations.length})
+            {pick(ANIMAL_HOME.decoTitle, settings.language)} ({unlockedDecorations.length}/{allDecorations.length})
           </h2>
           <div className="decorations-grid">
             {allDecorations.map((dec) => {
@@ -215,7 +216,7 @@ export default function AnimalHomePage() {
                       {dec.name[settings.language] || dec.name.vi}
                     </strong>
                     <span style={{ fontSize: '0.8rem', color: 'var(--muted)', fontWeight: 800 }}>
-                      {isUnlocked ? 'Đã trang trí' : 'Khóa'}
+                      {isUnlocked ? pick(ANIMAL_HOME.decorated, settings.language) : pick(ANIMAL_HOME.decoLocked, settings.language)}
                     </span>
                   </div>
                 </div>
