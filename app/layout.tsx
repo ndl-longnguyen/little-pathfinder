@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { SITE_URL, MAIN_SITE_URL } from '@/lib/config/site';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
@@ -20,6 +19,8 @@ export const metadata: Metadata = {
     'học màu sắc',
     'đếm số mầm non',
     'game offline trẻ em',
+    'game phát triển tư duy cho bé',
+    'game không quảng cáo cho trẻ em',
   ],
   authors: [{ name: 'Little Pathfinder Team' }],
   creator: 'Little Pathfinder',
@@ -28,20 +29,45 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
+      { url: '/icon-192.png', sizes: '192x192' },
+      { url: '/icon.png', sizes: '512x512' },
+    ],
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Animal Rescue Adventure – Game Giáo Dục Cho Bé 1-6 Tuổi',
     description:
-      'Trò chơi giáo dục theo cốt truyện an toàn, không quảng cáo, phát triển tư duy nhân - quả và nhận biết màu sắc cho trẻ 1-6 tuổi.',
+      'Trò chơi giáo dục theo cốt truyện an toàn, 100% không quảng cáo, phát triển tư duy nhân - quả và nhận biết màu sắc cho trẻ 1-6 tuổi.',
     url: SITE_URL,
     siteName: 'Animal Rescue Adventure',
     locale: 'vi_VN',
     type: 'website',
+    images: [
+      {
+        url: '/icon.png',
+        width: 512,
+        height: 512,
+        alt: 'Animal Rescue Adventure - Game Giáo Dục An Toàn Cho Bé',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Animal Rescue Adventure – Game Giáo Dục Cho Bé 1-6 Tuổi',
     description:
-      'Game giải cứu động vật vui nhộn, an toàn, không quảng cáo giúp bé khám phá thiên nhiên và phát triển tư duy.',
+      'Game giải cứu động vật vui nhộn, an toàn, 100% không quảng cáo giúp bé khám phá thiên nhiên và phát triển tư duy.',
+    images: ['/icon.png'],
   },
   robots: {
     index: true,
@@ -65,7 +91,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   viewportFit: 'cover',
   themeColor: '#4b9d62',
 };
@@ -102,7 +127,7 @@ const jsonLd = {
         priceCurrency: 'VND',
       },
       description:
-        'Trò chơi giáo dục giải cứu bạn động vật an toàn, không quảng cáo, giúp trẻ 1-6 tuổi phát triển tư duy, học đếm số và nhận biết màu sắc.',
+        'Trò chơi giáo dục giải cứu bạn động vật an toàn, 100% không quảng cáo, giúp trẻ 1-6 tuổi phát triển tư duy, học đếm số và nhận biết màu sắc.',
     },
   ],
 };
@@ -115,12 +140,10 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9166964727480227"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <meta name="google-adsense-account" content="ca-pub-9166964727480227" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
