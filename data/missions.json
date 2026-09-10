@@ -24,21 +24,37 @@
       {
         "id": "m1_c1",
         "mechanic": "choose",
-        "skills": ["animalRecognition", "matching"],
+        "skills": [
+          "animalRecognition",
+          "matching"
+        ],
         "prompt": {
           "vi": "Bạn Thỏ đang đói bụng. Thỏ thích ăn món gì nhỉ?",
           "en": "Bunny is hungry. What does Bunny love to eat?"
         },
         "targetAssetKey": "carrot",
         "options": [
-          { "id": "opt_carrot", "label": "Cà rốt", "assetKey": "carrot", "isCorrect": true },
-          { "id": "opt_fish", "label": "Cá", "assetKey": "fish", "isCorrect": false }
+          {
+            "id": "opt_carrot",
+            "label": "Cà rốt",
+            "assetKey": "carrot",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_fish",
+            "label": "Cá",
+            "assetKey": "fish",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m1_c2",
         "mechanic": "drag_drop",
-        "skills": ["fineMotor", "causeEffect"],
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
         "prompt": {
           "vi": "Bé hãy kéo củ cà rốt thơm ngon cho bạn Thỏ ăn nhé!",
           "en": "Drag the tasty carrot to feed Bunny!"
@@ -47,28 +63,47 @@
           "id": "drag_carrot",
           "label": "Cà rốt",
           "assetKey": "carrot",
-          "startPos": { "x": 450, "y": 1080 }
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
         },
         "target": {
           "id": "target_rabbit",
           "label": "Bạn Thỏ",
           "assetKey": "rabbit",
-          "targetPos": { "x": 450, "y": 500 },
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
           "radius": 140
         }
       },
       {
         "id": "m1_c3",
         "mechanic": "choose",
-        "skills": ["color", "matching"],
+        "skills": [
+          "color",
+          "matching"
+        ],
         "prompt": {
           "vi": "Đưa bạn Thỏ về đúng ngôi nhà màu đỏ nhé!",
           "en": "Help Bunny go to the red house!"
         },
         "targetAssetKey": "home_red",
         "options": [
-          { "id": "home_red", "label": "Nhà đỏ", "assetKey": "home_red", "isCorrect": true },
-          { "id": "home_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+          {
+            "id": "home_red",
+            "label": "Nhà đỏ",
+            "assetKey": "home_red",
+            "isCorrect": true
+          },
+          {
+            "id": "home_blue",
+            "label": "Nhà xanh",
+            "assetKey": "home_blue",
+            "isCorrect": false
+          }
         ]
       }
     ],
@@ -109,7 +144,10 @@
       {
         "id": "m2_c1",
         "mechanic": "counting",
-        "skills": ["counting", "observation"],
+        "skills": [
+          "counting",
+          "observation"
+        ],
         "prompt": {
           "vi": "Bé đếm xem có bao nhiêu chú cá nhỏ đang bơi dưới nước?",
           "en": "How many little fish are swimming in the water?"
@@ -117,29 +155,57 @@
         "itemAssetKey": "fish",
         "count": 2,
         "options": [
-          { "value": 1, "label": "1", "isCorrect": false },
-          { "value": 2, "label": "2", "isCorrect": true },
-          { "value": 3, "label": "3", "isCorrect": false }
+          {
+            "value": 1,
+            "label": "1",
+            "isCorrect": false
+          },
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": true
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m2_c2",
         "mechanic": "choose",
-        "skills": ["causeEffect", "observation"],
+        "skills": [
+          "causeEffect",
+          "observation"
+        ],
         "prompt": {
           "vi": "Chọn chiếc thuyền xinh xắn giúp bạn Vịt qua sông nhé!",
           "en": "Choose the little boat so Duck can cross safely!"
         },
         "targetAssetKey": "boat",
         "options": [
-          { "id": "opt_boat", "label": "Thuyền", "assetKey": "boat", "isCorrect": true },
-          { "id": "opt_mud", "label": "Bùn lầy", "assetKey": "path_mud", "isCorrect": false }
+          {
+            "id": "opt_boat",
+            "label": "Thuyền",
+            "assetKey": "boat",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_mud",
+            "label": "Bùn lầy",
+            "assetKey": "path_mud",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m2_c3",
         "mechanic": "drag_drop",
-        "skills": ["color", "fineMotor"],
+        "skills": [
+          "color",
+          "fineMotor"
+        ],
         "prompt": {
           "vi": "Kéo bạn Vịt vào ngôi nhà màu xanh dương mát rượi nào!",
           "en": "Drag Duck into the cozy blue house!"
@@ -148,13 +214,19 @@
           "id": "drag_duck",
           "label": "Bạn Vịt",
           "assetKey": "duck",
-          "startPos": { "x": 450, "y": 1080 }
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
         },
         "target": {
           "id": "target_home_blue",
           "label": "Nhà xanh",
           "assetKey": "home_blue",
-          "targetPos": { "x": 450, "y": 480 },
+          "targetPos": {
+            "x": 450,
+            "y": 480
+          },
           "radius": 150
         }
       }
@@ -196,45 +268,111 @@
       {
         "id": "m3_c1",
         "mechanic": "find_object",
-        "skills": ["observation", "animalRecognition"],
+        "skills": [
+          "observation",
+          "animalRecognition"
+        ],
         "prompt": {
           "vi": "Bé hãy chạm vào hũ mật ong vàng óng giấu trong khu rừng nhé!",
           "en": "Tap the golden honey pot hidden in the forest!"
         },
         "targets": [
-          { "id": "t1", "label": "Cây", "assetKey": "path_tree", "position": { "x": 220, "y": 950 }, "isTarget": false },
-          { "id": "t2", "label": "Mật ong", "assetKey": "honey", "position": { "x": 450, "y": 1050 }, "isTarget": true },
-          { "id": "t3", "label": "Đá", "assetKey": "path_stones", "position": { "x": 680, "y": 950 }, "isTarget": false }
+          {
+            "id": "t1",
+            "label": "Cây",
+            "assetKey": "path_tree",
+            "position": {
+              "x": 220,
+              "y": 950
+            },
+            "isTarget": false
+          },
+          {
+            "id": "t2",
+            "label": "Mật ong",
+            "assetKey": "honey",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "t3",
+            "label": "Đá",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 680,
+              "y": 950
+            },
+            "isTarget": false
+          }
         ]
       },
       {
         "id": "m3_c2",
         "mechanic": "choose",
-        "skills": ["causeEffect", "matching"],
+        "skills": [
+          "causeEffect",
+          "matching"
+        ],
         "prompt": {
           "vi": "Bác Gấu rất nặng, hãy chọn cây cầu gỗ chắc chắn cho bác nhé!",
           "en": "Bear is heavy! Choose the strong wooden bridge!"
         },
         "targetAssetKey": "bridge_wood",
         "options": [
-          { "id": "b_wood", "label": "Cầu gỗ", "assetKey": "bridge_wood", "isCorrect": true },
-          { "id": "b_rope", "label": "Cầu dây", "assetKey": "bridge_rope", "isCorrect": false },
-          { "id": "p_mud", "label": "Vũng bùn", "assetKey": "path_mud", "isCorrect": false }
+          {
+            "id": "b_wood",
+            "label": "Cầu gỗ",
+            "assetKey": "bridge_wood",
+            "isCorrect": true
+          },
+          {
+            "id": "b_rope",
+            "label": "Cầu dây",
+            "assetKey": "bridge_rope",
+            "isCorrect": false
+          },
+          {
+            "id": "p_mud",
+            "label": "Vũng bùn",
+            "assetKey": "path_mud",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m3_c3",
         "mechanic": "choose",
-        "skills": ["color", "matching"],
+        "skills": [
+          "color",
+          "matching"
+        ],
         "prompt": {
           "vi": "Bác Gấu muốn về ngôi nhà màu nâu gỗ ấm áp.",
           "en": "Bear wants to rest in the warm brown forest home."
         },
         "targetAssetKey": "home_brown",
         "options": [
-          { "id": "h_brown", "label": "Nhà nâu", "assetKey": "home_brown", "isCorrect": true },
-          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": false },
-          { "id": "h_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+          {
+            "id": "h_brown",
+            "label": "Nhà nâu",
+            "assetKey": "home_brown",
+            "isCorrect": true
+          },
+          {
+            "id": "h_yellow",
+            "label": "Nhà vàng",
+            "assetKey": "home_yellow",
+            "isCorrect": false
+          },
+          {
+            "id": "h_blue",
+            "label": "Nhà xanh",
+            "assetKey": "home_blue",
+            "isCorrect": false
+          }
         ]
       }
     ],
@@ -275,7 +413,10 @@
       {
         "id": "m4_c1",
         "mechanic": "counting",
-        "skills": ["counting", "observation"],
+        "skills": [
+          "counting",
+          "observation"
+        ],
         "prompt": {
           "vi": "Đếm xem trên cây có bao nhiêu quả chuối vàng chín mọng?",
           "en": "How many ripe bananas are on the tree?"
@@ -283,15 +424,30 @@
         "itemAssetKey": "banana",
         "count": 3,
         "options": [
-          { "value": 2, "label": "2", "isCorrect": false },
-          { "value": 3, "label": "3", "isCorrect": true },
-          { "value": 4, "label": "4", "isCorrect": false }
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m4_c2",
         "mechanic": "drag_drop",
-        "skills": ["fineMotor", "causeEffect"],
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
         "prompt": {
           "vi": "Kéo quả chuối vàng ngon lành cho bạn Khỉ ăn nào!",
           "en": "Drag the sweet yellow banana to feed Monkey!"
@@ -300,29 +456,53 @@
           "id": "drag_banana",
           "label": "Chuối",
           "assetKey": "banana",
-          "startPos": { "x": 450, "y": 1080 }
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
         },
         "target": {
           "id": "target_monkey",
           "label": "Bạn Khỉ",
           "assetKey": "monkey",
-          "targetPos": { "x": 450, "y": 480 },
+          "targetPos": {
+            "x": 450,
+            "y": 480
+          },
           "radius": 140
         }
       },
       {
         "id": "m4_c3",
         "mechanic": "choose",
-        "skills": ["color", "matching"],
+        "skills": [
+          "color",
+          "matching"
+        ],
         "prompt": {
           "vi": "Chọn ngôi nhà màu vàng rực rỡ cho bạn Khỉ nhé!",
           "en": "Pick the bright yellow house for little Monkey!"
         },
         "targetAssetKey": "home_yellow",
         "options": [
-          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": true },
-          { "id": "h_red", "label": "Nhà đỏ", "assetKey": "home_red", "isCorrect": false },
-          { "id": "h_blue", "label": "Nhà xanh", "assetKey": "home_blue", "isCorrect": false }
+          {
+            "id": "h_yellow",
+            "label": "Nhà vàng",
+            "assetKey": "home_yellow",
+            "isCorrect": true
+          },
+          {
+            "id": "h_red",
+            "label": "Nhà đỏ",
+            "assetKey": "home_red",
+            "isCorrect": false
+          },
+          {
+            "id": "h_blue",
+            "label": "Nhà xanh",
+            "assetKey": "home_blue",
+            "isCorrect": false
+          }
         ]
       }
     ],
@@ -363,45 +543,111 @@
       {
         "id": "m5_c1",
         "mechanic": "find_object",
-        "skills": ["observation", "matching"],
+        "skills": [
+          "observation",
+          "matching"
+        ],
         "prompt": {
           "vi": "Chạm vào khóm tre trúc xanh mát trong rừng giúp Gấu Trúc!",
           "en": "Tap the fresh green bamboo grove for Panda!"
         },
         "targets": [
-          { "id": "p1", "label": "Bông hoa", "assetKey": "path_flowers", "position": { "x": 220, "y": 980 }, "isTarget": false },
-          { "id": "p2", "label": "Tre trúc", "assetKey": "bamboo", "position": { "x": 450, "y": 1050 }, "isTarget": true },
-          { "id": "p3", "label": "Cây nấm", "assetKey": "path_tree", "position": { "x": 680, "y": 980 }, "isTarget": false }
+          {
+            "id": "p1",
+            "label": "Bông hoa",
+            "assetKey": "path_flowers",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "p2",
+            "label": "Tre trúc",
+            "assetKey": "bamboo",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "p3",
+            "label": "Cây nấm",
+            "assetKey": "path_tree",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
         ]
       },
       {
         "id": "m5_c2",
         "mechanic": "choose",
-        "skills": ["causeEffect", "matching"],
+        "skills": [
+          "causeEffect",
+          "matching"
+        ],
         "prompt": {
           "vi": "Chọn con đường lát tre xanh để bạn Gấu Trúc bước đi nhé!",
           "en": "Choose the bamboo path for Panda to walk on!"
         },
         "targetAssetKey": "path_bamboo",
         "options": [
-          { "id": "p_bamboo", "label": "Đường tre", "assetKey": "path_bamboo", "isCorrect": true },
-          { "id": "p_mud", "label": "Vũng bùn", "assetKey": "path_mud", "isCorrect": false },
-          { "id": "p_stones", "label": "Đá gập ghềnh", "assetKey": "path_stones", "isCorrect": false }
+          {
+            "id": "p_bamboo",
+            "label": "Đường tre",
+            "assetKey": "path_bamboo",
+            "isCorrect": true
+          },
+          {
+            "id": "p_mud",
+            "label": "Vũng bùn",
+            "assetKey": "path_mud",
+            "isCorrect": false
+          },
+          {
+            "id": "p_stones",
+            "label": "Đá gập ghềnh",
+            "assetKey": "path_stones",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m5_c3",
         "mechanic": "choose",
-        "skills": ["color", "matching"],
+        "skills": [
+          "color",
+          "matching"
+        ],
         "prompt": {
           "vi": "Đưa bạn Gấu Trúc về ngôi nhà màu xanh lá cây mát lành!",
           "en": "Guide Panda into the peaceful green house!"
         },
         "targetAssetKey": "home_green",
         "options": [
-          { "id": "h_green", "label": "Nhà xanh lá", "assetKey": "home_green", "isCorrect": true },
-          { "id": "h_brown", "label": "Nhà nâu", "assetKey": "home_brown", "isCorrect": false },
-          { "id": "h_yellow", "label": "Nhà vàng", "assetKey": "home_yellow", "isCorrect": false }
+          {
+            "id": "h_green",
+            "label": "Nhà xanh lá",
+            "assetKey": "home_green",
+            "isCorrect": true
+          },
+          {
+            "id": "h_brown",
+            "label": "Nhà nâu",
+            "assetKey": "home_brown",
+            "isCorrect": false
+          },
+          {
+            "id": "h_yellow",
+            "label": "Nhà vàng",
+            "assetKey": "home_yellow",
+            "isCorrect": false
+          }
         ]
       }
     ],
@@ -442,21 +688,54 @@
       {
         "id": "m6_c1",
         "mechanic": "find_object",
-        "skills": ["observation", "color"],
+        "skills": [
+          "observation",
+          "color"
+        ],
         "prompt": {
           "vi": "Tìm bông hoa sắc màu rực rỡ nhất để cài lên cổng chào khu rừng!",
           "en": "Find the colorful flower to decorate the forest entrance!"
         },
         "targets": [
-          { "id": "f1", "label": "Tảng đá", "assetKey": "path_stones", "position": { "x": 220, "y": 980 }, "isTarget": false },
-          { "id": "f2", "label": "Hoa tươi", "assetKey": "path_flowers", "position": { "x": 450, "y": 1050 }, "isTarget": true },
-          { "id": "f3", "label": "Vũng nước", "assetKey": "path_pond", "position": { "x": 680, "y": 980 }, "isTarget": false }
+          {
+            "id": "f1",
+            "label": "Tảng đá",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "f2",
+            "label": "Hoa tươi",
+            "assetKey": "path_flowers",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "f3",
+            "label": "Vũng nước",
+            "assetKey": "path_pond",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
         ]
       },
       {
         "id": "m6_c2",
         "mechanic": "counting",
-        "skills": ["counting", "observation"],
+        "skills": [
+          "counting",
+          "observation"
+        ],
         "prompt": {
           "vi": "Bé hãy đếm xem trong làng có bao nhiêu củ cà rốt ngon cho các bạn thú?",
           "en": "Count how many delicious carrots are prepared for the party!"
@@ -464,15 +743,30 @@
         "itemAssetKey": "carrot",
         "count": 3,
         "options": [
-          { "value": 2, "label": "2", "isCorrect": false },
-          { "value": 3, "label": "3", "isCorrect": true },
-          { "value": 4, "label": "4", "isCorrect": false }
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
         ]
       },
       {
         "id": "m6_c3",
         "mechanic": "drag_drop",
-        "skills": ["fineMotor", "causeEffect"],
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
         "prompt": {
           "vi": "Kéo ngôi nhà cầu vồng vào giữa quảng trường để mở đại tiệc nào!",
           "en": "Drag the rainbow house to the square to start the grand party!"
@@ -481,13 +775,19 @@
           "id": "drag_home",
           "label": "Nhà cầu vồng",
           "assetKey": "home_yellow",
-          "startPos": { "x": 450, "y": 1080 }
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
         },
         "target": {
           "id": "target_square",
           "label": "Quảng trường",
           "assetKey": "path_flowers",
-          "targetPos": { "x": 450, "y": 500 },
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
           "radius": 150
         }
       }
@@ -495,6 +795,811 @@
     "reward": {
       "stickerId": "sticker_flower_path_01",
       "decorationId": "dec_rainbow_home",
+      "stars": 3
+    },
+    "map": {
+      "x": 500,
+      "y": 1250,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 7,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Cá Heo Lạc Sóng",
+      "en": "Baby Dolphin's Way Home"
+    },
+    "animalId": "dolphin",
+    "backgroundKey": "bg_ocean_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Cá Heo nhỏ mải đuổi sóng nên bị lạc đàn. Hãy cho Cá Heo ăn no và đưa bạn về rạn san hô xanh nhé!",
+        "en": "Baby Dolphin got lost while chasing waves. Let's feed Dolphin and guide him back to the blue coral reef!"
+      },
+      "introAudio": "/audio/vi/level_001_intro.mp3",
+      "successText": {
+        "vi": "Tuyệt vời! Bạn Cá Heo đã nhảy múa vui sướng đoàn tụ cùng đàn cá heo dưới biển xanh rồi!",
+        "en": "Hooray! Baby Dolphin leaped with joy and safely reunited with family!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m7_c1",
+        "mechanic": "choose",
+        "skills": [
+          "causeEffect",
+          "animalRecognition"
+        ],
+        "prompt": {
+          "vi": "Cá Heo đang đói bụng rồi, bạn ấy thích ăn món gì dưới biển nhỉ?",
+          "en": "Dolphin is hungry! What does Dolphin like to eat?"
+        },
+        "targetAssetKey": "fish",
+        "options": [
+          {
+            "id": "opt_fish",
+            "label": "Cá nhỏ",
+            "assetKey": "fish",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_banana",
+            "label": "Chuối",
+            "assetKey": "banana",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_carrot",
+            "label": "Cà rốt",
+            "assetKey": "carrot",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m7_c2",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Bé hãy kéo chú cá nhỏ thơm ngon cho bạn Cá Heo ăn nhé!",
+          "en": "Drag the yummy little fish to feed Dolphin!"
+        },
+        "draggable": {
+          "id": "drag_fish",
+          "label": "Cá nhỏ",
+          "assetKey": "fish",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_dolphin",
+          "label": "Bạn Cá Heo",
+          "assetKey": "dolphin",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      },
+      {
+        "id": "m7_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Đưa bạn Cá Heo về đúng rạn san hô màu xanh dương nhé!",
+          "en": "Help Dolphin swim to the blue coral home!"
+        },
+        "targetAssetKey": "home_coral_blue",
+        "options": [
+          {
+            "id": "coral_blue",
+            "label": "San hô xanh",
+            "assetKey": "home_coral_blue",
+            "isCorrect": true
+          },
+          {
+            "id": "coral_red",
+            "label": "San hô đỏ",
+            "assetKey": "home_coral_red",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_dolphin_01",
+      "animalId": "dolphin",
+      "decorationId": "dec_coral_pink",
+      "stars": 3
+    },
+    "map": {
+      "x": 220,
+      "y": 150,
+      "chapter": 1
+    }
+  },
+  {
+    "id": 8,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Rùa Biển Vượt Rạn San Hô",
+      "en": "Sea Turtle's Coral Passage"
+    },
+    "animalId": "turtle",
+    "backgroundKey": "bg_ocean_01",
+    "story": {
+      "introText": {
+        "vi": "Bạn Rùa Biển nhỏ cần vượt qua bãi đá san hô để về bãi cát ấm áp. Hãy giúp bạn Rùa nhé!",
+        "en": "Little Sea Turtle needs to cross the coral rocks to reach the warm sandy beach. Let us help!"
+      },
+      "introAudio": "/audio/vi/level_003_intro.mp3",
+      "successText": {
+        "vi": "Hoan hô! Bạn Rùa Biển đã bơi nhẹ nhàng qua rạn san hô và về đến bờ cát vàng an toàn!",
+        "en": "Splendid! Sea Turtle glided safely across the reef to the warm golden sands!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m8_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Chạm vào khóm rong biển xanh mướt cho bạn Rùa Biển nạp năng lượng!",
+          "en": "Tap the fresh green seaweed to give Sea Turtle energy!"
+        },
+        "targets": [
+          {
+            "id": "t1",
+            "label": "Đá ngầm",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "t2",
+            "label": "Rong biển",
+            "assetKey": "seaweed",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "t3",
+            "label": "Bùn đáy",
+            "assetKey": "path_mud",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m8_c2",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo cọng rong biển tươi ngon cho bạn Rùa Biển nhấm nháp nào!",
+          "en": "Drag the tasty seaweed to feed Sea Turtle!"
+        },
+        "draggable": {
+          "id": "drag_seaweed",
+          "label": "Rong biển",
+          "assetKey": "seaweed",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_turtle",
+          "label": "Bạn Rùa",
+          "assetKey": "turtle",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      },
+      {
+        "id": "m8_c3",
+        "mechanic": "choose",
+        "skills": [
+          "causeEffect",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Chọn con đường cát mịn màng để bạn Rùa bơi êm ái nhé!",
+          "en": "Choose the smooth sandy path for Turtle to swim smoothly!"
+        },
+        "targetAssetKey": "path_sand",
+        "options": [
+          {
+            "id": "opt_sand",
+            "label": "Đường cát",
+            "assetKey": "path_sand",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_mud",
+            "label": "Bùn lầy",
+            "assetKey": "path_mud",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_turtle_01",
+      "animalId": "turtle",
+      "decorationId": "dec_sea_shell",
+      "stars": 3
+    },
+    "map": {
+      "x": 680,
+      "y": 340,
+      "chapter": 1
+    }
+  },
+  {
+    "id": 9,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Bạch Tuộc & Kho Báu Ngọc Trai",
+      "en": "Octopus & Pearl Treasure"
+    },
+    "animalId": "octopus",
+    "backgroundKey": "bg_ocean_02",
+    "story": {
+      "introText": {
+        "vi": "Bạn Bạch Tuộc tìm thấy chiếc vỏ sò bí mật trong hang đá nhưng cần mở ra để ngắm ngọc trai lấp lánh!",
+        "en": "Octopus found a secret seashell in the cavern. Help Octopus discover the glowing pearl!"
+      },
+      "introAudio": "/audio/vi/level_005_intro.mp3",
+      "successText": {
+        "vi": "Kỳ diệu quá! Viên ngọc trai tỏa ánh sáng lung linh khắp đáy biển, Bạch Tuộc vui sướng nhảy múa!",
+        "en": "Magical! The glowing pearl shines bright across the sea floor, Octopus is overjoyed!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m9_c1",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé hãy đếm xem có bao nhiêu chiếc vỏ sò lấp lánh dưới đáy biển?",
+          "en": "Count how many sparkling seashells are resting on the seabed!"
+        },
+        "itemAssetKey": "seashell",
+        "count": 3,
+        "options": [
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m9_c2",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "color"
+        ],
+        "prompt": {
+          "vi": "Chạm vào viên ngọc trai phát sáng thần kỳ cho Bạch Tuộc!",
+          "en": "Tap the magical glowing pearl for Octopus!"
+        },
+        "targets": [
+          {
+            "id": "p1",
+            "label": "Rong biển",
+            "assetKey": "seaweed",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "p2",
+            "label": "Ngọc trai",
+            "assetKey": "pearl",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "p3",
+            "label": "Vỏ ốc",
+            "assetKey": "seashell",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m9_c3",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo viên ngọc trai tỏa sáng vào giữa xúc tu của Bạch Tuộc nào!",
+          "en": "Drag the shining pearl into Octopus arms!"
+        },
+        "draggable": {
+          "id": "drag_pearl",
+          "label": "Ngọc trai",
+          "assetKey": "pearl",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_octopus",
+          "label": "Bạch Tuộc",
+          "assetKey": "octopus",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_octopus_01",
+      "animalId": "octopus",
+      "decorationId": "dec_pearl_bubble",
+      "stars": 3
+    },
+    "map": {
+      "x": 300,
+      "y": 560,
+      "chapter": 2
+    }
+  },
+  {
+    "id": 10,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Dọn Rác Biển Cùng Cua Càng",
+      "en": "Ocean Cleanup with Crab"
+    },
+    "animalId": "crab",
+    "backgroundKey": "bg_ocean_02",
+    "story": {
+      "introText": {
+        "vi": "Có chiếc chai nhựa trôi dạt làm bẩn rạn san hô! Bạn Cua Càng cần bé giúp nhặt sạch để bảo vệ đại dương.",
+        "en": "A plastic bottle drifted into the coral! Friendly Crab needs your help to clean it up and protect sea life."
+      },
+      "introAudio": "/audio/vi/level_007_intro.mp3",
+      "successText": {
+        "vi": "Bé thật dũng cảm và tuyệt vời! Rạn san hô đã sạch bóng, bạn Cua vẫy càng cảm ơn bé!",
+        "en": "You are a wonderful eco-hero! The reef is sparkling clean and Crab happily waves pincers!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m10_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Bé hãy tìm chiếc chai nhựa làm bẩn rạn san hô để nhặt đi nhé!",
+          "en": "Spot the plastic bottle stuck in the corals to clean it!"
+        },
+        "targets": [
+          {
+            "id": "c1",
+            "label": "Sao biển",
+            "assetKey": "starfish",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "c2",
+            "label": "Chai nhựa",
+            "assetKey": "plastic_bottle",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "c3",
+            "label": "San hô",
+            "assetKey": "coral_pink",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m10_c2",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo chai nhựa bỏ vào giỏ tái chế để giữ biển luôn sạch đẹp!",
+          "en": "Drag the plastic bottle into the recycle bin!"
+        },
+        "draggable": {
+          "id": "drag_trash",
+          "label": "Chai nhựa",
+          "assetKey": "plastic_bottle",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_bin",
+          "label": "Giỏ tái chế",
+          "assetKey": "trash_bin",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      },
+      {
+        "id": "m10_c3",
+        "mechanic": "choose",
+        "skills": [
+          "color",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Đưa bạn Cua Càng về nghỉ ngơi trong ngôi nhà san hô màu đỏ rực rỡ!",
+          "en": "Help Crab enter the cozy red coral home!"
+        },
+        "targetAssetKey": "home_coral_red",
+        "options": [
+          {
+            "id": "home_red",
+            "label": "San hô đỏ",
+            "assetKey": "home_coral_red",
+            "isCorrect": true
+          },
+          {
+            "id": "home_blue",
+            "label": "San hô xanh",
+            "assetKey": "home_coral_blue",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_crab_01",
+      "animalId": "crab",
+      "decorationId": "dec_starfish",
+      "stars": 3
+    },
+    "map": {
+      "x": 720,
+      "y": 780,
+      "chapter": 2
+    }
+  },
+  {
+    "id": 11,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Khúc Hát Cá Voi Xanh",
+      "en": "Blue Whale's Ocean Song"
+    },
+    "animalId": "whale",
+    "backgroundKey": "bg_ocean_03",
+    "story": {
+      "introText": {
+        "vi": "Bác Cá Voi Xanh khổng lồ muốn cất tiếng hát du dương ru các bạn nhỏ ngủ ngoan dưới biển.",
+        "en": "Giant Blue Whale wants to sing a soothing ocean melody for all marine friends."
+      },
+      "introAudio": "/audio/vi/level_009_intro.mp3",
+      "successText": {
+        "vi": "Giai điệu diệu kỳ của Cá Voi Xanh vang vọng khắp đại dương, mang lại bình yên và niềm vui!",
+        "en": "Whale's wondrous song echoes across the vast sea, bringing harmony and sweet dreams!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m11_c1",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé đếm xem có bao nhiêu bạn Sao Biển vàng đang hòa âm cùng Bác Cá Voi?",
+          "en": "Count how many golden Starfish are singing along with Whale!"
+        },
+        "itemAssetKey": "starfish",
+        "count": 4,
+        "options": [
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": false
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": true
+          },
+          {
+            "value": 5,
+            "label": "5",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m11_c2",
+        "mechanic": "choose",
+        "skills": [
+          "causeEffect",
+          "matching"
+        ],
+        "prompt": {
+          "vi": "Chọn bong bóng âm nhạc để truyền tiếng hát của Bác Cá Voi đi thật xa nhé!",
+          "en": "Choose the music bubble to send Whale songs far across the waves!"
+        },
+        "targetAssetKey": "bubble_shield",
+        "options": [
+          {
+            "id": "opt_bubble",
+            "label": "Bong bóng",
+            "assetKey": "bubble_shield",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_stone",
+            "label": "Đá ngầm",
+            "assetKey": "path_stones",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m11_c3",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo đàn cá nhỏ bổ dưỡng đến bồi bổ sức khỏe cho Bác Cá Voi Xanh nào!",
+          "en": "Drag little fish to feed giant Blue Whale!"
+        },
+        "draggable": {
+          "id": "drag_fish",
+          "label": "Cá nhỏ",
+          "assetKey": "fish",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_whale",
+          "label": "Bác Cá Voi",
+          "assetKey": "whale",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_whale_01",
+      "animalId": "whale",
+      "decorationId": "dec_sea_castle",
+      "stars": 3
+    },
+    "map": {
+      "x": 260,
+      "y": 1020,
+      "chapter": 3
+    }
+  },
+  {
+    "id": 12,
+    "worldId": "ocean",
+    "title": {
+      "vi": "Đại Tiệc Đại Dương Kỳ Diệu",
+      "en": "Grand Ocean Festival"
+    },
+    "animalId": "dolphin",
+    "backgroundKey": "bg_ocean_03",
+    "story": {
+      "introText": {
+        "vi": "Tất cả các bạn sinh vật biển đều đã bình an! Hãy trang hoàng Lâu Đài San Hô để mở đại tiệc nào!",
+        "en": "All sea animals are safe and happy! Let us decorate the Coral Palace for the grand ocean party!"
+      },
+      "introAudio": "/audio/vi/reward_01.mp3",
+      "successText": {
+        "vi": "Hoan hô! Bé là Hiệp Sĩ Biển Xanh xuất sắc nhất! Đại dương rực rỡ ngập tràn ánh sáng và tiếng cười!",
+        "en": "Hooray! You are the greatest Ocean Guardian! The crystal ocean glows with joy and laughter!"
+      },
+      "successAudio": "/audio/vi/success_01.mp3"
+    },
+    "challenges": [
+      {
+        "id": "m12_c1",
+        "mechanic": "find_object",
+        "skills": [
+          "observation",
+          "color"
+        ],
+        "prompt": {
+          "vi": "Tìm bạn Sao Biển rực rỡ để gắn lên đỉnh tháp Lâu Đài San Hô nhé!",
+          "en": "Find the radiant golden Starfish to crown the Coral Palace tower!"
+        },
+        "targets": [
+          {
+            "id": "f1",
+            "label": "Đá ngầm",
+            "assetKey": "path_stones",
+            "position": {
+              "x": 220,
+              "y": 980
+            },
+            "isTarget": false
+          },
+          {
+            "id": "f2",
+            "label": "Sao biển",
+            "assetKey": "starfish",
+            "position": {
+              "x": 450,
+              "y": 1050
+            },
+            "isTarget": true
+          },
+          {
+            "id": "f3",
+            "label": "Rong biển",
+            "assetKey": "seaweed",
+            "position": {
+              "x": 680,
+              "y": 980
+            },
+            "isTarget": false
+          }
+        ]
+      },
+      {
+        "id": "m12_c2",
+        "mechanic": "counting",
+        "skills": [
+          "counting",
+          "observation"
+        ],
+        "prompt": {
+          "vi": "Bé hãy đếm xem có bao nhiêu viên ngọc trai tỏa sáng thắp đèn cho bữa tiệc?",
+          "en": "Count how many glowing pearls are lighting up the grand celebration!"
+        },
+        "itemAssetKey": "pearl",
+        "count": 3,
+        "options": [
+          {
+            "value": 2,
+            "label": "2",
+            "isCorrect": false
+          },
+          {
+            "value": 3,
+            "label": "3",
+            "isCorrect": true
+          },
+          {
+            "value": 4,
+            "label": "4",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "m12_c3",
+        "mechanic": "drag_drop",
+        "skills": [
+          "fineMotor",
+          "causeEffect"
+        ],
+        "prompt": {
+          "vi": "Kéo Lâu Đài San Hô vào giữa quảng trường đáy biển để bắt đầu đại tiệc!",
+          "en": "Drag the Coral Palace to the center to begin the ocean party!"
+        },
+        "draggable": {
+          "id": "drag_castle",
+          "label": "Lâu Đài San Hô",
+          "assetKey": "home_coral_reef",
+          "startPos": {
+            "x": 450,
+            "y": 1080
+          }
+        },
+        "target": {
+          "id": "target_stage",
+          "label": "Quảng trường đáy biển",
+          "assetKey": "coral_pink",
+          "targetPos": {
+            "x": 450,
+            "y": 500
+          },
+          "radius": 150
+        }
+      }
+    ],
+    "reward": {
+      "stickerId": "sticker_seashell_01",
+      "decorationId": "dec_sea_castle",
       "stars": 3
     },
     "map": {

@@ -53,5 +53,60 @@
     "personalityEn": "Chubby, peaceful, and loves crunching fresh bamboo.",
     "funFactVi": "Gấu Trúc có thể ăn tre trúc suốt 12 tiếng mỗi ngày mà không thấy chán!",
     "funFactEn": "Giant pandas can spend up to 12 hours a day happily eating bamboo!"
+  },
+  {
+    "id": "dolphin",
+    "nameVi": "Bạn Cá Heo",
+    "nameEn": "Dolphin",
+    "assetKey": "dolphin",
+    "favoriteAssetKey": "fish",
+    "personalityVi": "Thông minh, lanh lợi và thích nhào lộn trên sóng biển.",
+    "personalityEn": "Clever, joyful, and loves doing flips above the ocean waves.",
+    "funFactVi": "Cá heo có thể bơi lượn cực nhanh và dùng âm thanh để trò chuyện với bạn bè dưới biển!",
+    "funFactEn": "Dolphins swim super fast and use clicks and whistles to talk underwater!"
+  },
+  {
+    "id": "turtle",
+    "nameVi": "Bạn Rùa Biển",
+    "nameEn": "Sea Turtle",
+    "assetKey": "turtle",
+    "favoriteAssetKey": "seaweed",
+    "personalityVi": "Điềm tĩnh, kiên trì và bơi lội nhẹ nhàng qua ngàn dặm đại dương.",
+    "personalityEn": "Calm, steady, and glides gently across thousands of ocean miles.",
+    "funFactVi": "Rùa biển có thể nín thở rất lâu dưới nước và chiếc mai rùa bảo vệ bạn ấy khỏi mọi nguy hiểm!",
+    "funFactEn": "Sea turtles can hold their breath for hours and their shell keeps them safe!"
+  },
+  {
+    "id": "octopus",
+    "nameVi": "Bạn Bạch Tuộc",
+    "nameEn": "Octopus",
+    "assetKey": "octopus",
+    "favoriteAssetKey": "seashell",
+    "personalityVi": "Tinh nghịch, thích đổi màu và khám phá các hang đá bí ẩn.",
+    "personalityEn": "Curious, loves camouflage, and explores secret ocean caves.",
+    "funFactVi": "Bạch Tuộc có tới 3 trái tim và 8 xúc tu siêu khéo léo để giải quyết mọi thử thách!",
+    "funFactEn": "Octopuses have 3 hearts and 8 super flexible arms that can solve puzzles!"
+  },
+  {
+    "id": "crab",
+    "nameVi": "Bạn Cua Càng",
+    "nameEn": "Crab",
+    "assetKey": "crab",
+    "favoriteAssetKey": "pearl",
+    "personalityVi": "Chăm chỉ, thích đi ngang và làm vệ sinh bờ cát sạch đẹp.",
+    "personalityEn": "Hardworking, walks sideways, and keeps the sandy beach tidy.",
+    "funFactVi": "Cua có chiếc càng to khỏe để nhặt rác và bảo vệ ngôi nhà san hô của mình!",
+    "funFactEn": "Crabs have strong pincers to pick up treasures and protect their coral homes!"
+  },
+  {
+    "id": "whale",
+    "nameVi": "Bác Cá Voi",
+    "nameEn": "Blue Whale",
+    "assetKey": "whale",
+    "favoriteAssetKey": "fish",
+    "personalityVi": "Bác cá voi hiền lành khổng lồ với giọng hát du dương khắp đại dương.",
+    "personalityEn": "A gentle giant with a melodious song echoing across the ocean.",
+    "funFactVi": "Cá voi xanh là người bạn to lớn nhất hành tinh, mỗi lần thở tạo nên đài phun nước tuyệt đẹp!",
+    "funFactEn": "Blue whales are the biggest animals on Earth and shoot huge water spouts when breathing!"
   }
 ]

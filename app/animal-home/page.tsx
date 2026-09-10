@@ -48,6 +48,11 @@ export default function AnimalHomePage() {
     bear: '🐻',
     monkey: '🐵',
     panda: '🐼',
+    dolphin: '🐬',
+    turtle: '🐢',
+    octopus: '🐙',
+    crab: '🦀',
+    whale: '🐋',
   };
 
   const decEmojis: Record<string, string> = {
@@ -57,6 +62,11 @@ export default function AnimalHomePage() {
     dec_bamboo_garden: '🎋',
     dec_honey_pot: '🍯',
     dec_rainbow_home: '🌈',
+    dec_coral_pink: '🪸',
+    dec_sea_shell: '🐚',
+    dec_pearl_bubble: '🫧',
+    dec_starfish: '⭐',
+    dec_sea_castle: '🏰',
   };
 
   function handleAnimalTap(animal: AnimalData, isUnlocked: boolean) {

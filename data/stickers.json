@@ -1,22 +1,210 @@
 [
-  { "id": "sticker_rabbit_01", "name": "Happy Rabbit", "category": "animals", "assetKey": "sticker_rabbit_01", "factVi": "Bạn Thỏ nhảy rất xa và thích kết bạn trong rừng!", "factEn": "Bunny can leap far and loves making new woodland friends!" },
-  { "id": "sticker_carrot_01", "name": "Crunchy Carrot", "category": "food", "assetKey": "sticker_carrot_01", "factVi": "Cà rốt chứa nhiều vitamin A giúp mắt bé sáng ngời!", "factEn": "Carrots are full of Vitamin A for healthy bright eyes!" },
-  { "id": "sticker_duck_01", "name": "Brave Duck", "category": "animals", "assetKey": "sticker_duck_01", "factVi": "Vịt con bơi lội tung tăng trong dòng suối mát lành.", "factEn": "Little ducks splash and swim happily in clean fresh water." },
-  { "id": "sticker_banana_01", "name": "Sweet Banana", "category": "food", "assetKey": "sticker_banana_01", "factVi": "Chuối chín ngọt lịm cung cấp thật nhiều năng lượng!", "factEn": "Sweet ripe bananas give lots of energy for climbing and playing!" },
-  { "id": "sticker_bridge_01", "name": "Strong Bridge", "category": "bridges", "assetKey": "sticker_bridge_01", "factVi": "Cây cầu nối hai bờ giúp muôn loài qua lại an toàn.", "factEn": "A strong bridge connects both banks so friends can cross safely." },
-  { "id": "sticker_blue_home_01", "name": "Blue Home", "category": "houses", "assetKey": "sticker_blue_home_01", "factVi": "Ngôi nhà màu xanh dương êm dịu bên bờ sông.", "factEn": "A peaceful blue home resting softly by the calm river." },
-  { "id": "sticker_bamboo_01", "name": "Fresh Bamboo", "category": "food", "assetKey": "sticker_bamboo_01", "factVi": "Tre trúc xanh tốt mọc thành rừng mát rượi.", "factEn": "Fresh bamboo grows tall and creates cool leafy shade." },
-  { "id": "sticker_flower_path_01", "name": "Flower Path", "category": "flowers", "assetKey": "sticker_flower_path_01", "factVi": "Đường hoa thơm ngát dẫn lối về ngôi làng hạnh phúc.", "factEn": "A fragrant flower path leading to the happy village." },
-  { "id": "sticker_tree_path_01", "name": "Tree Path", "category": "trees", "assetKey": "sticker_tree_path_01", "factVi": "Hàng cây rợp bóng che mát cho muông thú qua đường.", "factEn": "Tall green trees give cool shade to travelers." },
-  { "id": "sticker_honey_01", "name": "Honey Pot", "category": "food", "assetKey": "sticker_honey_01", "factVi": "Mật ong tự nhiên thơm lừng và ngọt ngào.", "factEn": "Natural forest honey is sweet, golden, and delicious." },
-  { "id": "sticker_green_home_01", "name": "Green Home", "category": "houses", "assetKey": "sticker_green_home_01", "factVi": "Ngôi nhà xanh lá hòa mình cùng thiên nhiên tươi đẹp.", "factEn": "A cozy green house blending harmoniously with nature." },
-  { "id": "sticker_fish_01", "name": "Little Fish", "category": "food", "assetKey": "sticker_fish_01", "factVi": "Chú cá bơi lượn uốn khúc dưới làn nước trong vắt.", "factEn": "Little fish swim gracefully in the crystal-clear stream." },
-  { "id": "sticker_wood_bridge_01", "name": "Wood Bridge", "category": "bridges", "assetKey": "sticker_wood_bridge_01", "factVi": "Cầu gỗ mộc mạc bắc qua dòng suối róc rách.", "factEn": "A rustic wooden bridge spanning across the babbling brook." },
-  { "id": "sticker_yellow_home_01", "name": "Yellow Home", "category": "houses", "assetKey": "sticker_yellow_home_01", "factVi": "Ngôi nhà vàng tươi như ánh nắng ban mai ấm áp.", "factEn": "A bright yellow home warm like cheerful morning sunshine." },
-  { "id": "sticker_cave_path_01", "name": "Cozy Cave", "category": "trees", "assetKey": "sticker_cave_path_01", "factVi": "Hang đá ấm áp là nơi trú ngụ khi mùa đông tới.", "factEn": "A cozy cave shelter keeping friends safe and warm." },
-  { "id": "sticker_panda_bridge_01", "name": "Panda Bridge", "category": "bridges", "assetKey": "sticker_panda_bridge_01", "factVi": "Cây cầu đá bắc qua rừng trúc thơ mộng.", "factEn": "A lovely stone bridge crossing the dreamy bamboo grove." },
-  { "id": "sticker_pond_path_01", "name": "Pond Path", "category": "flowers", "assetKey": "sticker_pond_path_01", "factVi": "Bờ ao trong veo có đàn ếch nhỏ ca hát râm ran.", "factEn": "A sparkling pond where little frogs sing happy songs." },
-  { "id": "sticker_rope_bridge_01", "name": "Rope Bridge", "category": "bridges", "assetKey": "sticker_rope_bridge_01", "factVi": "Cầu dây đu đưa giúp các bạn khỉ chuyền cành khéo léo.", "factEn": "A swaying rope bridge great for acrobatic monkey jumps." },
-  { "id": "sticker_bamboo_path_01", "name": "Bamboo Path", "category": "trees", "assetKey": "sticker_bamboo_path_01", "factVi": "Con đường lát tre kêu lách cách vui tai theo từng bước chân.", "factEn": "A bamboo walkway tapping pleasantly under every little step." },
-  { "id": "sticker_brown_home_01", "name": "Forest Home", "category": "houses", "assetKey": "sticker_brown_home_01", "factVi": "Ngôi nhà gỗ nâu ấm cúng giữa lòng đại ngàn.", "factEn": "A warm brown cabin nestled deep inside the peaceful forest." }
+  {
+    "id": "sticker_rabbit_01",
+    "name": "Happy Rabbit",
+    "category": "animals",
+    "assetKey": "sticker_rabbit_01",
+    "factVi": "Bạn Thỏ nhảy rất xa và thích kết bạn trong rừng!",
+    "factEn": "Bunny can leap far and loves making new woodland friends!"
+  },
+  {
+    "id": "sticker_carrot_01",
+    "name": "Crunchy Carrot",
+    "category": "food",
+    "assetKey": "sticker_carrot_01",
+    "factVi": "Cà rốt chứa nhiều vitamin A giúp mắt bé sáng ngời!",
+    "factEn": "Carrots are full of Vitamin A for healthy bright eyes!"
+  },
+  {
+    "id": "sticker_duck_01",
+    "name": "Brave Duck",
+    "category": "animals",
+    "assetKey": "sticker_duck_01",
+    "factVi": "Vịt con bơi lội tung tăng trong dòng suối mát lành.",
+    "factEn": "Little ducks splash and swim happily in clean fresh water."
+  },
+  {
+    "id": "sticker_banana_01",
+    "name": "Sweet Banana",
+    "category": "food",
+    "assetKey": "sticker_banana_01",
+    "factVi": "Chuối chín ngọt lịm cung cấp thật nhiều năng lượng!",
+    "factEn": "Sweet ripe bananas give lots of energy for climbing and playing!"
+  },
+  {
+    "id": "sticker_bridge_01",
+    "name": "Strong Bridge",
+    "category": "bridges",
+    "assetKey": "sticker_bridge_01",
+    "factVi": "Cây cầu nối hai bờ giúp muôn loài qua lại an toàn.",
+    "factEn": "A strong bridge connects both banks so friends can cross safely."
+  },
+  {
+    "id": "sticker_blue_home_01",
+    "name": "Blue Home",
+    "category": "houses",
+    "assetKey": "sticker_blue_home_01",
+    "factVi": "Ngôi nhà màu xanh dương êm dịu bên bờ sông.",
+    "factEn": "A peaceful blue home resting softly by the calm river."
+  },
+  {
+    "id": "sticker_bamboo_01",
+    "name": "Fresh Bamboo",
+    "category": "food",
+    "assetKey": "sticker_bamboo_01",
+    "factVi": "Tre trúc xanh tốt mọc thành rừng mát rượi.",
+    "factEn": "Fresh bamboo grows tall and creates cool leafy shade."
+  },
+  {
+    "id": "sticker_flower_path_01",
+    "name": "Flower Path",
+    "category": "flowers",
+    "assetKey": "sticker_flower_path_01",
+    "factVi": "Đường hoa thơm ngát dẫn lối về ngôi làng hạnh phúc.",
+    "factEn": "A fragrant flower path leading to the happy village."
+  },
+  {
+    "id": "sticker_tree_path_01",
+    "name": "Tree Path",
+    "category": "trees",
+    "assetKey": "sticker_tree_path_01",
+    "factVi": "Hàng cây rợp bóng che mát cho muông thú qua đường.",
+    "factEn": "Tall green trees give cool shade to travelers."
+  },
+  {
+    "id": "sticker_honey_01",
+    "name": "Honey Pot",
+    "category": "food",
+    "assetKey": "sticker_honey_01",
+    "factVi": "Mật ong tự nhiên thơm lừng và ngọt ngào.",
+    "factEn": "Natural forest honey is sweet, golden, and delicious."
+  },
+  {
+    "id": "sticker_green_home_01",
+    "name": "Green Home",
+    "category": "houses",
+    "assetKey": "sticker_green_home_01",
+    "factVi": "Ngôi nhà xanh lá hòa mình cùng thiên nhiên tươi đẹp.",
+    "factEn": "A cozy green house blending harmoniously with nature."
+  },
+  {
+    "id": "sticker_fish_01",
+    "name": "Little Fish",
+    "category": "food",
+    "assetKey": "sticker_fish_01",
+    "factVi": "Chú cá bơi lượn uốn khúc dưới làn nước trong vắt.",
+    "factEn": "Little fish swim gracefully in the crystal-clear stream."
+  },
+  {
+    "id": "sticker_wood_bridge_01",
+    "name": "Wood Bridge",
+    "category": "bridges",
+    "assetKey": "sticker_wood_bridge_01",
+    "factVi": "Cầu gỗ mộc mạc bắc qua dòng suối róc rách.",
+    "factEn": "A rustic wooden bridge spanning across the babbling brook."
+  },
+  {
+    "id": "sticker_yellow_home_01",
+    "name": "Yellow Home",
+    "category": "houses",
+    "assetKey": "sticker_yellow_home_01",
+    "factVi": "Ngôi nhà vàng tươi như ánh nắng ban mai ấm áp.",
+    "factEn": "A bright yellow home warm like cheerful morning sunshine."
+  },
+  {
+    "id": "sticker_cave_path_01",
+    "name": "Cozy Cave",
+    "category": "trees",
+    "assetKey": "sticker_cave_path_01",
+    "factVi": "Hang đá ấm áp là nơi trú ngụ khi mùa đông tới.",
+    "factEn": "A cozy cave shelter keeping friends safe and warm."
+  },
+  {
+    "id": "sticker_panda_bridge_01",
+    "name": "Panda Bridge",
+    "category": "bridges",
+    "assetKey": "sticker_panda_bridge_01",
+    "factVi": "Cây cầu đá bắc qua rừng trúc thơ mộng.",
+    "factEn": "A lovely stone bridge crossing the dreamy bamboo grove."
+  },
+  {
+    "id": "sticker_pond_path_01",
+    "name": "Pond Path",
+    "category": "flowers",
+    "assetKey": "sticker_pond_path_01",
+    "factVi": "Bờ ao trong veo có đàn ếch nhỏ ca hát râm ran.",
+    "factEn": "A sparkling pond where little frogs sing happy songs."
+  },
+  {
+    "id": "sticker_rope_bridge_01",
+    "name": "Rope Bridge",
+    "category": "bridges",
+    "assetKey": "sticker_rope_bridge_01",
+    "factVi": "Cầu dây đu đưa giúp các bạn khỉ chuyền cành khéo léo.",
+    "factEn": "A swaying rope bridge great for acrobatic monkey jumps."
+  },
+  {
+    "id": "sticker_bamboo_path_01",
+    "name": "Bamboo Path",
+    "category": "trees",
+    "assetKey": "sticker_bamboo_path_01",
+    "factVi": "Con đường lát tre kêu lách cách vui tai theo từng bước chân.",
+    "factEn": "A bamboo walkway tapping pleasantly under every little step."
+  },
+  {
+    "id": "sticker_brown_home_01",
+    "name": "Forest Home",
+    "category": "houses",
+    "assetKey": "sticker_brown_home_01",
+    "factVi": "Ngôi nhà gỗ nâu ấm cúng giữa lòng đại ngàn.",
+    "factEn": "A warm brown cabin nestled deep inside the peaceful forest."
+  },
+  {
+    "id": "sticker_dolphin_01",
+    "name": "Cá Heo Lướt Sóng",
+    "category": "animals",
+    "assetKey": "sticker_dolphin_01",
+    "factVi": "Cá heo rất thân thiện và thích nhảy cao chào các bạn nhỏ!",
+    "factEn": "Dolphins are super friendly and love leaping high to say hello!"
+  },
+  {
+    "id": "sticker_turtle_01",
+    "name": "Rùa Biển Dũng Cảm",
+    "category": "animals",
+    "assetKey": "sticker_turtle_01",
+    "factVi": "Rùa biển bơi qua các đại dương và nhớ đường về nhà rất giỏi!",
+    "factEn": "Sea turtles swim across oceans and always remember their way home!"
+  },
+  {
+    "id": "sticker_octopus_01",
+    "name": "Bạch Tuộc Thông Thái",
+    "category": "animals",
+    "assetKey": "sticker_octopus_01",
+    "factVi": "Bạch tuộc rất thông minh và có thể đổi màu sắc ngụy trang!",
+    "factEn": "Octopuses are brilliant and can change colors to camouflage!"
+  },
+  {
+    "id": "sticker_crab_01",
+    "name": "Cua Càng Chăm Chỉ",
+    "category": "animals",
+    "assetKey": "sticker_crab_01",
+    "factVi": "Bạn Cua giữ cho bờ biển luôn sạch sẽ và tinh tươm!",
+    "factEn": "Crabs help keep the beaches tidy and beautiful!"
+  },
+  {
+    "id": "sticker_whale_01",
+    "name": "Cá Voi Hát Ca",
+    "category": "animals",
+    "assetKey": "sticker_whale_01",
+    "factVi": "Khúc hát của cá voi du dương truyền xa hàng nghìn dặm dưới biển!",
+    "factEn": "Whale songs travel thousands of miles through the deep sea!"
+  },
+  {
+    "id": "sticker_seashell_01",
+    "name": "Vỏ Sò Ánh Kim",
+    "category": "flowers",
+    "assetKey": "sticker_seashell_01",
+    "factVi": "Vỏ sò chứa đựng những viên ngọc trai lấp lánh kỳ diệu!",
+    "factEn": "Seashells can hold magical, glistening pearls!"
+  }
 ]

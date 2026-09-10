@@ -10,6 +10,7 @@ import type { Progress, Settings } from '@/game/types';
 export default function WorldMapPage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
   const [settings, setSettings] = useState<Settings>(ProgressManager.defaultSettings);
+  const [selectedWorldId, setSelectedWorldId] = useState<string>('forest');
 
   useEffect(() => {
     let alive = true;
@@ -23,6 +24,11 @@ export default function WorldMapPage() {
       if (alive) {
         setProgress(savedProgress);
         setSettings(savedSettings);
+
+        const next = LevelManager.getNextPlayableMission(savedProgress);
+        if (next && next.worldId) {
+          setSelectedWorldId(next.worldId);
+        }
       }
     }
 
@@ -37,8 +43,9 @@ export default function WorldMapPage() {
     };
   }, []);
 
-  const missions = LevelManager.getMissions();
+  const allMissions = LevelManager.getMissions();
   const worlds = LevelManager.getWorlds();
+  const activeWorlds = worlds.filter((w) => w.status === 'active');
   const unlockedMissions = progress.unlockedMissions || progress.unlockedLevels || [1];
   const completedMissions = progress.completedMissions || progress.completedLevels || [];
   const nextPlayable = LevelManager.getNextPlayableMission(progress);
@@ -49,7 +56,19 @@ export default function WorldMapPage() {
     bear: '🐻',
     monkey: '🐵',
     panda: '🐼',
+    dolphin: '🐬',
+    turtle: '🐢',
+    octopus: '🐙',
+    crab: '🦀',
+    whale: '🐋',
   };
+
+  const displayedMissions =
+    selectedWorldId === 'all'
+      ? allMissions
+      : allMissions.filter((m) => m.worldId === selectedWorldId);
+
+  const selectedWorld = worlds.find((w) => w.id === selectedWorldId);
 
   return (
     <main className="app-shell page-band">
@@ -58,32 +77,90 @@ export default function WorldMapPage() {
 
         <div className="page-title-row">
           <div>
-            <h1>Bản Đồ Thế Giới</h1>
+            <h1>Bản Đồ Thám Hiểm</h1>
             <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800 }}>
-              Chạm vào nhiệm vụ để bắt đầu giải cứu các bạn thú!
+              Chạm vào màn chơi để giải cứu các bạn động vật đáng yêu!
             </p>
           </div>
           <span className="compact-status">
-            Đã hoàn thành: {completedMissions.length}/{missions.length}
+            Đã hoàn thành: {completedMissions.length}/{allMissions.length}
           </span>
         </div>
 
-        {/* Active World 1: Happy Forest Map */}
-        <section className="world-map-card" aria-label="Bản đồ Rừng Vui Vẻ">
+        {/* World Selection Tabs */}
+        <div className="world-tabs-row" role="tablist" aria-label="Chọn thế giới thám hiểm">
+          {activeWorlds.map((w) => {
+            const worldMissions = allMissions.filter((m) => m.worldId === w.id);
+            const doneCount = worldMissions.filter((m) => completedMissions.includes(m.id)).length;
+            const isOcean = w.id === 'ocean';
+
+            return (
+              <button
+                key={w.id}
+                role="tab"
+                aria-selected={selectedWorldId === w.id}
+                onClick={() => setSelectedWorldId(w.id)}
+                className={`world-tab-btn ${isOcean ? 'ocean' : ''} ${
+                  selectedWorldId === w.id ? 'active' : ''
+                }`}
+              >
+                <span>{w.icon}</span>
+                <span>{w.name[settings.language] || w.name.vi}</span>
+                <span className="world-tab-count">
+                  {doneCount}/{worldMissions.length}
+                </span>
+              </button>
+            );
+          })}
+
+          <button
+            role="tab"
+            aria-selected={selectedWorldId === 'all'}
+            onClick={() => setSelectedWorldId('all')}
+            className={`world-tab-btn ${selectedWorldId === 'all' ? 'active' : ''}`}
+          >
+            <span>🌟</span>
+            <span>{settings.language === 'vi' ? 'Tất Cả Màn Chơi' : 'All Worlds'}</span>
+            <span className="world-tab-count">
+              {completedMissions.length}/{allMissions.length}
+            </span>
+          </button>
+        </div>
+
+        {/* World Map Section */}
+        <section
+          className={`world-map-card ${selectedWorldId === 'ocean' ? 'ocean-theme' : ''}`}
+          aria-label={selectedWorld ? selectedWorld.name.vi : 'Bản đồ thế giới'}
+        >
           <div className="world-map-header">
-            <div className="world-badge">
-              <span style={{ fontSize: '1.4rem' }}>🌲</span>
-              <span>Thế Giới 1: Rừng Vui Vẻ (Happy Forest)</span>
-            </div>
-            {completedMissions.length === missions.length && (
-              <span className="world-badge" style={{ background: '#ffd36a', borderColor: '#c9812f' }}>
-                🎉 ĐÃ KHÔI PHỤC TOÀN BỘ RỪNG!
+            <div className={`world-badge ${selectedWorldId === 'ocean' ? 'ocean' : ''}`}>
+              <span style={{ fontSize: '1.4rem' }}>{selectedWorld?.icon ?? '🗺️'}</span>
+              <span>
+                {selectedWorld
+                  ? selectedWorld.name[settings.language] || selectedWorld.name.vi
+                  : settings.language === 'vi'
+                  ? 'Tất Cả Các Màn Chơi'
+                  : 'All Adventure Missions'}
               </span>
+            </div>
+
+            {selectedWorld && (
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '0.95rem',
+                  color: selectedWorldId === 'ocean' ? '#0369a1' : 'var(--leaf-deep)',
+                  fontWeight: 800,
+                  maxWidth: '520px',
+                }}
+              >
+                {selectedWorld.description[settings.language] || selectedWorld.description.vi}
+              </p>
             )}
           </div>
 
           <div className="map-nodes-container">
-            {missions.map((mission) => {
+            {displayedMissions.map((mission) => {
               const isCompleted = completedMissions.includes(mission.id);
               const isUnlocked = unlockedMissions.includes(mission.id);
               const isCurrent = mission.id === nextPlayable.id && !isCompleted;
@@ -105,7 +182,7 @@ export default function WorldMapPage() {
                     </h3>
                     <p>
                       {isCompleted
-                        ? `Đã cứu bạn thú! ${'⭐'.repeat(stars)}`
+                        ? `Đã giải cứu bạn thú! ${'⭐'.repeat(stars)}`
                         : isCurrent
                         ? 'Nhiệm vụ tiếp theo cần bạn giúp!'
                         : isUnlocked

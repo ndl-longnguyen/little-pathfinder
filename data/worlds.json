@@ -21,12 +21,12 @@
       "en": "Magic Ocean"
     },
     "theme": "ocean",
-    "status": "coming_soon",
-    "missionCount": 8,
+    "status": "active",
+    "missionCount": 6,
     "icon": "🐬",
     "description": {
-      "vi": "Lặn xuống đáy biển trong xanh khám phá rạn san hô và các bạn cá heo.",
-      "en": "Dive into the blue sea to discover coral reefs and friendly dolphins."
+      "vi": "Lặn xuống đáy biển trong xanh, giải cứu các bạn cá heo, rùa biển và dọn sạch rạn san hô lung linh!",
+      "en": "Dive into crystal blue waters, rescue dolphins, sea turtles, and restore sparkling coral reefs!"
     }
   },
   {

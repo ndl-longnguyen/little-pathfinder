@@ -52,5 +52,50 @@
     },
     "assetKey": "home_yellow",
     "worldId": "forest"
+  },
+  {
+    "id": "dec_coral_pink",
+    "name": {
+      "vi": "Rạn San Hô Hồng",
+      "en": "Pink Coral Reef"
+    },
+    "assetKey": "coral_pink",
+    "worldId": "ocean"
+  },
+  {
+    "id": "dec_sea_shell",
+    "name": {
+      "vi": "Vỏ Ốc Biển Kỳ Diệu",
+      "en": "Magic Seashell"
+    },
+    "assetKey": "seashell",
+    "worldId": "ocean"
+  },
+  {
+    "id": "dec_pearl_bubble",
+    "name": {
+      "vi": "Ngọc Trai Sáng Lấp Lánh",
+      "en": "Sparkling Pearl"
+    },
+    "assetKey": "pearl",
+    "worldId": "ocean"
+  },
+  {
+    "id": "dec_starfish",
+    "name": {
+      "vi": "Bạn Sao Biển Vàng",
+      "en": "Golden Starfish"
+    },
+    "assetKey": "starfish",
+    "worldId": "ocean"
+  },
+  {
+    "id": "dec_sea_castle",
+    "name": {
+      "vi": "Lâu Đài San Hô Đáy Biển",
+      "en": "Coral Palace"
+    },
+    "assetKey": "home_coral_reef",
+    "worldId": "ocean"
   }
 ]
