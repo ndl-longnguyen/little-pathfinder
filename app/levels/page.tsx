@@ -61,7 +61,7 @@ export default function WorldMapPage() {
     turtle: '🐢',
     octopus: '🐙',
     crab: '🦀',
-    whale: '🐋',
+    whale: '🐳',
   };
 
   const missionTargetEmojis: Record<number, string> = {
@@ -73,9 +73,9 @@ export default function WorldMapPage() {
     6: '🏡',
     7: '🫧',
     8: '🌿',
-    9: '🐚',
-    10: '🪸',
-    11: '🐋',
+    9: '🦪',
+    10: '🧴',
+    11: '🐳',
     12: '🏰',
   };
 
@@ -318,12 +318,9 @@ export default function WorldMapPage() {
                     textDecoration: 'none',
                     display: 'block',
                     cursor: 'pointer',
+                    WebkitTapHighlightColor: 'transparent',
                   }}
-                  onClick={() => {
-                    if (!isUnlocked) {
-                      setFreeMode(true);
-                    }
-                  }}
+                  aria-label={`Vào màn chơi ${mission.id}: ${mission.title[settings.language] || mission.title.vi}`}
                 >
                   {cardContent}
                 </Link>

@@ -52,7 +52,7 @@ export default function AnimalHomePage() {
     turtle: '🐢',
     octopus: '🐙',
     crab: '🦀',
-    whale: '🐋',
+    whale: '🐳',
   };
 
   const decEmojis: Record<string, string> = {

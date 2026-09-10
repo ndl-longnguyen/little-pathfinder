@@ -1,3 +1,4 @@
+import { AudioManager } from '../systems/AudioManager';
 import * as Phaser from 'phaser';
 import { BaseMechanic, type MechanicCallback } from './BaseMechanic';
 import type { CountingChallengeConfig, Language } from '../types';
@@ -78,13 +79,13 @@ export class CountingMechanic extends BaseMechanic {
 
     const glow = this.scene.add.graphics().setVisible(false);
     glow.lineStyle(8, 0xffd36a, 1);
-    glow.strokeCircle(0, 0, 84);
+    glow.strokeCircle(0, 0, 94);
 
     const bg = this.scene.add.graphics();
     bg.fillStyle(0xfffdf7, 0.96);
     bg.lineStyle(5, 0x236b4c, 0.35);
-    bg.fillCircle(0, 0, 72);
-    bg.strokeCircle(0, 0, 72);
+    bg.fillCircle(0, 0, 82);
+    bg.strokeCircle(0, 0, 82);
 
     const numText = this.scene.add
       .text(0, 0, opt.label, {
@@ -101,13 +102,23 @@ export class CountingMechanic extends BaseMechanic {
       .setVisible(false);
 
     container.add([glow, bg, numText, handHint]);
-    container.setSize(144, 144);
+    container.setSize(164, 164);
     container.setInteractive(
-      new Phaser.Geom.Circle(0, 0, 72),
+      new Phaser.Geom.Circle(0, 0, 105),
       Phaser.Geom.Circle.Contains,
     );
 
-    container.on('pointerdown', () => this.handleSelect(opt, container));
+    container.on('pointerdown', () => {
+      container.setScale(0.92);
+      AudioManager.playSound('tap');
+    });
+    container.on('pointerup', () => {
+      container.setScale(1);
+      this.handleSelect(opt, container);
+    });
+    container.on('pointerout', () => {
+      container.setScale(1);
+    });
 
     return { container, glow, handHint, isCorrect: opt.isCorrect };
   }
@@ -139,11 +150,11 @@ export class CountingMechanic extends BaseMechanic {
         duration: 180,
         yoyo: true,
         onComplete: () => {
-          this.callback.onSuccess();
+          AudioManager.playSound('success'); this.callback.onSuccess();
         },
       });
     } else {
-      this.attempts += 1;
+      AudioManager.playSound('wrong'); this.attempts += 1;
       this.scene.tweens.add({
         targets: container,
         x: container.x + 12,

@@ -22,7 +22,7 @@ const animalEmojiMap: Record<string, string> = {
   turtle: '🐢',
   octopus: '🐙',
   crab: '🦀',
-  whale: '🐋',
+  whale: '🐳',
 };
 
 const retryPhrases = {
@@ -108,27 +108,41 @@ export class LevelScene extends Phaser.Scene {
   private createIconButton(x: number, y: number, label: string, onClick: () => void) {
     const container = this.add.container(x, y);
     const bg = this.add.graphics();
-    bg.fillStyle(0xffffff, 0.92);
-    bg.lineStyle(4, 0x236b4c, 0.8);
-    bg.fillRoundedRect(-80, -28, 160, 56, 12);
-    bg.strokeRoundedRect(-80, -28, 160, 56, 12);
+    bg.fillStyle(0xffffff, 0.95);
+    bg.lineStyle(5, 0x236b4c, 0.85);
+    bg.fillRoundedRect(-95, -34, 190, 68, 16);
+    bg.strokeRoundedRect(-95, -34, 190, 68, 16);
 
     const text = this.add
       .text(0, 0, label, {
         color: '#174c39',
         fontFamily: 'Arial',
-        fontSize: '24px',
+        fontSize: '26px',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     container.add([bg, text]);
-    container.setSize(160, 56);
+    container.setSize(190, 68);
+    // Generous hit area (240x100) ensures zero missed clicks
     container.setInteractive(
-      new Phaser.Geom.Rectangle(-80, -28, 160, 56),
+      new Phaser.Geom.Rectangle(-120, -50, 240, 100),
       Phaser.Geom.Rectangle.Contains,
     );
-    container.on('pointerdown', onClick);
+
+    container.on('pointerdown', () => {
+      container.setScale(0.92);
+      AudioManager.playSound('tap');
+    });
+
+    container.on('pointerup', () => {
+      container.setScale(1);
+      onClick();
+    });
+
+    container.on('pointerout', () => {
+      container.setScale(1);
+    });
   }
 
   private createInstructionPanel() {
@@ -217,45 +231,69 @@ export class LevelScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Start Mission CTA Button
+    // Start Mission CTA Button - Large, Prominent & Generous Hit Area
     const btnLabel = this.language === 'vi' ? 'BẮT ĐẦU NGAY 🚀' : 'START NOW 🚀';
     const btnContainer = this.add.container(GAME_WIDTH / 2, 990);
 
     const btnBg = this.add.graphics();
     btnBg.fillStyle(0xffd36a, 1);
     btnBg.lineStyle(6, 0xc9812f, 1);
-    btnBg.fillRoundedRect(-170, -48, 340, 96, 18);
-    btnBg.strokeRoundedRect(-170, -48, 340, 96, 18);
+    btnBg.fillRoundedRect(-220, -52, 440, 104, 22);
+    btnBg.strokeRoundedRect(-220, -52, 440, 104, 22);
 
     const btnText = this.add
       .text(0, 0, btnLabel, {
         color: '#1f2933',
         fontFamily: 'Arial',
-        fontSize: '38px',
+        fontSize: '40px',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     btnContainer.add([btnBg, btnText]);
-    btnContainer.setSize(340, 96);
+    btnContainer.setSize(440, 104);
+    // Generous hit area (500x140)
     btnContainer.setInteractive(
-      new Phaser.Geom.Rectangle(-170, -48, 340, 96),
+      new Phaser.Geom.Rectangle(-250, -70, 500, 140),
       Phaser.Geom.Rectangle.Contains,
     );
 
-    btnContainer.on('pointerdown', () => {
+    // Subtle breathing bounce to invite tap
+    this.tweens.add({
+      targets: btnContainer,
+      scale: 1.05,
+      duration: 650,
+      yoyo: true,
+      repeat: -1,
+      ease: 'Sine.easeInOut',
+    });
+
+    let isStarting = false;
+    const startGame = () => {
+      if (isStarting) return;
+      isStarting = true;
+      AudioManager.playSound('pop');
       this.tweens.add({
         targets: this.storyModalContainer,
         alpha: 0,
-        scale: 0.95,
-        duration: 250,
+        scale: 0.94,
+        duration: 200,
         onComplete: () => {
           this.storyModalContainer?.destroy();
           this.storyModalContainer = null;
           this.startChallenge(0);
         },
       });
-    });
+    };
+
+    btnContainer.on('pointerdown', startGame);
+
+    // Also let child tap anywhere on the modal card to start easily
+    box.setInteractive(
+      new Phaser.Geom.Rectangle(70, 320, 760, 800),
+      Phaser.Geom.Rectangle.Contains,
+    );
+    box.on('pointerdown', startGame);
 
     this.storyModalContainer.add([overlay, box, titleText, modalImg, storyText, btnContainer]);
 

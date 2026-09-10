@@ -1,3 +1,4 @@
+import { AudioManager } from '../systems/AudioManager';
 import * as Phaser from 'phaser';
 import { BaseMechanic, type MechanicCallback } from './BaseMechanic';
 import type { DragDropChallengeConfig, Language } from '../types';
@@ -77,16 +78,30 @@ export class DragDropMechanic extends BaseMechanic {
 
     this.container.add(this.draggableContainer);
 
-    // 3. Drag Events
+    // 3. Drag & Tap Events (Toddler friendly: drag OR tap to complete!)
+    let isDragging = false;
+    let startPointerX = 0;
+    let startPointerY = 0;
+
+    this.draggableContainer.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+      if (this.isLocked) return;
+      isDragging = false;
+      startPointerX = pointer.x;
+      startPointerY = pointer.y;
+      AudioManager.playSound('tap');
+    });
+
     this.draggableContainer.on('dragstart', () => {
       if (this.isLocked) return;
-      this.draggableContainer.setScale(1.12);
+      isDragging = true;
+      this.draggableContainer.setScale(1.18);
     });
 
     this.draggableContainer.on(
       'drag',
       (_pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
         if (this.isLocked) return;
+        isDragging = true;
         this.draggableContainer.x = dragX;
         this.draggableContainer.y = dragY;
       },
@@ -96,7 +111,7 @@ export class DragDropMechanic extends BaseMechanic {
       if (this.isLocked) return;
       this.draggableContainer.setScale(1);
 
-      const targetRadius = target.radius ?? 150;
+      const targetRadius = 260;
       const dist = Phaser.Math.Distance.Between(
         this.draggableContainer.x,
         this.draggableContainer.y,
@@ -109,6 +124,36 @@ export class DragDropMechanic extends BaseMechanic {
       } else {
         this.handleMiss();
       }
+    });
+
+    // If toddler just taps the item without dragging, auto-glide to target!
+    this.draggableContainer.on('pointerup', (pointer: Phaser.Input.Pointer) => {
+      if (this.isLocked) return;
+      const moveDist = Phaser.Math.Distance.Between(pointer.x, pointer.y, startPointerX, startPointerY);
+      if (!isDragging || moveDist < 25) {
+        this.handleTapAutoMove();
+      }
+    });
+  }
+
+  private handleTapAutoMove() {
+    if (this.isLocked) return;
+    this.isLocked = true;
+    this.draggableContainer.disableInteractive();
+    AudioManager.playSound('drop');
+
+    this.scene.tweens.add({
+      targets: this.draggableContainer,
+      x: this.config.target.targetPos.x,
+      y: this.config.target.targetPos.y - 20,
+      scale: 1.1,
+      duration: 500,
+      ease: 'Cubic.easeInOut',
+      onComplete: () => {
+        AudioManager.playSound('success');
+        AudioManager.playSound('success');
+        this.callback.onSuccess();
+      },
     });
   }
 
@@ -124,13 +169,14 @@ export class DragDropMechanic extends BaseMechanic {
       duration: 250,
       ease: 'Back.easeOut',
       onComplete: () => {
+        AudioManager.playSound('success');
         this.callback.onSuccess();
       },
     });
   }
 
   private handleMiss() {
-    this.attempts += 1;
+    AudioManager.playSound('wrong'); this.attempts += 1;
     this.scene.tweens.add({
       targets: this.draggableContainer,
       x: this.config.draggable.startPos.x,

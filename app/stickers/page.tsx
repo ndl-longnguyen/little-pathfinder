@@ -33,7 +33,7 @@ const stickerEmojis: Record<string, string> = {
   sticker_turtle_01: '🐢',
   sticker_octopus_01: '🐙',
   sticker_crab_01: '🦀',
-  sticker_whale_01: '🐋',
+  sticker_whale_01: '🐳',
   sticker_seashell_01: '🐚',
 };
 

@@ -1,3 +1,4 @@
+import { AudioManager } from '../systems/AudioManager';
 import * as Phaser from 'phaser';
 import { BaseMechanic, type MechanicCallback } from './BaseMechanic';
 import type { ChooseChallengeConfig, Language } from '../types';
@@ -100,11 +101,23 @@ export class ChooseMechanic extends BaseMechanic {
     container.add([glow, bg, image, label, handHint]);
     container.setSize(width, height);
     container.setInteractive(
-      new Phaser.Geom.Rectangle(-width / 2, -height / 2, width, height),
+      new Phaser.Geom.Rectangle(-width / 2 - 25, -height / 2 - 25, width + 50, height + 50),
       Phaser.Geom.Rectangle.Contains,
     );
 
-    container.on('pointerdown', () => this.handleSelect(option, container));
+    container.on('pointerdown', () => {
+      container.setScale(0.94);
+      AudioManager.playSound('tap');
+    });
+
+    container.on('pointerup', () => {
+      container.setScale(1);
+      this.handleSelect(option, container);
+    });
+
+    container.on('pointerout', () => {
+      container.setScale(1);
+    });
 
     return { container, glow, handHint, isCorrect: option.isCorrect };
   }
@@ -128,11 +141,11 @@ export class ChooseMechanic extends BaseMechanic {
         duration: 180,
         yoyo: true,
         onComplete: () => {
-          this.callback.onSuccess();
+          AudioManager.playSound('success'); this.callback.onSuccess();
         },
       });
     } else {
-      this.attempts += 1;
+      AudioManager.playSound('wrong'); this.attempts += 1;
       this.scene.tweens.add({
         targets: container,
         x: container.x + 12,

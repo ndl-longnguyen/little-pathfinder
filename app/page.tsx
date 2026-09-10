@@ -51,7 +51,7 @@ export default function HomePage() {
     turtle: { emoji: '🐢', nameVi: 'Rùa Biển', nameEn: 'Sea Turtle', sound: 'Bì bõm! Rùa biển bơi êm ả!' },
     octopus: { emoji: '🐙', nameVi: 'Bạch Tuộc', nameEn: 'Octopus', sound: 'Xì xào! Bạch tuộc có 8 xúc tu!' },
     crab: { emoji: '🦀', nameVi: 'Cua Càng', nameEn: 'Crab', sound: 'Lách cách! Cua càng vẫy tay chào!' },
-    whale: { emoji: '🐋', nameVi: 'Cá Voi', nameEn: 'Whale', sound: 'Ù ù! Bác cá voi hát ca!' },
+    whale: { emoji: '🐳', nameVi: 'Cá Voi', nameEn: 'Whale', sound: 'Ù ù! Bác cá voi hát ca!' },
   };
 
   const companion = animalEmojis[nextMission.animalId] || animalEmojis.rabbit;

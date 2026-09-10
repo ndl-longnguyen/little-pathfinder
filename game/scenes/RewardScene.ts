@@ -178,7 +178,7 @@ export class RewardScene extends Phaser.Scene {
     container.add([bg, text]);
     container.setSize(360, 92);
     container.setInteractive(
-      new Phaser.Geom.Rectangle(-180, -46, 360, 92),
+      new Phaser.Geom.Rectangle(-220, -55, 440, 110),
       Phaser.Geom.Rectangle.Contains,
     );
     container.on('pointerdown', onClick);
@@ -204,7 +204,7 @@ export class RewardScene extends Phaser.Scene {
     container.add([bg, text]);
     container.setSize(280, 72);
     container.setInteractive(
-      new Phaser.Geom.Rectangle(-140, -36, 280, 72),
+      new Phaser.Geom.Rectangle(-170, -45, 340, 90),
       Phaser.Geom.Rectangle.Contains,
     );
     container.on('pointerdown', onClick);

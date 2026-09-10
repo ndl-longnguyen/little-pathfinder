@@ -40,7 +40,7 @@ export default function FreePlayPage() {
     turtle: { soundVi: 'Bì bõm bì bõm! Rùa biển bơi êm ả qua ngàn dặm khơi xa!', soundEn: 'Splash glide! Gentle sea turtle journeys across the ocean!', emoji: '🐢' },
     octopus: { soundVi: 'Xì xào xì xào! Bạch tuộc khua 8 xúc tu khám phá kho báu!', soundEn: 'Swish swish! Clever octopus moves 8 arms to explore!', emoji: '🐙' },
     crab: { soundVi: 'Lách cách lách cách! Cua càng vẫy tay đi ngang trên bờ cát!', soundEn: 'Click-clack click-clack! Friendly crab walks sideways on warm sand!', emoji: '🦀' },
-    whale: { soundVi: 'Ù ù du dương! Bác cá voi xanh hát khúc ca đại dương bình yên!', soundEn: 'Whoo whoo! Giant blue whale sings a peaceful sea lullaby!', emoji: '🐋' },
+    whale: { soundVi: 'Ù ù du dương! Bác cá voi xanh hát khúc ca đại dương bình yên!', soundEn: 'Whoo whoo! Giant blue whale sings a peaceful sea lullaby!', emoji: '🐳' },
   };
 
   const forestInteractives = [

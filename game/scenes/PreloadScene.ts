@@ -317,7 +317,7 @@ export class PreloadScene extends Phaser.Scene {
       turtle: '🐢',
       octopus: '🐙',
       crab: '🦀',
-      whale: '🐋',
+      whale: '🐳',
     };
 
     const emoji = animalEmojiMap[key] ?? '🐾';
@@ -363,8 +363,8 @@ export class PreloadScene extends Phaser.Scene {
       bamboo: { emoji: '🎋' },
       seaweed: { emoji: '🌿' },
       seashell: { emoji: '🐚' },
-      pearl: { emoji: '✨' },
-      plastic_bottle: { emoji: '🍾' },
+      pearl: { emoji: '🦪' },
+      plastic_bottle: { emoji: '🧴' },
       trash_bin: { emoji: '🗑️' },
       starfish: { emoji: '⭐' },
       bubble_shield: { emoji: '🫧' },
@@ -387,7 +387,7 @@ export class PreloadScene extends Phaser.Scene {
 
       // Path objects
       path_flowers: { emoji: '🌸' },
-      path_mud: { emoji: '🪵' },
+      path_mud: { emoji: '🍂' },
       path_stones: { emoji: '🪨' },
       path_tree: { emoji: '🌲' },
       path_cave: { emoji: '⛰️' },

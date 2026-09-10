@@ -1,3 +1,4 @@
+import { AudioManager } from '../systems/AudioManager';
 import * as Phaser from 'phaser';
 import { BaseMechanic, type MechanicCallback } from './BaseMechanic';
 import type { FindObjectChallengeConfig, Language } from '../types';
@@ -63,11 +64,14 @@ export class FindObjectMechanic extends BaseMechanic {
     container.add([glow, bg, img, label, handHint]);
     container.setSize(190, 190);
     container.setInteractive(
-      new Phaser.Geom.Circle(0, 0, 95),
+      new Phaser.Geom.Circle(0, 0, 125),
       Phaser.Geom.Circle.Contains,
     );
 
-    container.on('pointerdown', () => this.handleTap(item, container));
+    container.on('pointerdown', () => {
+      AudioManager.playSound('tap');
+      this.handleTap(item, container);
+    });
 
     return { container, glow, handHint, isTarget: item.isTarget };
   }
@@ -91,11 +95,11 @@ export class FindObjectMechanic extends BaseMechanic {
         yoyo: true,
         ease: 'Back.easeOut',
         onComplete: () => {
-          this.callback.onSuccess();
+          AudioManager.playSound('success'); this.callback.onSuccess();
         },
       });
     } else {
-      this.attempts += 1;
+      AudioManager.playSound('wrong'); this.attempts += 1;
       this.scene.tweens.add({
         targets: container,
         angle: 15,
