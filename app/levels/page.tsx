@@ -11,6 +11,7 @@ export default function WorldMapPage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
   const [settings, setSettings] = useState<Settings>(ProgressManager.defaultSettings);
   const [selectedWorldId, setSelectedWorldId] = useState<string>('forest');
+  const [freeMode, setFreeMode] = useState<boolean>(false);
 
   useEffect(() => {
     let alive = true;
@@ -63,6 +64,21 @@ export default function WorldMapPage() {
     whale: '🐋',
   };
 
+  const missionTargetEmojis: Record<number, string> = {
+    1: '🥕',
+    2: '⛵',
+    3: '🍯',
+    4: '🍌',
+    5: '🎋',
+    6: '🏡',
+    7: '🫧',
+    8: '🌿',
+    9: '🐚',
+    10: '🪸',
+    11: '🐋',
+    12: '🏰',
+  };
+
   const displayedMissions =
     selectedWorldId === 'all'
       ? allMissions
@@ -77,14 +93,37 @@ export default function WorldMapPage() {
 
         <div className="page-title-row">
           <div>
-            <h1>Bản Đồ Thám Hiểm</h1>
-            <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800 }}>
-              Chạm vào màn chơi để giải cứu các bạn động vật đáng yêu!
+            <h1>Bản Đồ Thám Hiểm 🗺️</h1>
+            <p style={{ margin: '6px 0 0', color: 'var(--muted)', fontWeight: 800, fontSize: '1.05rem' }}>
+              Chạm vào bất kỳ màn chơi nào để giải cứu các bạn thú đáng yêu!
             </p>
           </div>
-          <span className="compact-status">
-            Đã hoàn thành: {completedMissions.length}/{allMissions.length}
-          </span>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <span className="compact-status">
+              ⭐ Đã hoàn thành: {completedMissions.length}/{allMissions.length}
+            </span>
+            <button
+              onClick={() => setFreeMode(!freeMode)}
+              style={{
+                background: freeMode ? '#dcfce7' : '#ffffff',
+                border: freeMode ? '2px solid #16a34a' : '2px dashed rgba(35, 107, 76, 0.4)',
+                color: freeMode ? '#15803d' : 'var(--leaf-deep)',
+                padding: '6px 14px',
+                borderRadius: '999px',
+                fontSize: '0.88rem',
+                fontWeight: 800,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: 'all 0.2s ease',
+              }}
+              title="Bật/tắt mở khóa tự do tất cả các màn để trải nghiệm nhanh"
+            >
+              <span>{freeMode ? '🔓' : '🗝️'}</span>
+              <span>{freeMode ? 'Chế độ mở tất cả màn: BẬT' : 'Mở tất cả màn để trải nghiệm'}</span>
+            </button>
+          </div>
         </div>
 
         {/* World Selection Tabs */}
@@ -104,7 +143,7 @@ export default function WorldMapPage() {
                   selectedWorldId === w.id ? 'active' : ''
                 }`}
               >
-                <span>{w.icon}</span>
+                <span style={{ fontSize: '1.25rem' }}>{w.icon}</span>
                 <span>{w.name[settings.language] || w.name.vi}</span>
                 <span className="world-tab-count">
                   {doneCount}/{worldMissions.length}
@@ -119,7 +158,7 @@ export default function WorldMapPage() {
             onClick={() => setSelectedWorldId('all')}
             className={`world-tab-btn ${selectedWorldId === 'all' ? 'active' : ''}`}
           >
-            <span>🌟</span>
+            <span style={{ fontSize: '1.25rem' }}>🌟</span>
             <span>{settings.language === 'vi' ? 'Tất Cả Màn Chơi' : 'All Worlds'}</span>
             <span className="world-tab-count">
               {completedMissions.length}/{allMissions.length}
@@ -162,9 +201,10 @@ export default function WorldMapPage() {
           <div className="map-nodes-container">
             {displayedMissions.map((mission) => {
               const isCompleted = completedMissions.includes(mission.id);
-              const isUnlocked = unlockedMissions.includes(mission.id);
+              const isUnlocked = freeMode || unlockedMissions.includes(mission.id);
               const isCurrent = mission.id === nextPlayable.id && !isCompleted;
               const emoji = animalEmojis[mission.animalId] || '🐾';
+              const targetEmoji = missionTargetEmojis[mission.id] || '✨';
               const stars = progress.stars?.[mission.id] || (isCompleted ? 3 : 0);
 
               const cardContent = (
@@ -173,21 +213,87 @@ export default function WorldMapPage() {
                     isCompleted ? 'completed' : isCurrent ? 'current' : isUnlocked ? 'unlocked' : 'locked'
                   }`}
                 >
-                  <div className="node-icon-circle">
-                    {isCompleted ? '⭐' : isUnlocked ? emoji : '🔒'}
+                  <div className="node-icon-circle" style={{ position: 'relative' }}>
+                    <span
+                      style={{
+                        fontSize: '3.4rem',
+                        lineHeight: 1,
+                        filter: !isUnlocked ? 'grayscale(0.15) opacity(0.85)' : 'none',
+                        transition: 'transform 0.2s ease',
+                      }}
+                    >
+                      {emoji}
+                    </span>
+                    {isCompleted && (
+                      <span
+                        style={{
+                          position: 'absolute',
+                          bottom: '-4px',
+                          right: '-4px',
+                          background: '#ffd36a',
+                          borderRadius: '50%',
+                          width: '28px',
+                          height: '28px',
+                          display: 'grid',
+                          placeItems: 'center',
+                          fontSize: '0.95rem',
+                          boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+                          border: '2.5px solid #ffffff',
+                        }}
+                        title="Đã hoàn thành xuất sắc"
+                      >
+                        ⭐
+                      </span>
+                    )}
+                    {!isUnlocked && (
+                      <span
+                        style={{
+                          position: 'absolute',
+                          bottom: '-4px',
+                          right: '-4px',
+                          background: '#64748b',
+                          color: '#ffffff',
+                          borderRadius: '50%',
+                          width: '28px',
+                          height: '28px',
+                          display: 'grid',
+                          placeItems: 'center',
+                          fontSize: '0.85rem',
+                          boxShadow: '0 2px 6px rgba(0,0,0,0.25)',
+                          border: '2.5px solid #ffffff',
+                        }}
+                        title="Chưa mở khóa"
+                      >
+                        🔒
+                      </span>
+                    )}
                   </div>
                   <div className="node-info">
-                    <h3>
-                      Màn {mission.id}: {mission.title[settings.language] || mission.title.vi}
-                    </h3>
-                    <p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                      <h3 style={{ margin: 0 }}>
+                        Màn {mission.id}: {mission.title[settings.language] || mission.title.vi}
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: '0.85rem',
+                          fontWeight: 800,
+                          background: 'rgba(35, 107, 76, 0.08)',
+                          color: 'var(--leaf-deep)',
+                          padding: '2px 8px',
+                          borderRadius: '6px',
+                        }}
+                      >
+                        {targetEmoji} Thử thách
+                      </span>
+                    </div>
+                    <p style={{ marginTop: '4px' }}>
                       {isCompleted
-                        ? `Đã giải cứu bạn thú! ${'⭐'.repeat(stars)}`
+                        ? `Đã giải cứu thành công! ${'⭐'.repeat(stars)}`
                         : isCurrent
-                        ? 'Nhiệm vụ tiếp theo cần bạn giúp!'
+                        ? 'Nhiệm vụ tiếp theo đang chờ bé giải cứu!'
                         : isUnlocked
-                        ? 'Sẵn sàng giải cứu'
-                        : 'Chưa mở khóa'}
+                        ? 'Sẵn sàng bắt đầu giải cứu bạn thú'
+                        : 'Bấm để mở khóa chơi thử ngay'}
                     </p>
                   </div>
                   <div>
@@ -196,27 +302,32 @@ export default function WorldMapPage() {
                     ) : isCurrent ? (
                       <span className="node-status-tag play">CHƠI NGAY 🚀</span>
                     ) : isUnlocked ? (
-                      <span className="node-status-tag play">Bắt đầu</span>
+                      <span className="node-status-tag play">Bắt đầu 🎯</span>
                     ) : (
-                      <span className="node-status-tag lock">Khóa</span>
+                      <span className="node-status-tag lock">Chơi thử 🎮</span>
                     )}
                   </div>
                 </div>
               );
 
-              if (isUnlocked) {
-                return (
-                  <Link
-                    href={`/game?level=${mission.id}`}
-                    key={mission.id}
-                    style={{ textDecoration: 'none' }}
-                  >
-                    {cardContent}
-                  </Link>
-                );
-              }
-
-              return <div key={mission.id}>{cardContent}</div>;
+              return (
+                <Link
+                  href={`/game?level=${mission.id}`}
+                  key={mission.id}
+                  style={{
+                    textDecoration: 'none',
+                    display: 'block',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    if (!isUnlocked) {
+                      setFreeMode(true);
+                    }
+                  }}
+                >
+                  {cardContent}
+                </Link>
+              );
             })}
           </div>
         </section>

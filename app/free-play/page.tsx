@@ -162,7 +162,7 @@ export default function FreePlayPage() {
                     }}
                     className="soundboard-btn"
                   >
-                    <div style={{ fontSize: '3.8rem', marginBottom: '8px' }}>{s?.emoji ?? '🐾'}</div>
+                    <div style={{ fontSize: '5.5rem', filter: 'drop-shadow(0 6px 14px rgba(0,0,0,0.15))', marginBottom: '8px' }}>{s?.emoji ?? '🐾'}</div>
                     <strong
                       style={{
                         display: 'block',
@@ -225,7 +225,7 @@ export default function FreePlayPage() {
                     cursor: 'pointer',
                   }}
                 >
-                  <div style={{ fontSize: '3.4rem', marginBottom: '8px' }}>{item.icon}</div>
+                  <div style={{ fontSize: '4.5rem', filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.12))', marginBottom: '8px' }}>{item.icon}</div>
                   <strong style={{ display: 'block', color: 'var(--leaf-deep)', fontSize: '1.2rem' }}>
                     {item.title}
                   </strong>

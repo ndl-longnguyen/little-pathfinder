@@ -77,7 +77,7 @@ export class ChooseMechanic extends BaseMechanic {
 
     const image = this.scene.add
       .image(0, -26 * scale, option.assetKey)
-      .setScale(0.55 * scale);
+      .setScale(0.72 * scale);
 
     const label = this.scene.add
       .text(0, 82 * scale, option.label, {

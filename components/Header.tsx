@@ -5,7 +5,7 @@ export function Header() {
   return (
     <header className="topbar">
       <Link className="brand-link" href="/">
-        <span aria-hidden="true" className="brand-mark" />
+        <span aria-hidden="true" className="brand-mark">🐾</span>
         <span>Animal Rescue</span>
       </Link>
       <nav aria-label="Main" className="nav-actions">

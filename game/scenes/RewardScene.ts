@@ -62,7 +62,7 @@ export class RewardScene extends Phaser.Scene {
 
     // Rescued Animal dancing
     const animalKey = animal?.assetKey ?? 'rabbit';
-    const animalSprite = this.add.image(GAME_WIDTH / 2, 450, animalKey).setScale(1.2);
+    const animalSprite = this.add.image(GAME_WIDTH / 2, 450, animalKey).setScale(1.35);
     this.tweens.add({
       targets: animalSprite,
       y: 430,
@@ -93,7 +93,7 @@ export class RewardScene extends Phaser.Scene {
     rewardBox.strokeRoundedRect(100, 660, 700, 260, 20);
 
     // Sticker Image & Label
-    const stickerImg = this.add.image(240, 780, sticker?.assetKey ?? 'sticker_rabbit_01').setScale(0.85);
+    const stickerImg = this.add.image(240, 780, sticker?.assetKey ?? 'sticker_rabbit_01').setScale(0.95);
     const stickerName = this.add
       .text(240, 875, sticker?.name ?? 'Sticker', {
         align: 'center',

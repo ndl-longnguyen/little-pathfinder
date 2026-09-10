@@ -8,6 +8,35 @@ import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { Progress, Settings, StickerData } from '@/game/types';
 
 const allStickers = stickers as StickerData[];
+const stickerEmojis: Record<string, string> = {
+  sticker_rabbit_01: '🐰',
+  sticker_carrot_01: '🥕',
+  sticker_duck_01: '🦆',
+  sticker_banana_01: '🍌',
+  sticker_bridge_01: '🌉',
+  sticker_blue_home_01: '🏠',
+  sticker_bamboo_01: '🎋',
+  sticker_flower_path_01: '🌸',
+  sticker_tree_path_01: '🌲',
+  sticker_honey_01: '🍯',
+  sticker_green_home_01: '🏡',
+  sticker_fish_01: '🐟',
+  sticker_wood_bridge_01: '🪵',
+  sticker_yellow_home_01: '🏰',
+  sticker_cave_path_01: '🪨',
+  sticker_panda_bridge_01: '🐼',
+  sticker_pond_path_01: '💧',
+  sticker_rope_bridge_01: '🪢',
+  sticker_bamboo_path_01: '🎍',
+  sticker_brown_home_01: '🛖',
+  sticker_dolphin_01: '🐬',
+  sticker_turtle_01: '🐢',
+  sticker_octopus_01: '🐙',
+  sticker_crab_01: '🦀',
+  sticker_whale_01: '🐋',
+  sticker_seashell_01: '🐚',
+};
+
 
 export default function StickersPage() {
   const [progress, setProgress] = useState<Progress>(ProgressManager.defaultProgress);
@@ -95,7 +124,7 @@ export default function StickersPage() {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div className="sticker-art" style={{ width: '80px', height: '80px' }} />
+              <div className="sticker-art" style={{ width: '96px', height: '96px', margin: 0 }}><span style={{ fontSize: '4.8rem', lineHeight: 1 }}>{stickerEmojis[selectedSticker.id] ?? "⭐"}</span></div>
               <div>
                 <h3 style={{ margin: '0 0 4px', color: 'var(--leaf-deep)', fontSize: '1.4rem' }}>
                   {selectedSticker.name}
@@ -128,7 +157,7 @@ export default function StickersPage() {
                 style={{ cursor: 'pointer' }}
               >
                 <div>
-                  <div aria-hidden="true" className="sticker-art" />
+                  <div aria-hidden="true" className="sticker-art"><span className="sticker-emoji">{unlocked ? (stickerEmojis[sticker.id] ?? "⭐") : "🔒"}</span></div>
                   <h2>{unlocked ? sticker.name : 'Bí Mật'}</h2>
                   <p>{unlocked ? sticker.category : 'Vượt qua thử thách'}</p>
                 </div>

@@ -36,7 +36,7 @@ export class DragDropMechanic extends BaseMechanic {
     this.targetGlow.lineStyle(8, 0xffd36a, 1);
     this.targetGlow.strokeCircle(0, 0, 140);
 
-    const targetImg = this.scene.add.image(0, -10, target.assetKey).setScale(0.85);
+    const targetImg = this.scene.add.image(0, -10, target.assetKey).setScale(1.0);
     const targetLabel = this.scene.add
       .text(0, 80, target.label, {
         color: '#174c39',
@@ -58,7 +58,7 @@ export class DragDropMechanic extends BaseMechanic {
     dragBg.fillRoundedRect(-110, -95, 220, 190, 20);
     dragBg.strokeRoundedRect(-110, -95, 220, 190, 20);
 
-    const dragImg = this.scene.add.image(0, -20, draggable.assetKey).setScale(0.7);
+    const dragImg = this.scene.add.image(0, -20, draggable.assetKey).setScale(0.85);
     const dragLabel = this.scene.add
       .text(0, 56, draggable.label, {
         color: '#1f2933',

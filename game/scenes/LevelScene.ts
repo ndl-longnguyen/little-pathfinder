@@ -12,6 +12,19 @@ const successEncouragements = {
   en: ['Great job!', 'You did it!', 'Awesome!'],
 } as const;
 
+const animalEmojiMap: Record<string, string> = {
+  rabbit: '🐰',
+  duck: '🦆',
+  bear: '🐻',
+  monkey: '🐵',
+  panda: '🐼',
+  dolphin: '🐬',
+  turtle: '🐢',
+  octopus: '🐙',
+  crab: '🦀',
+  whale: '🐋',
+};
+
 const retryPhrases = {
   vi: 'Gần đúng rồi, mình thử lại nhé!',
   en: 'Almost there, let us try again!',
@@ -62,7 +75,7 @@ export class LevelScene extends Phaser.Scene {
 
   private createTopBar() {
     // Home / Back Button
-    this.createIconButton(110, 76, '🗺️ Map', () => {
+    this.createIconButton(110, 76, '🗺️ Bản Đồ', () => {
       AudioManager.stop();
       window.location.href = '/levels';
     });
@@ -86,7 +99,7 @@ export class LevelScene extends Phaser.Scene {
     this.updateProgressLabel();
 
     // Sound Speaker Toggle
-    this.createIconButton(790, 76, '🏠 Home', () => {
+    this.createIconButton(790, 76, '🏠 Trang Chủ', () => {
       AudioManager.stop();
       window.location.href = '/';
     });
@@ -142,7 +155,7 @@ export class LevelScene extends Phaser.Scene {
     const animal = LevelManager.getAnimalById(this.mission.animalId);
     const animalKey = animal?.assetKey ?? this.mission.animalId;
 
-    this.animalSprite = this.add.image(GAME_WIDTH / 2, 490, animalKey).setScale(1.05);
+    this.animalSprite = this.add.image(GAME_WIDTH / 2, 490, animalKey).setScale(1.25);
 
     // Idle breathing & gentle bounce animation
     this.tweens.add({
@@ -174,7 +187,7 @@ export class LevelScene extends Phaser.Scene {
     box.strokeRoundedRect(70, 320, 760, 800, 30);
 
     // Title
-    const missionTitle = this.mission.title[this.language];
+    const missionTitle = `${animalEmojiMap[this.mission.animalId] ?? '🐾'} ${this.mission.title[this.language]}`;
     const titleText = this.add
       .text(GAME_WIDTH / 2, 400, missionTitle, {
         align: 'center',
@@ -188,7 +201,8 @@ export class LevelScene extends Phaser.Scene {
 
     // Animal Illustration in modal
     const animal = LevelManager.getAnimalById(this.mission.animalId);
-    const modalImg = this.add.image(GAME_WIDTH / 2, 570, animal?.assetKey ?? 'rabbit').setScale(1.15);
+    const emoji = animalEmojiMap[this.mission.animalId] ?? '🐾';
+    const modalImg = this.add.image(GAME_WIDTH / 2, 570, animal?.assetKey ?? 'rabbit').setScale(1.35);
 
     // Story Text
     const storyText = this.add
@@ -204,7 +218,7 @@ export class LevelScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     // Start Mission CTA Button
-    const btnLabel = this.language === 'vi' ? 'BẮT ĐẦU 🚀' : 'START 🚀';
+    const btnLabel = this.language === 'vi' ? 'BẮT ĐẦU NGAY 🚀' : 'START NOW 🚀';
     const btnContainer = this.add.container(GAME_WIDTH / 2, 990);
 
     const btnBg = this.add.graphics();
@@ -253,7 +267,7 @@ export class LevelScene extends Phaser.Scene {
     const total = this.mission.challenges.length;
     const current = Math.min(this.challengeIndex + 1, total);
     const label =
-      this.language === 'vi' ? `Thử thách ${current}/${total}` : `Challenge ${current}/${total}`;
+      this.language === 'vi' ? `🎯 Thử thách ${current}/${total}` : `🎯 Challenge ${current}/${total}`;
     this.progressLabel?.setText(label);
   }
 
@@ -274,8 +288,9 @@ export class LevelScene extends Phaser.Scene {
     }
 
     // Set instruction text & voice
+    const emoji = animalEmojiMap[this.mission.animalId] ?? '🐾';
     const promptText = challenge.prompt[this.language];
-    this.instructionLabel?.setText(promptText);
+    this.instructionLabel?.setText(`${emoji} ${promptText}`);
     void AudioManager.play(challenge.instructionAudio, promptText, this.language);
 
     // Create mechanic

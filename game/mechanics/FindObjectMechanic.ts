@@ -45,7 +45,7 @@ export class FindObjectMechanic extends BaseMechanic {
     bg.fillCircle(0, 0, 95);
     bg.strokeCircle(0, 0, 95);
 
-    const img = this.scene.add.image(0, -10, item.assetKey).setScale(0.68);
+    const img = this.scene.add.image(0, -10, item.assetKey).setScale(0.85);
     const label = this.scene.add
       .text(0, 58, item.label, {
         color: '#1f2933',

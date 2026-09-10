@@ -40,7 +40,7 @@ export class CountingMechanic extends BaseMechanic {
     for (let i = 0; i < count; i += 1) {
       const itemX = 200 + spacing * (i + 1);
       const itemY = 540;
-      const img = this.scene.add.image(itemX, itemY, this.config.itemAssetKey).setScale(0.8);
+      const img = this.scene.add.image(itemX, itemY, this.config.itemAssetKey).setScale(0.95);
       this.items.push(img);
       this.container.add(img);
 

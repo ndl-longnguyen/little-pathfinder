@@ -124,11 +124,11 @@ export default function AnimalHomePage() {
                 <div
                   className="animal-avatar"
                   style={{
-                    transform: isBouncing ? 'scale(1.25) translateY(-14px)' : 'scale(1)',
+                    transform: isBouncing ? 'scale(1.28) translateY(-18px)' : 'scale(1)',
                     transition: 'transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                   }}
                 >
-                  {animalEmojis[animal.id] ?? '🐾'}
+                  <span className="animal-avatar-emoji">{animalEmojis[animal.id] ?? '🐾'}</span>
                 </div>
 
                 <h2 style={{ margin: '0 0 6px', color: 'var(--leaf-deep)', fontSize: '1.4rem' }}>
@@ -176,7 +176,7 @@ export default function AnimalHomePage() {
               gap: '16px',
             }}
           >
-            <div style={{ fontSize: '3rem' }}>{animalEmojis[activeAnimal.id]}</div>
+            <div style={{ fontSize: '5rem', lineHeight: 1, filter: 'drop-shadow(0 6px 14px rgba(0,0,0,0.15))' }}>{animalEmojis[activeAnimal.id]}</div>
             <div>
               <h3 style={{ margin: '0 0 4px', color: 'var(--leaf-deep)' }}>
                 {settings.language === 'vi' ? activeAnimal.nameVi : activeAnimal.nameEn} trò chuyện:
@@ -204,7 +204,7 @@ export default function AnimalHomePage() {
                   key={dec.id}
                   style={{ opacity: isUnlocked ? 1 : 0.45 }}
                 >
-                  <span style={{ fontSize: '2rem' }}>{isUnlocked ? emoji : '🔒'}</span>
+                  <span style={{ fontSize: '3.2rem', lineHeight: 1, display: 'block', marginBottom: '6px' }}>{isUnlocked ? emoji : '🔒'}</span>
                   <div>
                     <strong style={{ display: 'block', color: 'var(--leaf-deep)', fontSize: '0.95rem' }}>
                       {dec.name[settings.language] || dec.name.vi}

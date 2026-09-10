@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { LinkButton } from '@/components/Button';
 import { Footer } from '@/components/Footer';
+import { AudioManager } from '@/game/systems/AudioManager';
 import { LevelManager } from '@/game/systems/LevelManager';
 import { ProgressManager } from '@/game/systems/ProgressManager';
 import type { Progress } from '@/game/types';
@@ -40,10 +41,25 @@ export default function HomePage() {
   const unlockedAnimalsCount = progress.unlockedAnimals?.length ?? 0;
   const totalMissions = LevelManager.getMissions().length;
   const totalAnimals = LevelManager.getAnimals().length;
+  const animalEmojis: Record<string, { emoji: string; nameVi: string; nameEn: string; sound: string }> = {
+    rabbit: { emoji: '🐰', nameVi: 'Bạn Thỏ', nameEn: 'Bunny', sound: 'Khịt khịt! Tớ là bạn Thỏ đây!' },
+    duck: { emoji: '🦆', nameVi: 'Bạn Vịt', nameEn: 'Duck', sound: 'Cạp cạp! Vịt con sẵn sàng rồi!' },
+    bear: { emoji: '🐻', nameVi: 'Bác Gấu', nameEn: 'Bear', sound: 'Gừ gừ! Bác Gấu chào bé!' },
+    monkey: { emoji: '🐵', nameVi: 'Bạn Khỉ', nameEn: 'Monkey', sound: 'Khẹc khẹc! Khỉ con thích leo trèo!' },
+    panda: { emoji: '🐼', nameVi: 'Gấu Trúc', nameEn: 'Panda', sound: 'Rôm rốp! Gấu trúc ăn trúc ngon quá!' },
+    dolphin: { emoji: '🐬', nameVi: 'Cá Heo', nameEn: 'Dolphin', sound: 'Chít chít! Cá heo lướt sóng cùng bé!' },
+    turtle: { emoji: '🐢', nameVi: 'Rùa Biển', nameEn: 'Sea Turtle', sound: 'Bì bõm! Rùa biển bơi êm ả!' },
+    octopus: { emoji: '🐙', nameVi: 'Bạch Tuộc', nameEn: 'Octopus', sound: 'Xì xào! Bạch tuộc có 8 xúc tu!' },
+    crab: { emoji: '🦀', nameVi: 'Cua Càng', nameEn: 'Crab', sound: 'Lách cách! Cua càng vẫy tay chào!' },
+    whale: { emoji: '🐋', nameVi: 'Cá Voi', nameEn: 'Whale', sound: 'Ù ù! Bác cá voi hát ca!' },
+  };
+
+  const companion = animalEmojis[nextMission.animalId] || animalEmojis.rabbit;
 
   function handleTapCompanion() {
     setCompanionBounce(true);
-    setTimeout(() => setCompanionBounce(false), 600);
+    AudioManager.speak(companion.sound, 'vi');
+    setTimeout(() => setCompanionBounce(false), 500);
   }
 
   return (
@@ -79,18 +95,21 @@ export default function HomePage() {
           {/* Progress Indicators */}
           <div className="home-progress" aria-label="Tiến độ cuộc phiêu lưu">
             <div className="stat-tile">
+              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '4px' }}>🎯</span>
               <span className="stat-number">
                 {completedMissionsCount}/{totalMissions}
               </span>
               <span className="stat-label">Nhiệm vụ đã cứu</span>
             </div>
             <div className="stat-tile">
+              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '4px' }}>🐾</span>
               <span className="stat-number">
                 {unlockedAnimalsCount}/{totalAnimals}
               </span>
               <span className="stat-label">Bạn thú trở về</span>
             </div>
             <div className="stat-tile">
+              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '4px' }}>⭐</span>
               <span className="stat-number">{progress.unlockedStickers.length}</span>
               <span className="stat-label">Sticker thu thập</span>
             </div>
@@ -116,24 +135,29 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Forest Stage with Animated Animal Companion */}
+        {/* Forest Stage with Enlarged Animated Mascot Avatar */}
         <section
           className="forest-stage"
           aria-label="Sân khấu khu rừng"
-          onClick={handleTapCompanion}
-          style={{ cursor: 'pointer' }}
-          title="Chạm vào tớ nhé!"
         >
           <div className="stage-hill" />
-          <div className="stage-house" />
-          <div
-            className="stage-animal"
-            style={{
-              transform: companionBounce ? 'scale(1.2) translateY(-20px)' : 'scale(1)',
-              transition: 'transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            }}
-          >
-            <div className="stage-face" />
+          <div className="stage-mascot-wrapper">
+            <div className="stage-mascot-speech">
+              <span>Chào bé! Tớ là {companion.nameVi}. Chạm vào tớ để chơi nhé! 🚀</span>
+            </div>
+            <div
+              className="stage-mascot-avatar"
+              onClick={handleTapCompanion}
+              style={{
+                transform: companionBounce ? 'scale(1.25) translateY(-24px)' : undefined,
+              }}
+              title="Chạm vào tớ nhé!"
+            >
+              <span className="stage-mascot-emoji">{companion.emoji}</span>
+            </div>
+            <div className="stage-house-emoji">
+              <span>🏡</span>
+            </div>
           </div>
         </section>
       </div>
